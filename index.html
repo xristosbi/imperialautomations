@@ -7,7 +7,7 @@
 <meta name="description" content="AI automation agency για ελληνικές επιχειρήσεις. Chatbots, Voice Agents, Google Reviews, Web Design. 100% Εγγύηση Αποτελέσματος.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&family=Outfit:wght@300;400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 /* ===== RESET & BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -115,6 +115,7 @@ nav.scrolled{
   padding:0.4rem 1rem;border-radius:20px;margin-bottom:2rem;
 }
 .hero-h1{
+  font-family:'Nunito Sans',sans-serif;
   font-size:clamp(2.2rem,5vw,4rem);font-weight:800;line-height:1.15;
   margin-bottom:1.5rem;letter-spacing:-0.02em;
 }
@@ -365,6 +366,20 @@ footer{
 }
 .btn-footer:hover{border-color:var(--gold);color:var(--gold)}
 
+/* ===== LIGHT SECTIONS ===== */
+.light-section{background:#F5F3EE;border-color:rgba(201,168,76,0.25)}
+.light-section .section-h2{color:#08080A}
+.light-section .section-label{color:var(--gold)}
+.light-section .guarantee-card{background:#fff;border-color:rgba(8,8,10,0.1)}
+.light-section .guarantee-card:hover{background:#EDE9E0;border-color:var(--gold)}
+.light-section .guarantee-desc{color:#3a3935}
+.light-section .city-card{background:#fff;border-color:rgba(8,8,10,0.1)}
+.light-section .city-card:hover{background:#EDE9E0;border-color:var(--gold)}
+.light-section .city-name{color:#08080A}
+
+/* ===== CONTACT SINGLE FORM ===== */
+.form-single{max-width:560px;margin:0 auto}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
   nav{padding:1rem 1.5rem}
@@ -530,7 +545,7 @@ footer{
 </section>
 
 <!-- GUARANTEES -->
-<section id="guarantees">
+<section id="guarantees" class="light-section">
   <div class="section-center">
     <div class="section-label reveal" data-i18n="guarantees_label">Εγγυήσεις</div>
     <h2 class="section-h2 reveal reveal-delay-1" data-i18n="guarantees_h2">Δουλεύουμε μέχρι να δεις αποτέλεσμα.</h2>
@@ -564,7 +579,7 @@ footer{
     <div class="testimonial-card reveal reveal-delay-1">
       <div class="testimonial-quote" data-i18n="t1_quote">Άριστη συνεργασία. Φτιάξαμε μαζί το site, το chatbot, το σύστημα κριτικών και την εφαρμογή — όλα στο υψηλότερο επίπεδο. Αποτελέσματα από την πρώτη μέρα.</div>
       <div class="testimonial-name">Dr. Ζωή Φίκα</div>
-      <div class="testimonial-role" data-i18n="t1_role">Δερματολόγος — Λάρισα</div>
+      <div class="testimonial-role" data-i18n="t1_role">Δερματολόγος — Θεσσαλονίκη</div>
       <div class="testimonial-services" data-i18n="t1_services">Website · AI Chatbot · 5-Star System · App</div>
     </div>
     <div class="testimonial-card reveal reveal-delay-2">
@@ -597,7 +612,7 @@ footer{
     <div class="section-label reveal" data-i18n="contact_label">Επικοινωνία</div>
     <h2 class="section-h2 reveal reveal-delay-1" data-i18n="contact_h2">Ξεκίνα σήμερα</h2>
   </div>
-  <div class="forms-grid">
+  <div class="form-single">
     <!-- Form 1 — AI Audit -->
     <div class="form-card reveal reveal-delay-1">
       <div class="form-title" data-i18n="form1_title">Δωρεάν AI Audit</div>
@@ -635,41 +650,11 @@ footer{
         </div>
       </div>
     </div>
-
-    <!-- Form 2 — General -->
-    <div class="form-card reveal reveal-delay-2">
-      <div class="form-title" data-i18n="form2_title">Γενικές Ερωτήσεις</div>
-      <div class="form-subtitle" data-i18n="form2_sub">Στείλε μας μήνυμα</div>
-      <div id="form2-wrap">
-        <form id="form2" action="https://formspree.io/f/xwvzknyz" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="Γενική Ερώτηση — Imperial Automations">
-          <div class="form-group">
-            <label data-i18n="f2_name">Όνομα</label>
-            <input type="text" name="name" required data-i18n-placeholder="f2_name_ph">
-          </div>
-          <div class="form-group">
-            <label data-i18n="f2_email">Email</label>
-            <input type="email" name="email" required data-i18n-placeholder="f2_email_ph">
-          </div>
-          <div class="form-group">
-            <label data-i18n="f2_msg">Μήνυμα</label>
-            <textarea name="message" required style="min-height:160px" data-i18n-placeholder="f2_msg_ph"></textarea>
-          </div>
-          <button type="submit" class="btn-form" data-i18n="f2_submit">Στείλε Μήνυμα →</button>
-          <div class="form-error" id="form2-error" data-i18n="form_error">Κάτι πήγε στραβά. Δοκίμασε ξανά.</div>
-        </form>
-        <div class="form-success" id="form2-success">
-          <div class="form-success-icon">✓</div>
-          <h3 data-i18n="form_success_h">Εστάλη!</h3>
-          <p data-i18n="form_success_p">Θα επικοινωνήσουμε μαζί σου σύντομα.</p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- CITIES -->
-<section class="cities-section">
+<section class="cities-section light-section">
   <div class="section-center">
     <h2 class="section-h2 reveal" data-i18n="cities_h2">Εξυπηρετούμε σε 4 πόλεις</h2>
   </div>
@@ -752,7 +737,7 @@ const translations = {
     g3_desc: "Δεν χρειάζεσαι να ξέρεις τίποτα από τεχνολογία. Εμείς στήνουμε τα πάντα, σου παραδίδουμε έτοιμο.",
     testimonials_h2: "Τι λένε οι πελάτες μας",
     t1_quote: "Άριστη συνεργασία. Φτιάξαμε μαζί το site, το chatbot, το σύστημα κριτικών και την εφαρμογή — όλα στο υψηλότερο επίπεδο. Αποτελέσματα από την πρώτη μέρα.",
-    t1_role: "Δερματολόγος — Λάρισα",
+    t1_role: "Δερματολόγος — Θεσσαλονίκη",
     t1_services: "Website · AI Chatbot · 5-Star System · App",
     t2_quote: "Πολύ ικανοποιημένος από τη συνεργασία. Επαγγελματισμός, αποτελέσματα και άμεση ανταπόκριση. Τον προτείνω ανεπιφύλακτα.",
     t2_role: "CEO — Εταιρικός Όμιλος",
@@ -833,7 +818,7 @@ const translations = {
     g3_desc: "You don't need to know anything about technology. We set everything up and hand it to you ready.",
     testimonials_h2: "What our clients say",
     t1_quote: "Excellent collaboration. We built the site, chatbot, review system and app together — all at the highest level. Results from day one.",
-    t1_role: "Dermatologist — Larissa",
+    t1_role: "Dermatologist — Thessaloniki",
     t1_services: "Website · AI Chatbot · 5-Star System · App",
     t2_quote: "Very satisfied with the collaboration. Professionalism, results and immediate response. I recommend them unreservedly.",
     t2_role: "CEO — Corporate Group",
@@ -914,7 +899,7 @@ const translations = {
     g3_desc: "Vous n'avez rien à savoir sur la technologie. Nous configurons tout et vous livrons prêt à l'emploi.",
     testimonials_h2: "Ce que disent nos clients",
     t1_quote: "Excellente collaboration. Nous avons créé ensemble le site, le chatbot, le système d'avis et l'application — tout au plus haut niveau. Des résultats dès le premier jour.",
-    t1_role: "Dermatologue — Larissa",
+    t1_role: "Dermatologue — Thessalonique",
     t1_services: "Website · AI Chatbot · 5-Star System · App",
     t2_quote: "Très satisfait de la collaboration. Professionnalisme, résultats et réactivité immédiate. Je les recommande sans réserve.",
     t2_role: "PDG — Groupe d'Entreprises",
@@ -995,7 +980,7 @@ const translations = {
     g3_desc: "Anda tidak perlu tahu apa-apa tentang teknologi. Kami menyiapkan semuanya dan menyerahkan kepada Anda dalam keadaan siap.",
     testimonials_h2: "Apa kata klien kami",
     t1_quote: "Kolaborasi yang sangat baik. Kami membangun bersama website, chatbot, sistem ulasan, dan aplikasinya — semua di tingkat tertinggi. Hasilnya terlihat dari hari pertama.",
-    t1_role: "Dermatologis — Larissa",
+    t1_role: "Dermatologis — Thessaloniki",
     t1_services: "Website · AI Chatbot · 5-Star System · App",
     t2_quote: "Sangat puas dengan kolaborasinya. Profesionalisme, hasil, dan respons yang cepat. Saya merekomendasikan mereka tanpa syarat.",
     t2_role: "CEO — Grup Perusahaan",
@@ -1074,38 +1059,128 @@ function buildTicker(items) {
   track.innerHTML = doubled.map(item => `<div class="ticker-item">${item}</div>`).join('');
 }
 
-/* ===== HERO CANVAS ===== */
+/* ===== HERO CANVAS — mouse-reactive particle network ===== */
 function initCanvas() {
   const canvas = document.getElementById('hero-canvas');
   if(!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H;
+  let mouseX = -9999, mouseY = -9999;
 
   function resize() {
     W = canvas.width = canvas.offsetWidth;
     H = canvas.height = canvas.offsetHeight;
+    // re-scatter particles on resize
+    particles.forEach(p => {
+      if(p.x > W) p.x = Math.random() * W;
+      if(p.y > H) p.y = Math.random() * H;
+    });
   }
+
+  const PARTICLE_COUNT = 60;
+  const CONNECT_DIST = 130;
+  const MOUSE_RADIUS = 110;
+  const GRID = 70;
+
+  const particles = Array.from({length: PARTICLE_COUNT}, () => ({
+    x: Math.random() * 1400,
+    y: Math.random() * 900,
+    vx: (Math.random() - 0.5) * 0.35,
+    vy: (Math.random() - 0.5) * 0.35,
+    r: Math.random() * 1.2 + 0.5,
+  }));
+
   resize();
   window.addEventListener('resize', resize);
 
-  const GRID = 60;
+  const hero = document.querySelector('.hero');
+  hero.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+  });
+  hero.addEventListener('mouseleave', () => { mouseX = -9999; mouseY = -9999; });
 
   function draw() {
-    ctx.clearRect(0,0,W,H);
-    ctx.strokeStyle = 'rgba(201,168,76,0.035)';
-    ctx.lineWidth = 1;
+    ctx.clearRect(0, 0, W, H);
 
-    // Vertical lines
+    // Subtle grid
+    ctx.strokeStyle = 'rgba(201,168,76,0.028)';
+    ctx.lineWidth = 1;
     for(let x = 0; x <= W; x += GRID) {
       ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke();
     }
-    // Horizontal lines
     for(let y = 0; y <= H; y += GRID) {
       ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
     }
+
+    // Update particles
+    particles.forEach(p => {
+      const dx = p.x - mouseX;
+      const dy = p.y - mouseY;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if(dist < MOUSE_RADIUS && dist > 0) {
+        const force = ((MOUSE_RADIUS - dist) / MOUSE_RADIUS) * 0.25;
+        p.vx += (dx / dist) * force;
+        p.vy += (dy / dist) * force;
+      }
+      p.vx *= 0.97;
+      p.vy *= 0.97;
+      const spd = Math.sqrt(p.vx*p.vx + p.vy*p.vy);
+      if(spd > 1.8) { p.vx = p.vx/spd*1.8; p.vy = p.vy/spd*1.8; }
+      p.x += p.vx; p.y += p.vy;
+      if(p.x < 0){ p.x=0; p.vx*=-1; }
+      if(p.x > W){ p.x=W; p.vx*=-1; }
+      if(p.y < 0){ p.y=0; p.vy*=-1; }
+      if(p.y > H){ p.y=H; p.vy*=-1; }
+    });
+
+    // Connection lines between close particles
+    for(let i = 0; i < particles.length; i++) {
+      for(let j = i+1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if(d < CONNECT_DIST) {
+          const alpha = (1 - d / CONNECT_DIST) * 0.14;
+          ctx.strokeStyle = `rgba(201,168,76,${alpha})`;
+          ctx.lineWidth = 0.7;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Particle dots — glow near cursor
+    particles.forEach(p => {
+      const dx = p.x - mouseX;
+      const dy = p.y - mouseY;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      const proximity = dist < 160 ? (1 - dist/160) : 0;
+      const alpha = 0.18 + proximity * 0.55;
+      const radius = p.r + proximity * 1.2;
+      ctx.fillStyle = `rgba(201,168,76,${alpha})`;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    // Soft radial glow at cursor position
+    if(mouseX > 0 && mouseX < W && mouseY > 0 && mouseY < H) {
+      const grd = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 90);
+      grd.addColorStop(0, 'rgba(201,168,76,0.07)');
+      grd.addColorStop(1, 'rgba(201,168,76,0)');
+      ctx.fillStyle = grd;
+      ctx.beginPath();
+      ctx.arc(mouseX, mouseY, 90, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    requestAnimationFrame(draw);
   }
   draw();
-  window.addEventListener('resize', draw);
 }
 
 /* ===== FLOATING PARTICLES ===== */
@@ -1237,8 +1312,7 @@ function initCounters() {
 
 /* ===== FORMS ===== */
 function initForms() {
-  [['form1','form1-success','form1-error'],
-   ['form2','form2-success','form2-error']].forEach(([fid,sid,eid]) => {
+  [['form1','form1-success','form1-error']].forEach(([fid,sid,eid]) => {
     const form = document.getElementById(fid);
     if(!form) return;
     form.addEventListener('submit', async e => {
