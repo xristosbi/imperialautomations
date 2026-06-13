@@ -71,9 +71,8 @@ nav.scrolled{
   -webkit-backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
 }
-.nav-logo{display:flex;flex-direction:column;line-height:1.1}
-.nav-logo-name{font-size:1.15rem;font-weight:800;color:var(--gold);letter-spacing:0.02em}
-.nav-logo-sub{font-size:0.62rem;font-weight:400;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.15em}
+.nav-logo{display:flex;align-items:center;line-height:1}
+.nav-logo img{height:44px;width:auto}
 .nav-right{display:flex;align-items:center;gap:1.5rem}
 .lang-switcher{display:flex;gap:0.4rem}
 .lang-btn{
@@ -92,7 +91,8 @@ nav.scrolled{
 /* ===== HERO ===== */
 .hero{
   position:relative;min-height:100vh;display:flex;flex-direction:row;
-  align-items:center;overflow:hidden;padding:5rem 4rem 3rem;gap:2rem;
+  flex-wrap:wrap;align-items:center;align-content:center;
+  overflow:hidden;padding:5rem 4rem 3rem;gap:0 2rem;
 }
 .hero-left{
   flex:0 0 58%;display:flex;flex-direction:column;justify-content:center;z-index:2;
@@ -121,7 +121,7 @@ nav.scrolled{
 }
 .hero-h1{
   font-family:'Nunito Sans',sans-serif;
-  font-size:clamp(1.8rem,2.8vw,3.2rem);font-weight:800;line-height:1.15;
+  font-size:clamp(1.6rem,2.4vw,3.2rem);font-weight:800;line-height:1.18;
   margin-bottom:1.5rem;letter-spacing:-0.02em;
 }
 .hero-subtitle{
@@ -148,12 +148,12 @@ nav.scrolled{
 }
 .hero-secondary:hover{color:var(--text)}
 .stats-bar{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--border);padding-top:2rem;margin-top:2.5rem;gap:1rem;
+  flex:0 0 100%;display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--border);padding-top:2rem;margin-top:2rem;gap:1rem;
 }
-.stat-item{text-align:center;padding:0 1rem}
-.stat-num{font-size:1.6rem;font-weight:800;color:var(--gold)}
-.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:0.2rem}
+.stat-item{text-align:center;padding:0 0.5rem}
+.stat-num{font-size:2.5rem;font-weight:800;color:var(--gold);line-height:1}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:0.4rem}
 
 /* ===== TICKER ===== */
 .ticker-wrap{
@@ -425,8 +425,7 @@ footer{
 <!-- NAV -->
 <nav id="main-nav">
   <a href="#" class="nav-logo">
-    <span class="nav-logo-name">Imperial Automations</span>
-    <span class="nav-logo-sub" data-i18n="nav_sub">AI Systems for Business</span>
+    <img src="imperial_logo-removebg-preview.png" height="44" alt="Imperial Automations" style="display:block;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges">
   </a>
   <div class="nav-right">
     <div class="lang-switcher">
@@ -461,30 +460,32 @@ footer{
         <a href="#services" class="hero-secondary" data-i18n="hero_secondary">Δες τις Υπηρεσίες ↓</a>
       </div>
     </div>
-    <div class="stats-bar reveal reveal-delay-4">
-      <div class="stat-item">
-        <div class="stat-num" data-i18n="stat1_num">50+</div>
-        <div class="stat-label" data-i18n="stat1_label">Επιχειρήσεις</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num" data-i18n="stat2_num">4</div>
-        <div class="stat-label" data-i18n="stat2_label">Πόλεις</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num" data-i18n="stat3_num">3×</div>
-        <div class="stat-label" data-i18n="stat3_label">Avg ROI</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num" data-i18n="stat4_num">100%</div>
-        <div class="stat-label" data-i18n="stat4_label">Εγγύηση</div>
-      </div>
-    </div>
   </div>
 
   <!-- Right: interactive globe -->
   <div class="hero-right">
     <div class="hero-glow"></div>
     <canvas id="globe-canvas"></canvas>
+  </div>
+
+  <!-- Stats bar — full width below both columns -->
+  <div class="stats-bar reveal reveal-delay-4">
+    <div class="stat-item">
+      <div class="stat-num" data-i18n="stat1_num">50+</div>
+      <div class="stat-label" data-i18n="stat1_label">Επιχειρήσεις</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-i18n="stat2_num">4</div>
+      <div class="stat-label" data-i18n="stat2_label">Πόλεις</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-i18n="stat3_num">3×</div>
+      <div class="stat-label" data-i18n="stat3_label">Avg ROI</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-i18n="stat4_num">100%</div>
+      <div class="stat-label" data-i18n="stat4_label">Εγγύηση</div>
+    </div>
   </div>
 </section>
 
@@ -694,8 +695,7 @@ footer{
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <span class="footer-logo-name">Imperial Automations</span>
-    <span class="footer-logo-sub" data-i18n="nav_sub">AI Systems for Business</span>
+    <img src="imperial_logo-removebg-preview.png" height="40" alt="Imperial Automations" style="display:block">
   </div>
   <div class="footer-copy" data-i18n="footer_copy">© 2026 Imperial Automations — AI Systems for Business</div>
   <button class="btn-footer" onclick="scrollTo('#contact')" data-i18n="nav_cta">Δωρεάν AI Audit →</button>
