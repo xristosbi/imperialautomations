@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imperial Automations — AI Systems for Business</title>
+<meta name="description" content="AI automation agency για ελληνικές επιχειρήσεις. Chatbots, Voice Agents, Google Reviews, Web Design. 100% Εγγύηση Αποτελέσματος.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+:root{
+  --dark:#08080A;
+  --dark2:#0F0F12;
+  --dark3:#161619;
+  --gold:#C9A84C;
+  --gold-light:#E8C97A;
+  --text:#F2EFE8;
+  --text-muted:#7A7875;
+  --border:rgba(201,168,76,0.18);
+}
+body{
+  background:var(--dark);
+  color:var(--text);
+  font-family:'Outfit',sans-serif;
+  font-weight:400;
+  line-height:1.6;
+  overflow-x:hidden;
+  cursor:none;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{cursor:none;font-family:'Outfit',sans-serif}
+
+/* ===== CUSTOM CURSOR ===== */
+#cursor-dot{
+  position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;
+  pointer-events:none;z-index:9999;transform:translate(-50%,-50%);
+  transition:background 0.2s;
+}
+#cursor-ring{
+  position:fixed;width:32px;height:32px;border:1.5px solid var(--gold);border-radius:50%;
+  pointer-events:none;z-index:9998;transform:translate(-50%,-50%);
+  transition:transform 0.12s ease,width 0.2s ease,height 0.2s ease,opacity 0.2s;
+  opacity:0.7;
+}
+body.cursor-hover #cursor-ring{width:48px;height:48px;opacity:1}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 3rem;
+  transition:background 0.4s ease,backdrop-filter 0.4s ease,border-bottom 0.4s ease;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{
+  background:rgba(8,8,10,0.95);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{display:flex;flex-direction:column;line-height:1.1}
+.nav-logo-name{font-size:1.15rem;font-weight:800;color:var(--gold);letter-spacing:0.02em}
+.nav-logo-sub{font-size:0.62rem;font-weight:400;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.15em}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.lang-switcher{display:flex;gap:0.4rem}
+.lang-btn{
+  background:none;border:1px solid transparent;color:var(--text-muted);
+  font-size:0.72rem;font-weight:600;padding:0.3rem 0.5rem;border-radius:4px;
+  letter-spacing:0.08em;transition:all 0.2s;cursor:none;
+}
+.lang-btn.active,.lang-btn:hover{color:var(--gold);border-color:var(--border)}
+.nav-cta{
+  background:var(--gold);color:#08080A;font-weight:700;font-size:0.8rem;
+  padding:0.6rem 1.2rem;border-radius:6px;border:none;letter-spacing:0.04em;
+  transition:background 0.2s,transform 0.2s;cursor:none;
+}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;overflow:hidden;padding:8rem 2rem 0;
+}
+#hero-canvas{position:absolute;inset:0;z-index:0}
+.hero-glow{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(201,168,76,0.07) 0%,transparent 70%);
+  pointer-events:none;z-index:1;animation:glowPulse 4s ease-in-out infinite;
+}
+@keyframes glowPulse{0%,100%{opacity:0.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
+.hero-particles{position:absolute;inset:0;z-index:1;pointer-events:none}
+.particle{
+  position:absolute;width:4px;height:4px;background:var(--gold);border-radius:50%;opacity:0.5;
+}
+.hero-content{
+  position:relative;z-index:2;text-align:center;max-width:860px;
+}
+.hero-label{
+  display:inline-block;font-size:0.72rem;font-weight:600;color:var(--gold);
+  letter-spacing:0.2em;text-transform:uppercase;border:1px solid var(--border);
+  padding:0.4rem 1rem;border-radius:20px;margin-bottom:2rem;
+}
+.hero-h1{
+  font-size:clamp(2.2rem,5vw,4rem);font-weight:800;line-height:1.15;
+  margin-bottom:1.5rem;letter-spacing:-0.02em;
+}
+.hero-subtitle{
+  font-size:clamp(1rem,2vw,1.2rem);font-weight:300;color:var(--text-muted);
+  max-width:620px;margin:0 auto 2.5rem;line-height:1.7;
+}
+.hero-cta-group{display:flex;flex-direction:column;align-items:center;gap:1rem;margin-bottom:4rem}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--gold);color:#08080A;font-weight:700;font-size:1rem;
+  padding:1rem 2rem;border-radius:8px;border:none;
+  box-shadow:0 0 0 0 rgba(201,168,76,0.5);
+  animation:btnPulse 2.5s ease-in-out infinite;
+  transition:background 0.2s,transform 0.2s;cursor:none;
+}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+@keyframes btnPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,0.4)}
+  50%{box-shadow:0 0 0 14px rgba(201,168,76,0)}
+}
+.hero-secondary{
+  font-size:0.88rem;color:var(--text-muted);border-bottom:1px solid var(--border);
+  padding-bottom:2px;cursor:none;transition:color 0.2s;
+}
+.hero-secondary:hover{color:var(--text)}
+.stats-bar{
+  position:relative;z-index:2;width:100%;max-width:860px;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--border);padding-top:2.5rem;gap:1rem;
+}
+.stat-item{text-align:center;padding:0 1rem}
+.stat-num{font-size:1.6rem;font-weight:800;color:var(--gold)}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:0.2rem}
+
+/* ===== TICKER ===== */
+.ticker-wrap{
+  overflow:hidden;background:var(--dark2);border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);padding:1rem 0;
+}
+.ticker-track{
+  display:flex;gap:3rem;white-space:nowrap;
+  animation:ticker 28s linear infinite;
+}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{
+  font-size:0.8rem;font-weight:600;color:var(--text-muted);letter-spacing:0.1em;
+  text-transform:uppercase;display:flex;align-items:center;gap:1rem;
+  flex-shrink:0;
+}
+.ticker-item::after{content:'·';color:var(--gold)}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== SECTION COMMONS ===== */
+section{padding:6rem 3rem}
+.section-label{
+  font-size:0.72rem;font-weight:600;color:var(--gold);letter-spacing:0.2em;
+  text-transform:uppercase;margin-bottom:1rem;
+}
+.section-h2{
+  font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;line-height:1.2;
+  letter-spacing:-0.02em;margin-bottom:3rem;
+}
+.section-center{text-align:center;max-width:700px;margin:0 auto}
+
+/* ===== SERVICES ===== */
+.services-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:1100px;margin:0 auto;
+}
+.service-card{
+  background:var(--dark2);border:1px solid var(--border);border-radius:12px;
+  padding:2rem;position:relative;overflow:hidden;transition:background 0.3s;
+}
+.service-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.35s ease;
+}
+.service-card:hover{background:var(--dark3)}
+.service-card:hover::after{transform:scaleX(1)}
+.service-num{font-size:0.75rem;font-weight:700;color:var(--gold);letter-spacing:0.15em;margin-bottom:1rem}
+.service-title{font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;line-height:1.3}
+.service-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin-bottom:1.2rem}
+.service-guarantee{
+  font-size:0.78rem;color:var(--text-muted);background:rgba(201,168,76,0.06);
+  border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;margin-bottom:1rem;
+  line-height:1.5;
+}
+.service-tag{
+  display:inline-block;font-size:0.68rem;font-weight:700;color:var(--gold);
+  letter-spacing:0.12em;text-transform:uppercase;border:1px solid var(--border);
+  padding:0.25rem 0.6rem;border-radius:20px;
+}
+
+/* ===== KPIS ===== */
+.kpis-section{background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.kpis-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:1000px;margin:0 auto;
+}
+.kpi-card{text-align:center;padding:2rem 1rem}
+.kpi-num{
+  font-size:clamp(2.2rem,4vw,3.5rem);font-weight:900;color:var(--gold);
+  line-height:1;margin-bottom:0.5rem;
+}
+.kpi-label{font-size:0.85rem;color:var(--text-muted);line-height:1.4}
+
+/* ===== GUARANTEES ===== */
+.guarantees-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1000px;margin:0 auto;
+}
+.guarantee-card{
+  background:var(--dark2);border:1px solid var(--border);border-radius:12px;
+  padding:2rem;text-align:center;transition:background 0.3s;position:relative;overflow:hidden;
+}
+.guarantee-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.35s ease;
+}
+.guarantee-card:hover{background:var(--dark3)}
+.guarantee-card:hover::after{transform:scaleX(1)}
+.guarantee-icon{font-size:2rem;margin-bottom:1rem}
+.guarantee-title{font-size:1rem;font-weight:700;margin-bottom:0.75rem;color:var(--gold)}
+.guarantee-desc{font-size:0.85rem;color:var(--text-muted);line-height:1.7}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:1000px;margin:0 auto;
+}
+.testimonial-card{
+  background:var(--dark2);border:1px solid var(--border);border-radius:12px;
+  padding:2rem;position:relative;overflow:hidden;transition:background 0.3s;
+}
+.testimonial-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.35s ease;
+}
+.testimonial-card:hover{background:var(--dark3)}
+.testimonial-card:hover::after{transform:scaleX(1)}
+.testimonial-quote{
+  font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem;color:var(--text);
+  font-style:italic;
+}
+.testimonial-quote::before{content:'"';color:var(--gold);font-size:2rem;line-height:0;vertical-align:-0.4em;margin-right:0.2rem}
+.testimonial-name{font-weight:700;font-size:0.95rem;margin-bottom:0.2rem}
+.testimonial-role{font-size:0.78rem;color:var(--text-muted);font-family:'Cormorant Garamond',serif;font-style:italic}
+.testimonial-services{
+  margin-top:1rem;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;
+  text-transform:uppercase;font-weight:600;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section{padding:5rem 3rem}
+.cta-box{
+  max-width:800px;margin:0 auto;
+  background:var(--dark2);border:1px solid var(--gold);border-radius:16px;
+  padding:3.5rem;text-align:center;
+  box-shadow:0 0 60px rgba(201,168,76,0.08);
+}
+.cta-label{
+  font-size:0.7rem;font-weight:700;color:var(--gold);letter-spacing:0.2em;
+  text-transform:uppercase;margin-bottom:1rem;
+}
+.cta-h2{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;margin-bottom:1rem}
+.cta-text{font-size:0.95rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.7}
+.cta-checks{
+  display:flex;flex-direction:column;align-items:center;gap:0.5rem;
+  margin-bottom:2.5rem;
+}
+.cta-check{font-size:0.88rem;color:var(--text-muted)}
+.cta-check span{color:var(--gold);margin-right:0.5rem}
+
+/* ===== CONTACT FORMS ===== */
+.forms-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;max-width:1000px;margin:0 auto;
+}
+.form-card{
+  background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:2.5rem;
+}
+.form-title{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}
+.form-subtitle{font-size:0.82rem;color:var(--text-muted);margin-bottom:2rem}
+.form-group{margin-bottom:1.2rem}
+.form-group label{
+  display:block;font-size:0.78rem;font-weight:600;color:var(--text-muted);
+  letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem;
+}
+.form-group input,.form-group textarea{
+  width:100%;background:var(--dark);border:1px solid var(--border);border-radius:6px;
+  color:var(--text);font-family:'Outfit',sans-serif;font-size:0.9rem;
+  padding:0.75rem 1rem;transition:border-color 0.2s;outline:none;
+}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:100px}
+.btn-form{
+  width:100%;background:var(--gold);color:#08080A;font-weight:700;font-size:0.9rem;
+  padding:0.85rem;border:none;border-radius:6px;cursor:none;
+  transition:background 0.2s,transform 0.2s;
+}
+.btn-form:hover{background:var(--gold-light);transform:translateY(-1px)}
+.form-success{
+  display:none;text-align:center;padding:3rem 1rem;
+}
+.form-success.show{display:block}
+.form-success-icon{
+  width:60px;height:60px;border-radius:50%;background:rgba(201,168,76,0.15);
+  border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.5rem;font-size:1.5rem;
+  animation:checkIn 0.5s ease forwards;
+}
+@keyframes checkIn{from{transform:scale(0)}to{transform:scale(1)}}
+.form-success h3{color:var(--gold);font-size:1.2rem;margin-bottom:0.5rem}
+.form-success p{color:var(--text-muted);font-size:0.88rem}
+.form-error{
+  display:none;font-size:0.82rem;color:#e05c5c;margin-top:0.75rem;text-align:center;
+}
+.form-error.show{display:block}
+
+/* ===== CITIES ===== */
+.cities-section{background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cities-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;max-width:900px;margin:0 auto;
+}
+.city-card{
+  text-align:center;padding:2.5rem 1rem;border:1px solid var(--border);border-radius:12px;
+  background:var(--dark);transition:border-color 0.3s,background 0.3s;
+}
+.city-card:hover{border-color:var(--gold);background:var(--dark3)}
+.city-name{
+  font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:500;
+  color:var(--text);letter-spacing:0.02em;
+}
+.city-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;margin:0.75rem auto 0}
+
+/* ===== FOOTER ===== */
+footer{
+  border-top:1px solid var(--border);padding:2rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-logo{display:flex;flex-direction:column;line-height:1.1}
+.footer-logo-name{font-size:1rem;font-weight:800;color:var(--gold)}
+.footer-logo-sub{font-size:0.58rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.15em}
+.footer-copy{font-size:0.78rem;color:var(--text-muted);text-align:center}
+.btn-footer{
+  background:none;border:1px solid var(--border);color:var(--text);font-weight:600;
+  font-size:0.8rem;padding:0.6rem 1.2rem;border-radius:6px;cursor:none;
+  transition:border-color 0.2s,color 0.2s;
+}
+.btn-footer:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-logo-name{font-size:1rem}
+  .lang-switcher{gap:0.2rem}
+  .lang-btn{font-size:0.65rem;padding:0.25rem 0.35rem}
+  .nav-cta{font-size:0.72rem;padding:0.5rem 0.9rem}
+  .hero{padding:7rem 1.5rem 0}
+  .stats-bar{grid-template-columns:repeat(2,1fr);padding-top:2rem}
+  section{padding:4rem 1.5rem}
+  .services-grid{grid-template-columns:1fr}
+  .kpis-grid{grid-template-columns:repeat(2,1fr)}
+  .guarantees-grid{grid-template-columns:1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .forms-grid{grid-template-columns:1fr}
+  .cities-grid{grid-template-columns:repeat(2,1fr)}
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:1.5rem}
+  body{cursor:auto}
+  #cursor-dot,#cursor-ring{display:none}
+}
+@media(max-width:480px){
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .kpis-grid{grid-template-columns:1fr;gap:1rem}
+  .cta-box{padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-name">Imperial Automations</span>
+    <span class="nav-logo-sub" data-i18n="nav_sub">AI Systems for Business</span>
+  </a>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('el')">🇬🇷 EL</button>
+      <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
+      <button class="lang-btn" onclick="setLang('fr')">🇫🇷 FR</button>
+      <button class="lang-btn" onclick="setLang('id')">🇮🇩 ID</button>
+    </div>
+    <button class="nav-cta" onclick="scrollTo('#contact')" data-i18n="nav_cta">Δωρεάν AI Audit →</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-glow"></div>
+  <div class="hero-particles" id="hero-particles"></div>
+
+  <div class="hero-content">
+    <div class="hero-label reveal" data-i18n="hero_label">AI Automation Agency — Greece</div>
+    <h1 class="hero-h1 reveal reveal-delay-1" data-i18n="hero_h1">
+      Ενσωματώνουμε το AI στην επιχείρησή σου<br>
+      για να κλείνεις ραντεβού &amp; reviews<br>
+      24/7 στον αυτόματο.
+    </h1>
+    <p class="hero-subtitle reveal reveal-delay-2" data-i18n="hero_subtitle">
+      Σου γλιτώνουμε 20+ ώρες τη βδομάδα και χαμένες κλήσεις,<br>
+      χωρίς επιπλέον προσωπικό. 100% Εγγύηση Αποτελέσματος.
+    </p>
+    <div class="hero-cta-group reveal reveal-delay-3">
+      <button class="btn-primary" onclick="scrollTo('#contact')" data-i18n="hero_cta">
+        Κλείσε Δωρεάν 15λεπτο AI Audit →
+      </button>
+      <a href="#services" class="hero-secondary" data-i18n="hero_secondary">Δες τις Υπηρεσίες ↓</a>
+    </div>
+  </div>
+
+  <div class="stats-bar reveal reveal-delay-4">
+    <div class="stat-item">
+      <div class="stat-num" data-i18n="stat1_num">50+</div>
+      <div class="stat-label" data-i18n="stat1_label">Επιχειρήσεις</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-i18n="stat2_num">4</div>
+      <div class="stat-label" data-i18n="stat2_label">Πόλεις</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-i18n="stat3_num">3×</div>
+      <div class="stat-label" data-i18n="stat3_label">Avg ROI</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-i18n="stat4_num">100%</div>
+      <div class="stat-label" data-i18n="stat4_label">Εγγύηση</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker-track"></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-center">
+    <div class="section-label reveal" data-i18n="services_label">Υπηρεσίες</div>
+    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="services_h2">Τέσσερα συστήματα. Μετρήσιμα αποτελέσματα.</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">01</div>
+      <div class="service-title" data-i18n="s1_title">Σύστημα Google Reviews &amp; Reputation</div>
+      <div class="service-desc" data-i18n="s1_desc">Αυτοματοποιημένο σύστημα συλλογής Google Reviews που αυξάνει τις κριτικές σου σε 30 μέρες χωρίς να κυνηγάς πελάτες χειροκίνητα.</div>
+      <div class="service-guarantee" data-i18n="s1_guarantee">🛡 Αν δεν στείλουμε 300+ review requests σε 30 μέρες → πλήρης επιστροφή χρημάτων.</div>
+      <span class="service-tag" data-i18n="s1_tag">Reputation AI</span>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">02</div>
+      <div class="service-title" data-i18n="s2_title">AI Chatbot &amp; Lead Generation</div>
+      <div class="service-desc" data-i18n="s2_desc">AI assistant που μετατρέπει επισκέπτες από site και social media σε qualified booking conversations 24/7 — χωρίς επιπλέον προσωπικό.</div>
+      <div class="service-guarantee" data-i18n="s2_guarantee">🛡 Αν δεν δημιουργηθούν 20+ qualified conversations σε 30 μέρες → δουλεύουμε δωρεάν μέχρι να το πετύχουμε.</div>
+      <span class="service-tag" data-i18n="s2_tag">Conversational AI</span>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-num">03</div>
+      <div class="service-title" data-i18n="s3_title">AI Voice Agent / Ψηφιακή Γραμματεία</div>
+      <div class="service-desc" data-i18n="s3_desc">AI τηλεφωνική γραμματεία που απαντάει στις κλήσεις σου 24/7, κρατάει στοιχεία, απαντάει ερωτήσεις και κλείνει ραντεβού.</div>
+      <div class="service-guarantee" data-i18n="s3_guarantee">🛡 Αν δεν μειωθούν οι αναπάντητες κλήσεις κατά 80% σε 30 μέρες → συνεχίζουμε δωρεάν.</div>
+      <span class="service-tag" data-i18n="s3_tag">Voice AI</span>
+    </div>
+    <div class="service-card reveal reveal-delay-4">
+      <div class="service-num">04</div>
+      <div class="service-title" data-i18n="s4_title">Web Design &amp; Conversion</div>
+      <div class="service-desc" data-i18n="s4_desc">Conversion-focused landing page σε 14 μέρες με δυνατό copy, social proof και tracking — ώστε οι επισκέπτες να ξέρουν ακριβώς γιατί να σε επιλέξουν.</div>
+      <div class="service-guarantee" data-i18n="s4_guarantee">🛡 Αν δεν παραδοθεί σε 14 μέρες → πλήρης επιστροφή χρημάτων.</div>
+      <span class="service-tag" data-i18n="s4_tag">Digital Products</span>
+    </div>
+  </div>
+</section>
+
+<!-- KPIS -->
+<section class="kpis-section" id="results">
+  <div class="section-center">
+    <div class="section-label reveal" data-i18n="kpis_label">Αποτελέσματα</div>
+    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="kpis_h2">Αριθμοί που μιλούν μόνοι τους</h2>
+  </div>
+  <div class="kpis-grid">
+    <div class="kpi-card reveal reveal-delay-1">
+      <div class="kpi-num" data-target="340" data-prefix="+" data-suffix="%">+340%</div>
+      <div class="kpi-label" data-i18n="kpi1_label">Αύξηση Google κριτικών σε 60 μέρες</div>
+    </div>
+    <div class="kpi-card reveal reveal-delay-2">
+      <div class="kpi-num" data-target="80" data-suffix="%">80%</div>
+      <div class="kpi-label" data-i18n="kpi2_label">Μείωση αναπάντητων κλήσεων</div>
+    </div>
+    <div class="kpi-card reveal reveal-delay-3">
+      <div class="kpi-num" data-static="24/7">24/7</div>
+      <div class="kpi-label" data-i18n="kpi3_label">Λειτουργία χωρίς human intervention</div>
+    </div>
+    <div class="kpi-card reveal reveal-delay-4">
+      <div class="kpi-num" data-target="20" data-prefix="+" data-suffix="">+20</div>
+      <div class="kpi-label" data-i18n="kpi4_label">Qualified leads/μήνα για κλινικές</div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEES -->
+<section id="guarantees">
+  <div class="section-center">
+    <div class="section-label reveal" data-i18n="guarantees_label">Εγγυήσεις</div>
+    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="guarantees_h2">Δουλεύουμε μέχρι να δεις αποτέλεσμα.</h2>
+  </div>
+  <div class="guarantees-grid">
+    <div class="guarantee-card reveal reveal-delay-1">
+      <div class="guarantee-icon">🎯</div>
+      <div class="guarantee-title" data-i18n="g1_title">Εγγύηση Αποτελέσματος</div>
+      <div class="guarantee-desc" data-i18n="g1_desc">Αν δεν πετύχουμε τον στόχο που ορίζουμε μαζί, συνεχίζουμε δωρεάν ή επιστρέφουμε τα χρήματά σου.</div>
+    </div>
+    <div class="guarantee-card reveal reveal-delay-2">
+      <div class="guarantee-icon">⏱</div>
+      <div class="guarantee-title" data-i18n="g2_title">Εγγύηση Χρόνου</div>
+      <div class="guarantee-desc" data-i18n="g2_desc">Ξέρουμε ότι ο χρόνος σου αξίζει. Κάθε παράδοση γίνεται στην ημερομηνία που συμφωνούμε — ή δεν πληρώνεις.</div>
+    </div>
+    <div class="guarantee-card reveal reveal-delay-3">
+      <div class="guarantee-icon">✨</div>
+      <div class="guarantee-title" data-i18n="g3_title">Εγγύηση Απλότητας</div>
+      <div class="guarantee-desc" data-i18n="g3_desc">Δεν χρειάζεσαι να ξέρεις τίποτα από τεχνολογία. Εμείς στήνουμε τα πάντα, σου παραδίδουμε έτοιμο.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="section-center">
+    <div class="section-label reveal">Testimonials</div>
+    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="testimonials_h2">Τι λένε οι πελάτες μας</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-quote" data-i18n="t1_quote">Άριστη συνεργασία. Φτιάξαμε μαζί το site, το chatbot, το σύστημα κριτικών και την εφαρμογή — όλα στο υψηλότερο επίπεδο. Αποτελέσματα από την πρώτη μέρα.</div>
+      <div class="testimonial-name">Dr. Ζωή Φίκα</div>
+      <div class="testimonial-role" data-i18n="t1_role">Δερματολόγος — Λάρισα</div>
+      <div class="testimonial-services" data-i18n="t1_services">Website · AI Chatbot · 5-Star System · App</div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-quote" data-i18n="t2_quote">Πολύ ικανοποιημένος από τη συνεργασία. Επαγγελματισμός, αποτελέσματα και άμεση ανταπόκριση. Τον προτείνω ανεπιφύλακτα.</div>
+      <div class="testimonial-name">Τσερκεζίδης Group</div>
+      <div class="testimonial-role" data-i18n="t2_role">CEO — Εταιρικός Όμιλος</div>
+      <div class="testimonial-services" data-i18n="t2_services">AI Automation · Lead Generation · Digital Infrastructure</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BOX -->
+<section class="cta-section">
+  <div class="cta-box reveal">
+    <div class="cta-label" data-i18n="cta_label">Περιορισμένες Θέσεις — 2026</div>
+    <h2 class="cta-h2" data-i18n="cta_h2">Δωρεάν 15λεπτο AI Audit</h2>
+    <p class="cta-text" data-i18n="cta_text">Σε 15 λεπτά αναλύουμε την επιχείρησή σου και σου λέμε ακριβώς ποια AI συστήματα χρειάζεσαι και τι ROI να περιμένεις. Χωρίς δεσμεύσεις.</p>
+    <div class="cta-checks">
+      <div class="cta-check"><span>✓</span><span data-i18n="cta_check1">Ανάλυση online φήμης</span></div>
+      <div class="cta-check"><span>✓</span><span data-i18n="cta_check2">AI roadmap για την επιχείρησή σου</span></div>
+      <div class="cta-check"><span>✓</span><span data-i18n="cta_check3">Εκτίμηση ROI χωρίς δέσμευση</span></div>
+    </div>
+    <button class="btn-primary" onclick="scrollTo('#contact')" data-i18n="cta_btn">Κλείσε Δωρεάν AI Audit →</button>
+  </div>
+</section>
+
+<!-- CONTACT FORMS -->
+<section id="contact" style="background:var(--dark2);border-top:1px solid var(--border)">
+  <div class="section-center">
+    <div class="section-label reveal" data-i18n="contact_label">Επικοινωνία</div>
+    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="contact_h2">Ξεκίνα σήμερα</h2>
+  </div>
+  <div class="forms-grid">
+    <!-- Form 1 — AI Audit -->
+    <div class="form-card reveal reveal-delay-1">
+      <div class="form-title" data-i18n="form1_title">Δωρεάν AI Audit</div>
+      <div class="form-subtitle" data-i18n="form1_sub">Κλείσε 15λεπτο δωρεάν audit</div>
+      <div id="form1-wrap">
+        <form id="form1" action="https://formspree.io/f/xwvzknyz" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Δωρεάν AI Audit — Imperial Automations">
+          <div class="form-group">
+            <label data-i18n="f1_name">Όνομα</label>
+            <input type="text" name="name" required data-i18n-placeholder="f1_name_ph">
+          </div>
+          <div class="form-group">
+            <label data-i18n="f1_biz">Όνομα Επιχείρησης</label>
+            <input type="text" name="business" required data-i18n-placeholder="f1_biz_ph">
+          </div>
+          <div class="form-group">
+            <label data-i18n="f1_phone">Τηλέφωνο</label>
+            <input type="tel" name="phone" required data-i18n-placeholder="f1_phone_ph">
+          </div>
+          <div class="form-group">
+            <label data-i18n="f1_email">Email</label>
+            <input type="email" name="email" required data-i18n-placeholder="f1_email_ph">
+          </div>
+          <div class="form-group">
+            <label data-i18n="f1_msg">Σχόλια</label>
+            <textarea name="message" data-i18n-placeholder="f1_msg_ph"></textarea>
+          </div>
+          <button type="submit" class="btn-form" data-i18n="f1_submit">Κλείσε Δωρεάν AI Audit →</button>
+          <div class="form-error" id="form1-error" data-i18n="form_error">Κάτι πήγε στραβά. Δοκίμασε ξανά.</div>
+        </form>
+        <div class="form-success" id="form1-success">
+          <div class="form-success-icon">✓</div>
+          <h3 data-i18n="form_success_h">Εστάλη!</h3>
+          <p data-i18n="form_success_p">Θα επικοινωνήσουμε μαζί σου σύντομα.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form 2 — General -->
+    <div class="form-card reveal reveal-delay-2">
+      <div class="form-title" data-i18n="form2_title">Γενικές Ερωτήσεις</div>
+      <div class="form-subtitle" data-i18n="form2_sub">Στείλε μας μήνυμα</div>
+      <div id="form2-wrap">
+        <form id="form2" action="https://formspree.io/f/xwvzknyz" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Γενική Ερώτηση — Imperial Automations">
+          <div class="form-group">
+            <label data-i18n="f2_name">Όνομα</label>
+            <input type="text" name="name" required data-i18n-placeholder="f2_name_ph">
+          </div>
+          <div class="form-group">
+            <label data-i18n="f2_email">Email</label>
+            <input type="email" name="email" required data-i18n-placeholder="f2_email_ph">
+          </div>
+          <div class="form-group">
+            <label data-i18n="f2_msg">Μήνυμα</label>
+            <textarea name="message" required style="min-height:160px" data-i18n-placeholder="f2_msg_ph"></textarea>
+          </div>
+          <button type="submit" class="btn-form" data-i18n="f2_submit">Στείλε Μήνυμα →</button>
+          <div class="form-error" id="form2-error" data-i18n="form_error">Κάτι πήγε στραβά. Δοκίμασε ξανά.</div>
+        </form>
+        <div class="form-success" id="form2-success">
+          <div class="form-success-icon">✓</div>
+          <h3 data-i18n="form_success_h">Εστάλη!</h3>
+          <p data-i18n="form_success_p">Θα επικοινωνήσουμε μαζί σου σύντομα.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CITIES -->
+<section class="cities-section">
+  <div class="section-center">
+    <h2 class="section-h2 reveal" data-i18n="cities_h2">Εξυπηρετούμε σε 4 πόλεις</h2>
+  </div>
+  <div class="cities-grid">
+    <div class="city-card reveal reveal-delay-1">
+      <div class="city-name">Αθήνα</div>
+      <div class="city-dot"></div>
+    </div>
+    <div class="city-card reveal reveal-delay-2">
+      <div class="city-name">Θεσσαλονίκη</div>
+      <div class="city-dot"></div>
+    </div>
+    <div class="city-card reveal reveal-delay-3">
+      <div class="city-name">Λάρισα</div>
+      <div class="city-dot"></div>
+    </div>
+    <div class="city-card reveal reveal-delay-4">
+      <div class="city-name">Κρήτη</div>
+      <div class="city-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <span class="footer-logo-name">Imperial Automations</span>
+    <span class="footer-logo-sub" data-i18n="nav_sub">AI Systems for Business</span>
+  </div>
+  <div class="footer-copy" data-i18n="footer_copy">© 2026 Imperial Automations — AI Systems for Business</div>
+  <button class="btn-footer" onclick="scrollTo('#contact')" data-i18n="nav_cta">Δωρεάν AI Audit →</button>
+</footer>
+
+<script>
+/* ===== TRANSLATIONS ===== */
+const translations = {
+  el: {
+    nav_sub: "AI Systems for Business",
+    nav_cta: "Δωρεάν AI Audit →",
+    hero_label: "AI Automation Agency — Greece",
+    hero_h1: "Ενσωματώνουμε το AI στην επιχείρησή σου<br>για να κλείνεις ραντεβού &amp; reviews<br>24/7 στον αυτόματο.",
+    hero_subtitle: "Σου γλιτώνουμε 20+ ώρες τη βδομάδα και χαμένες κλήσεις,<br>χωρίς επιπλέον προσωπικό. 100% Εγγύηση Αποτελέσματος.",
+    hero_cta: "Κλείσε Δωρεάν 15λεπτο AI Audit →",
+    hero_secondary: "Δες τις Υπηρεσίες ↓",
+    stat1_num: "50+", stat1_label: "Επιχειρήσεις",
+    stat2_num: "4", stat2_label: "Πόλεις",
+    stat3_num: "3×", stat3_label: "Avg ROI",
+    stat4_num: "100%", stat4_label: "Εγγύηση",
+    services_label: "Υπηρεσίες",
+    services_h2: "Τέσσερα συστήματα. Μετρήσιμα αποτελέσματα.",
+    s1_title: "Σύστημα Google Reviews &amp; Reputation",
+    s1_desc: "Αυτοματοποιημένο σύστημα συλλογής Google Reviews που αυξάνει τις κριτικές σου σε 30 μέρες χωρίς να κυνηγάς πελάτες χειροκίνητα.",
+    s1_guarantee: "🛡 Αν δεν στείλουμε 300+ review requests σε 30 μέρες → πλήρης επιστροφή χρημάτων.",
+    s1_tag: "Reputation AI",
+    s2_title: "AI Chatbot &amp; Lead Generation",
+    s2_desc: "AI assistant που μετατρέπει επισκέπτες από site και social media σε qualified booking conversations 24/7 — χωρίς επιπλέον προσωπικό.",
+    s2_guarantee: "🛡 Αν δεν δημιουργηθούν 20+ qualified conversations σε 30 μέρες → δουλεύουμε δωρεάν μέχρι να το πετύχουμε.",
+    s2_tag: "Conversational AI",
+    s3_title: "AI Voice Agent / Ψηφιακή Γραμματεία",
+    s3_desc: "AI τηλεφωνική γραμματεία που απαντάει στις κλήσεις σου 24/7, κρατάει στοιχεία, απαντάει ερωτήσεις και κλείνει ραντεβού.",
+    s3_guarantee: "🛡 Αν δεν μειωθούν οι αναπάντητες κλήσεις κατά 80% σε 30 μέρες → συνεχίζουμε δωρεάν.",
+    s3_tag: "Voice AI",
+    s4_title: "Web Design &amp; Conversion",
+    s4_desc: "Conversion-focused landing page σε 14 μέρες με δυνατό copy, social proof και tracking — ώστε οι επισκέπτες να ξέρουν ακριβώς γιατί να σε επιλέξουν.",
+    s4_guarantee: "🛡 Αν δεν παραδοθεί σε 14 μέρες → πλήρης επιστροφή χρημάτων.",
+    s4_tag: "Digital Products",
+    kpis_label: "Αποτελέσματα",
+    kpis_h2: "Αριθμοί που μιλούν μόνοι τους",
+    kpi1_label: "Αύξηση Google κριτικών σε 60 μέρες",
+    kpi2_label: "Μείωση αναπάντητων κλήσεων",
+    kpi3_label: "Λειτουργία χωρίς human intervention",
+    kpi4_label: "Qualified leads/μήνα για κλινικές",
+    guarantees_label: "Εγγυήσεις",
+    guarantees_h2: "Δουλεύουμε μέχρι να δεις αποτέλεσμα.",
+    g1_title: "Εγγύηση Αποτελέσματος",
+    g1_desc: "Αν δεν πετύχουμε τον στόχο που ορίζουμε μαζί, συνεχίζουμε δωρεάν ή επιστρέφουμε τα χρήματά σου.",
+    g2_title: "Εγγύηση Χρόνου",
+    g2_desc: "Ξέρουμε ότι ο χρόνος σου αξίζει. Κάθε παράδοση γίνεται στην ημερομηνία που συμφωνούμε — ή δεν πληρώνεις.",
+    g3_title: "Εγγύηση Απλότητας",
+    g3_desc: "Δεν χρειάζεσαι να ξέρεις τίποτα από τεχνολογία. Εμείς στήνουμε τα πάντα, σου παραδίδουμε έτοιμο.",
+    testimonials_h2: "Τι λένε οι πελάτες μας",
+    t1_quote: "Άριστη συνεργασία. Φτιάξαμε μαζί το site, το chatbot, το σύστημα κριτικών και την εφαρμογή — όλα στο υψηλότερο επίπεδο. Αποτελέσματα από την πρώτη μέρα.",
+    t1_role: "Δερματολόγος — Λάρισα",
+    t1_services: "Website · AI Chatbot · 5-Star System · App",
+    t2_quote: "Πολύ ικανοποιημένος από τη συνεργασία. Επαγγελματισμός, αποτελέσματα και άμεση ανταπόκριση. Τον προτείνω ανεπιφύλακτα.",
+    t2_role: "CEO — Εταιρικός Όμιλος",
+    t2_services: "AI Automation · Lead Generation · Digital Infrastructure",
+    cta_label: "Περιορισμένες Θέσεις — 2026",
+    cta_h2: "Δωρεάν 15λεπτο AI Audit",
+    cta_text: "Σε 15 λεπτά αναλύουμε την επιχείρησή σου και σου λέμε ακριβώς ποια AI συστήματα χρειάζεσαι και τι ROI να περιμένεις. Χωρίς δεσμεύσεις.",
+    cta_check1: "Ανάλυση online φήμης",
+    cta_check2: "AI roadmap για την επιχείρησή σου",
+    cta_check3: "Εκτίμηση ROI χωρίς δέσμευση",
+    cta_btn: "Κλείσε Δωρεάν AI Audit →",
+    contact_label: "Επικοινωνία",
+    contact_h2: "Ξεκίνα σήμερα",
+    form1_title: "Δωρεάν AI Audit",
+    form1_sub: "Κλείσε 15λεπτο δωρεάν audit",
+    f1_name: "Όνομα", f1_name_ph: "Το όνομά σου",
+    f1_biz: "Όνομα Επιχείρησης", f1_biz_ph: "π.χ. Ιατρείο Παπαδόπουλου",
+    f1_phone: "Τηλέφωνο", f1_phone_ph: "+30 69...",
+    f1_email: "Email", f1_email_ph: "email@example.com",
+    f1_msg: "Σχόλια", f1_msg_ph: "Πες μας για την επιχείρησή σου...",
+    f1_submit: "Κλείσε Δωρεάν AI Audit →",
+    form2_title: "Γενικές Ερωτήσεις",
+    form2_sub: "Στείλε μας μήνυμα",
+    f2_name: "Όνομα", f2_name_ph: "Το όνομά σου",
+    f2_email: "Email", f2_email_ph: "email@example.com",
+    f2_msg: "Μήνυμα", f2_msg_ph: "Γράψε το μήνυμά σου...",
+    f2_submit: "Στείλε Μήνυμα →",
+    form_error: "Κάτι πήγε στραβά. Δοκίμασε ξανά.",
+    form_success_h: "Εστάλη!",
+    form_success_p: "Θα επικοινωνήσουμε μαζί σου σύντομα.",
+    cities_h2: "Εξυπηρετούμε σε 4 πόλεις",
+    footer_copy: "© 2026 Imperial Automations — AI Systems for Business",
+    ticker_items: ["Reputation AI","AI Chatbots","Voice Agents","Web Design","Lead Generation","5-Star Systems","24/7 Automation","Booking Systems"]
+  },
+  en: {
+    nav_sub: "AI Systems for Business",
+    nav_cta: "Free AI Audit →",
+    hero_label: "AI Automation Agency — Greece",
+    hero_h1: "We embed AI into your business<br>so you book appointments &amp; reviews<br>24/7 on autopilot.",
+    hero_subtitle: "We save you 20+ hours per week and missed calls,<br>without extra staff. 100% Results Guarantee.",
+    hero_cta: "Book Free 15-min AI Audit →",
+    hero_secondary: "See Our Services ↓",
+    stat1_num: "50+", stat1_label: "Businesses",
+    stat2_num: "4", stat2_label: "Cities",
+    stat3_num: "3×", stat3_label: "Avg ROI",
+    stat4_num: "100%", stat4_label: "Guarantee",
+    services_label: "Services",
+    services_h2: "Four systems. Measurable results.",
+    s1_title: "Google Reviews &amp; Reputation System",
+    s1_desc: "Automated Google Reviews collection system that increases your reviews in 30 days without manually chasing customers.",
+    s1_guarantee: "🛡 If we don't send 300+ review requests in 30 days → full refund.",
+    s1_tag: "Reputation AI",
+    s2_title: "AI Chatbot &amp; Lead Generation",
+    s2_desc: "AI assistant that converts website and social media visitors into qualified booking conversations 24/7 — without extra staff.",
+    s2_guarantee: "🛡 If we don't generate 20+ qualified conversations in 30 days → we work for free until we do.",
+    s2_tag: "Conversational AI",
+    s3_title: "AI Voice Agent / Digital Secretary",
+    s3_desc: "AI phone secretary that answers your calls 24/7, takes details, answers questions and books appointments.",
+    s3_guarantee: "🛡 If missed calls don't drop by 80% in 30 days → we continue for free.",
+    s3_tag: "Voice AI",
+    s4_title: "Web Design &amp; Conversion",
+    s4_desc: "Conversion-focused landing page in 14 days with strong copy, social proof and tracking — so visitors know exactly why to choose you.",
+    s4_guarantee: "🛡 If not delivered in 14 days → full refund.",
+    s4_tag: "Digital Products",
+    kpis_label: "Results",
+    kpis_h2: "Numbers that speak for themselves",
+    kpi1_label: "Google review increase in 60 days",
+    kpi2_label: "Reduction in missed calls",
+    kpi3_label: "Operation without human intervention",
+    kpi4_label: "Qualified leads/month for clinics",
+    guarantees_label: "Guarantees",
+    guarantees_h2: "We work until you see results.",
+    g1_title: "Results Guarantee",
+    g1_desc: "If we don't hit the goal we set together, we continue for free or refund your money.",
+    g2_title: "Time Guarantee",
+    g2_desc: "We know your time is valuable. Every delivery happens on the date we agree — or you don't pay.",
+    g3_title: "Simplicity Guarantee",
+    g3_desc: "You don't need to know anything about technology. We set everything up and hand it to you ready.",
+    testimonials_h2: "What our clients say",
+    t1_quote: "Excellent collaboration. We built the site, chatbot, review system and app together — all at the highest level. Results from day one.",
+    t1_role: "Dermatologist — Larissa",
+    t1_services: "Website · AI Chatbot · 5-Star System · App",
+    t2_quote: "Very satisfied with the collaboration. Professionalism, results and immediate response. I recommend them unreservedly.",
+    t2_role: "CEO — Corporate Group",
+    t2_services: "AI Automation · Lead Generation · Digital Infrastructure",
+    cta_label: "Limited Spots — 2026",
+    cta_h2: "Free 15-min AI Audit",
+    cta_text: "In 15 minutes we analyse your business and tell you exactly which AI systems you need and what ROI to expect. No commitments.",
+    cta_check1: "Online reputation analysis",
+    cta_check2: "AI roadmap for your business",
+    cta_check3: "ROI estimate with no commitment",
+    cta_btn: "Book Free AI Audit →",
+    contact_label: "Contact",
+    contact_h2: "Start today",
+    form1_title: "Free AI Audit",
+    form1_sub: "Book a free 15-min audit",
+    f1_name: "Name", f1_name_ph: "Your name",
+    f1_biz: "Business Name", f1_biz_ph: "e.g. My Clinic",
+    f1_phone: "Phone", f1_phone_ph: "+30 69...",
+    f1_email: "Email", f1_email_ph: "email@example.com",
+    f1_msg: "Comments", f1_msg_ph: "Tell us about your business...",
+    f1_submit: "Book Free AI Audit →",
+    form2_title: "General Enquiries",
+    form2_sub: "Send us a message",
+    f2_name: "Name", f2_name_ph: "Your name",
+    f2_email: "Email", f2_email_ph: "email@example.com",
+    f2_msg: "Message", f2_msg_ph: "Write your message...",
+    f2_submit: "Send Message →",
+    form_error: "Something went wrong. Please try again.",
+    form_success_h: "Sent!",
+    form_success_p: "We'll be in touch shortly.",
+    cities_h2: "We serve in 4 cities",
+    footer_copy: "© 2026 Imperial Automations — AI Systems for Business",
+    ticker_items: ["Reputation AI","AI Chatbots","Voice Agents","Web Design","Lead Generation","5-Star Systems","24/7 Automation","Booking Systems"]
+  },
+  fr: {
+    nav_sub: "Systèmes IA pour Entreprises",
+    nav_cta: "Audit IA Gratuit →",
+    hero_label: "Agence d'Automatisation IA — Grèce",
+    hero_h1: "Nous intégrons l'IA dans votre entreprise<br>pour prendre des rendez-vous &amp; avis<br>24h/24 en automatique.",
+    hero_subtitle: "Nous vous économisons 20+ heures par semaine et les appels manqués,<br>sans personnel supplémentaire. Garantie de Résultats 100%.",
+    hero_cta: "Réserver un Audit IA Gratuit de 15 min →",
+    hero_secondary: "Voir nos Services ↓",
+    stat1_num: "50+", stat1_label: "Entreprises",
+    stat2_num: "4", stat2_label: "Villes",
+    stat3_num: "3×", stat3_label: "ROI Moyen",
+    stat4_num: "100%", stat4_label: "Garantie",
+    services_label: "Services",
+    services_h2: "Quatre systèmes. Des résultats mesurables.",
+    s1_title: "Système Google Avis &amp; Réputation",
+    s1_desc: "Système automatisé de collecte d'avis Google qui augmente vos avis en 30 jours sans courir après les clients manuellement.",
+    s1_guarantee: "🛡 Si nous n'envoyons pas 300+ demandes d'avis en 30 jours → remboursement intégral.",
+    s1_tag: "Reputation AI",
+    s2_title: "Chatbot IA &amp; Génération de Leads",
+    s2_desc: "Assistant IA qui convertit les visiteurs du site et des réseaux sociaux en conversations de réservation qualifiées 24h/24.",
+    s2_guarantee: "🛡 Si 20+ conversations qualifiées ne sont pas générées en 30 jours → nous travaillons gratuitement jusqu'à y parvenir.",
+    s2_tag: "Conversational AI",
+    s3_title: "Agent Vocal IA / Secrétaire Numérique",
+    s3_desc: "Secrétaire téléphonique IA qui répond à vos appels 24h/24, prend les détails, répond aux questions et réserve des rendez-vous.",
+    s3_guarantee: "🛡 Si les appels manqués ne baissent pas de 80% en 30 jours → nous continuons gratuitement.",
+    s3_tag: "Voice AI",
+    s4_title: "Web Design &amp; Conversion",
+    s4_desc: "Landing page axée conversion en 14 jours avec un copy puissant, preuve sociale et tracking — pour que les visiteurs sachent exactement pourquoi vous choisir.",
+    s4_guarantee: "🛡 Si non livré en 14 jours → remboursement intégral.",
+    s4_tag: "Digital Products",
+    kpis_label: "Résultats",
+    kpis_h2: "Des chiffres qui parlent d'eux-mêmes",
+    kpi1_label: "Augmentation des avis Google en 60 jours",
+    kpi2_label: "Réduction des appels manqués",
+    kpi3_label: "Fonctionnement sans intervention humaine",
+    kpi4_label: "Leads qualifiés/mois pour les cliniques",
+    guarantees_label: "Garanties",
+    guarantees_h2: "Nous travaillons jusqu'à ce que vous voyiez des résultats.",
+    g1_title: "Garantie de Résultats",
+    g1_desc: "Si nous n'atteignons pas l'objectif que nous fixons ensemble, nous continuons gratuitement ou vous remboursons.",
+    g2_title: "Garantie de Délai",
+    g2_desc: "Nous savons que votre temps est précieux. Chaque livraison se fait à la date convenue — ou vous ne payez pas.",
+    g3_title: "Garantie de Simplicité",
+    g3_desc: "Vous n'avez rien à savoir sur la technologie. Nous configurons tout et vous livrons prêt à l'emploi.",
+    testimonials_h2: "Ce que disent nos clients",
+    t1_quote: "Excellente collaboration. Nous avons créé ensemble le site, le chatbot, le système d'avis et l'application — tout au plus haut niveau. Des résultats dès le premier jour.",
+    t1_role: "Dermatologue — Larissa",
+    t1_services: "Website · AI Chatbot · 5-Star System · App",
+    t2_quote: "Très satisfait de la collaboration. Professionnalisme, résultats et réactivité immédiate. Je les recommande sans réserve.",
+    t2_role: "PDG — Groupe d'Entreprises",
+    t2_services: "AI Automation · Lead Generation · Digital Infrastructure",
+    cta_label: "Places Limitées — 2026",
+    cta_h2: "Audit IA Gratuit de 15 min",
+    cta_text: "En 15 minutes nous analysons votre entreprise et vous disons exactement quels systèmes IA vous avez besoin et quel ROI attendre. Sans engagement.",
+    cta_check1: "Analyse de réputation en ligne",
+    cta_check2: "Feuille de route IA pour votre entreprise",
+    cta_check3: "Estimation du ROI sans engagement",
+    cta_btn: "Réserver un Audit IA Gratuit →",
+    contact_label: "Contact",
+    contact_h2: "Commencez aujourd'hui",
+    form1_title: "Audit IA Gratuit",
+    form1_sub: "Réservez un audit gratuit de 15 min",
+    f1_name: "Nom", f1_name_ph: "Votre nom",
+    f1_biz: "Nom de l'Entreprise", f1_biz_ph: "ex. Ma Clinique",
+    f1_phone: "Téléphone", f1_phone_ph: "+30 69...",
+    f1_email: "Email", f1_email_ph: "email@example.com",
+    f1_msg: "Commentaires", f1_msg_ph: "Parlez-nous de votre entreprise...",
+    f1_submit: "Réserver un Audit IA Gratuit →",
+    form2_title: "Questions Générales",
+    form2_sub: "Envoyez-nous un message",
+    f2_name: "Nom", f2_name_ph: "Votre nom",
+    f2_email: "Email", f2_email_ph: "email@example.com",
+    f2_msg: "Message", f2_msg_ph: "Écrivez votre message...",
+    f2_submit: "Envoyer le Message →",
+    form_error: "Quelque chose s'est mal passé. Veuillez réessayer.",
+    form_success_h: "Envoyé!",
+    form_success_p: "Nous vous contacterons bientôt.",
+    cities_h2: "Nous desservons 4 villes",
+    footer_copy: "© 2026 Imperial Automations — Systèmes IA pour Entreprises",
+    ticker_items: ["Reputation AI","AI Chatbots","Voice Agents","Web Design","Lead Generation","5-Star Systems","Automatisation 24/7","Booking Systems"]
+  },
+  id: {
+    nav_sub: "Sistem AI untuk Bisnis",
+    nav_cta: "Audit AI Gratis →",
+    hero_label: "Agen Otomasi AI — Yunani",
+    hero_h1: "Kami mengintegrasikan AI ke dalam bisnis Anda<br>untuk booking janji &amp; ulasan<br>24/7 secara otomatis.",
+    hero_subtitle: "Kami menghemat 20+ jam seminggu dan panggilan yang terlewat,<br>tanpa staf tambahan. Jaminan Hasil 100%.",
+    hero_cta: "Pesan Audit AI Gratis 15 Menit →",
+    hero_secondary: "Lihat Layanan Kami ↓",
+    stat1_num: "50+", stat1_label: "Bisnis",
+    stat2_num: "4", stat2_label: "Kota",
+    stat3_num: "3×", stat3_label: "ROI Rata-rata",
+    stat4_num: "100%", stat4_label: "Jaminan",
+    services_label: "Layanan",
+    services_h2: "Empat sistem. Hasil yang terukur.",
+    s1_title: "Sistem Google Ulasan &amp; Reputasi",
+    s1_desc: "Sistem pengumpulan Google Ulasan otomatis yang meningkatkan ulasan Anda dalam 30 hari tanpa mengejar pelanggan secara manual.",
+    s1_guarantee: "🛡 Jika kami tidak mengirim 300+ permintaan ulasan dalam 30 hari → pengembalian dana penuh.",
+    s1_tag: "Reputation AI",
+    s2_title: "Chatbot AI &amp; Generasi Prospek",
+    s2_desc: "Asisten AI yang mengubah pengunjung dari website dan media sosial menjadi percakapan booking berkualitas 24/7 — tanpa staf tambahan.",
+    s2_guarantee: "🛡 Jika 20+ percakapan berkualitas tidak dihasilkan dalam 30 hari → kami bekerja gratis hingga berhasil.",
+    s2_tag: "Conversational AI",
+    s3_title: "Agen Suara AI / Sekretaris Digital",
+    s3_desc: "Sekretaris telepon AI yang menjawab panggilan Anda 24/7, mencatat detail, menjawab pertanyaan, dan membuat janji temu.",
+    s3_guarantee: "🛡 Jika panggilan tidak terjawab tidak berkurang 80% dalam 30 hari → kami lanjutkan gratis.",
+    s3_tag: "Voice AI",
+    s4_title: "Desain Web &amp; Konversi",
+    s4_desc: "Landing page berorientasi konversi dalam 14 hari dengan copy kuat, social proof dan tracking — agar pengunjung tahu persis mengapa memilih Anda.",
+    s4_guarantee: "🛡 Jika tidak terkirim dalam 14 hari → pengembalian dana penuh.",
+    s4_tag: "Digital Products",
+    kpis_label: "Hasil",
+    kpis_h2: "Angka yang berbicara sendiri",
+    kpi1_label: "Peningkatan ulasan Google dalam 60 hari",
+    kpi2_label: "Pengurangan panggilan tidak terjawab",
+    kpi3_label: "Operasi tanpa intervensi manusia",
+    kpi4_label: "Prospek berkualitas/bulan untuk klinik",
+    guarantees_label: "Jaminan",
+    guarantees_h2: "Kami bekerja sampai Anda melihat hasilnya.",
+    g1_title: "Jaminan Hasil",
+    g1_desc: "Jika kami tidak mencapai tujuan yang kami tetapkan bersama, kami melanjutkan secara gratis atau mengembalikan uang Anda.",
+    g2_title: "Jaminan Waktu",
+    g2_desc: "Kami tahu waktu Anda berharga. Setiap pengiriman dilakukan pada tanggal yang kami setujui — atau Anda tidak membayar.",
+    g3_title: "Jaminan Kesederhanaan",
+    g3_desc: "Anda tidak perlu tahu apa-apa tentang teknologi. Kami menyiapkan semuanya dan menyerahkan kepada Anda dalam keadaan siap.",
+    testimonials_h2: "Apa kata klien kami",
+    t1_quote: "Kolaborasi yang sangat baik. Kami membangun bersama website, chatbot, sistem ulasan, dan aplikasinya — semua di tingkat tertinggi. Hasilnya terlihat dari hari pertama.",
+    t1_role: "Dermatologis — Larissa",
+    t1_services: "Website · AI Chatbot · 5-Star System · App",
+    t2_quote: "Sangat puas dengan kolaborasinya. Profesionalisme, hasil, dan respons yang cepat. Saya merekomendasikan mereka tanpa syarat.",
+    t2_role: "CEO — Grup Perusahaan",
+    t2_services: "AI Automation · Lead Generation · Digital Infrastructure",
+    cta_label: "Tempat Terbatas — 2026",
+    cta_h2: "Audit AI Gratis 15 Menit",
+    cta_text: "Dalam 15 menit kami menganalisis bisnis Anda dan memberi tahu Anda sistem AI apa yang Anda butuhkan dan ROI apa yang diharapkan. Tanpa komitmen.",
+    cta_check1: "Analisis reputasi online",
+    cta_check2: "Peta jalan AI untuk bisnis Anda",
+    cta_check3: "Estimasi ROI tanpa komitmen",
+    cta_btn: "Pesan Audit AI Gratis →",
+    contact_label: "Kontak",
+    contact_h2: "Mulai hari ini",
+    form1_title: "Audit AI Gratis",
+    form1_sub: "Pesan audit gratis 15 menit",
+    f1_name: "Nama", f1_name_ph: "Nama Anda",
+    f1_biz: "Nama Bisnis", f1_biz_ph: "mis. Klinik Saya",
+    f1_phone: "Telepon", f1_phone_ph: "+30 69...",
+    f1_email: "Email", f1_email_ph: "email@example.com",
+    f1_msg: "Komentar", f1_msg_ph: "Ceritakan tentang bisnis Anda...",
+    f1_submit: "Pesan Audit AI Gratis →",
+    form2_title: "Pertanyaan Umum",
+    form2_sub: "Kirimkan pesan kepada kami",
+    f2_name: "Nama", f2_name_ph: "Nama Anda",
+    f2_email: "Email", f2_email_ph: "email@example.com",
+    f2_msg: "Pesan", f2_msg_ph: "Tulis pesan Anda...",
+    f2_submit: "Kirim Pesan →",
+    form_error: "Terjadi kesalahan. Silakan coba lagi.",
+    form_success_h: "Terkirim!",
+    form_success_p: "Kami akan segera menghubungi Anda.",
+    cities_h2: "Kami melayani di 4 kota",
+    footer_copy: "© 2026 Imperial Automations — Sistem AI untuk Bisnis",
+    ticker_items: ["Reputation AI","AI Chatbots","Voice Agents","Web Design","Lead Generation","5-Star Systems","Otomasi 24/7","Booking Systems"]
+  }
+};
+
+let currentLang = 'el';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+
+  // Update html lang
+  document.documentElement.lang = lang;
+
+  // Update meta description
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if(metaDesc) metaDesc.content = t.hero_subtitle ? t.hero_subtitle.replace(/<br>/g,' ') : '';
+
+  // Update all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // Update placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if(t[key] !== undefined) el.placeholder = t[key];
+  });
+
+  // Update lang buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().includes(lang));
+  });
+
+  // Update ticker
+  buildTicker(t.ticker_items);
+}
+
+/* ===== TICKER ===== */
+function buildTicker(items) {
+  const track = document.getElementById('ticker-track');
+  // duplicate for seamless loop
+  const doubled = [...items, ...items, ...items, ...items];
+  track.innerHTML = doubled.map(item => `<div class="ticker-item">${item}</div>`).join('');
+}
+
+/* ===== HERO CANVAS ===== */
+function initCanvas() {
+  const canvas = document.getElementById('hero-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H;
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const GRID = 60;
+
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    ctx.strokeStyle = 'rgba(201,168,76,0.035)';
+    ctx.lineWidth = 1;
+
+    // Vertical lines
+    for(let x = 0; x <= W; x += GRID) {
+      ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke();
+    }
+    // Horizontal lines
+    for(let y = 0; y <= H; y += GRID) {
+      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
+    }
+  }
+  draw();
+  window.addEventListener('resize', draw);
+}
+
+/* ===== FLOATING PARTICLES ===== */
+function initParticles() {
+  const container = document.getElementById('hero-particles');
+  if(!container) return;
+
+  const count = 4;
+  for(let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 4 + 3;
+    p.style.cssText = `
+      width:${size}px;height:${size}px;
+      left:${10 + Math.random()*80}%;
+      top:${10 + Math.random()*80}%;
+      animation:drift${i} ${8+Math.random()*6}s ease-in-out infinite;
+      opacity:${0.3 + Math.random()*0.4};
+    `;
+    container.appendChild(p);
+
+    // Inject individual keyframe
+    const dx1 = (Math.random()-0.5)*60;
+    const dy1 = (Math.random()-0.5)*60;
+    const dx2 = (Math.random()-0.5)*60;
+    const dy2 = (Math.random()-0.5)*60;
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes drift${i} {
+        0%,100%{transform:translate(0,0)}
+        33%{transform:translate(${dx1}px,${dy1}px)}
+        66%{transform:translate(${dx2}px,${dy2}px)}
+      }
+    `;
+    document.head.appendChild(style);
+  }
+}
+
+/* ===== CUSTOM CURSOR ===== */
+function initCursor() {
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if(!dot || !ring) return;
+
+  let mx=0, my=0, rx=0, ry=0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx+'px';
+    dot.style.top = my+'px';
+  });
+
+  function animateRing() {
+    rx += (mx-rx)*0.12;
+    ry += (my-ry)*0.12;
+    ring.style.left = rx+'px';
+    ring.style.top = ry+'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a,button,[onclick]').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+}
+
+/* ===== SCROLL REVEAL ===== */
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.1, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el => obs.observe(el));
+}
+
+/* ===== NAV SCROLL ===== */
+function initNav() {
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, {passive:true});
+}
+
+/* ===== SMOOTH SCROLL ===== */
+function scrollTo(selector) {
+  const el = document.querySelector(selector);
+  if(el) el.scrollIntoView({behavior:'smooth'});
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    scrollTo(a.getAttribute('href'));
+  });
+});
+
+/* ===== NUMBER COUNTERS ===== */
+function initCounters() {
+  const counters = document.querySelectorAll('.kpi-num[data-target]');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-target'));
+        const prefix = el.getAttribute('data-prefix') || '';
+        const suffix = el.getAttribute('data-suffix') || '';
+        const duration = 1800;
+        const start = performance.now();
+
+        function update(now) {
+          const progress = Math.min((now-start)/duration, 1);
+          const ease = 1 - Math.pow(1-progress, 3);
+          el.textContent = prefix + Math.round(ease * target) + suffix;
+          if(progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+        obs.unobserve(el);
+      }
+    });
+  }, {threshold:0.5});
+  counters.forEach(el => obs.observe(el));
+}
+
+/* ===== FORMS ===== */
+function initForms() {
+  [['form1','form1-success','form1-error'],
+   ['form2','form2-success','form2-error']].forEach(([fid,sid,eid]) => {
+    const form = document.getElementById(fid);
+    if(!form) return;
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const errEl = document.getElementById(eid);
+      const successEl = document.getElementById(sid);
+      errEl.classList.remove('show');
+      btn.disabled = true;
+      btn.textContent = '...';
+
+      try {
+        const res = await fetch(form.action, {
+          method:'POST',
+          body: new FormData(form),
+          headers:{Accept:'application/json'}
+        });
+        if(res.ok) {
+          form.style.transition = 'opacity 0.4s';
+          form.style.opacity = '0';
+          setTimeout(() => {
+            form.style.display = 'none';
+            successEl.classList.add('show');
+          }, 400);
+        } else {
+          errEl.classList.add('show');
+          btn.disabled = false;
+          btn.setAttribute('data-i18n','f'+fid.slice(-1)+'_submit');
+          setLang(currentLang);
+        }
+      } catch {
+        errEl.classList.add('show');
+        btn.disabled = false;
+        btn.setAttribute('data-i18n','f'+fid.slice(-1)+'_submit');
+        setLang(currentLang);
+      }
+    });
+  });
+}
+
+/* ===== INIT ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  initCanvas();
+  initParticles();
+  initCursor();
+  initReveal();
+  initNav();
+  initCounters();
+  initForms();
+  buildTicker(translations.el.ticker_items);
+  // Trigger reveal for already-visible elements
+  setTimeout(() => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight) el.classList.add('visible');
+    });
+  }, 100);
+});
+</script>
+</body>
+</html>
