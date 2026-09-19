@@ -452,6 +452,12 @@ footer{
   letter-spacing:0.12em;text-transform:uppercase;border:1px solid var(--border);
   padding:0.25rem 0.6rem;border-radius:20px;
 }
+.service-result{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);
+  border-radius:20px;padding:0.35rem 0.8rem;margin-bottom:1rem;
+  font-size:0.82rem;font-weight:700;color:var(--gold);line-height:1.3;
+}
 
 /* ===== CONTACT SINGLE FORM ===== */
 .form-single{max-width:560px;margin:0 auto}
@@ -634,6 +640,7 @@ footer{
       <div class="service-step-body">
         <div class="service-step-title" data-i18n="s1_title">AI Chatbot &amp; Lead Generation</div>
         <div class="service-step-desc" data-i18n="s1_desc">AI assistant που μετατρέπει επισκέπτες από site και social media σε qualified booking conversations 24/7 — χωρίς επιπλέον προσωπικό.</div>
+        <div class="service-result"><span>↑</span><span data-i18n="s1_result">30 νέα ραντεβού τον μήνα</span></div>
         <div class="service-step-guarantee" data-i18n="s1_guarantee">🛡 Αν δεν δημιουργηθούν 20+ qualified conversations σε 30 μέρες → δουλεύουμε δωρεάν μέχρι να το πετύχουμε.</div>
         <span class="service-step-tag" data-i18n="s1_tag">Conversational AI</span>
       </div>
@@ -643,6 +650,7 @@ footer{
       <div class="service-step-body">
         <div class="service-step-title" data-i18n="s2_title">AI Voice Agent / Ψηφιακή Γραμματεία</div>
         <div class="service-step-desc" data-i18n="s2_desc">AI τηλεφωνική γραμματεία που απαντάει στις κλήσεις σου 24/7, κρατάει στοιχεία, απαντάει ερωτήσεις και κλείνει ραντεβού.</div>
+        <div class="service-result"><span>↓</span><span data-i18n="s2_result">-80% χαμένες κλήσεις — σταματάει η «αιμορραγία εσόδων»</span></div>
         <div class="service-step-guarantee" data-i18n="s2_guarantee">🛡 Αν δεν μειωθούν οι αναπάντητες κλήσεις κατά 80% σε 30 μέρες → συνεχίζουμε δωρεάν.</div>
         <span class="service-step-tag" data-i18n="s2_tag">Voice AI</span>
       </div>
@@ -652,6 +660,7 @@ footer{
       <div class="service-step-body">
         <div class="service-step-title" data-i18n="s3_title">Σύστημα Google Reviews &amp; Reputation</div>
         <div class="service-step-desc" data-i18n="s3_desc">Αυτοματοποιημένο σύστημα συλλογής Google Reviews που αυξάνει τις κριτικές σου σε 30 μέρες χωρίς να κυνηγάς πελάτες χειροκίνητα.</div>
+        <div class="service-result"><span>↑</span><span data-i18n="s3_result">100+ 5άστερες κριτικές σε 1 μήνα</span></div>
         <div class="service-step-guarantee" data-i18n="s3_guarantee">🛡 Αν δεν στείλουμε 300+ review requests σε 30 μέρες → πλήρης επιστροφή χρημάτων.</div>
         <span class="service-step-tag" data-i18n="s3_tag">Reputation AI</span>
       </div>
@@ -876,14 +885,17 @@ const translations = {
     s1_desc: "AI assistant που μετατρέπει επισκέπτες από site και social media σε qualified booking conversations 24/7 — χωρίς επιπλέον προσωπικό.",
     s1_guarantee: "🛡 Αν δεν δημιουργηθούν 20+ qualified conversations σε 30 μέρες → δουλεύουμε δωρεάν μέχρι να το πετύχουμε.",
     s1_tag: "Conversational AI",
+    s1_result: "30 νέα ραντεβού τον μήνα",
     s2_title: "AI Voice Agent / Ψηφιακή Γραμματεία",
     s2_desc: "AI τηλεφωνική γραμματεία που απαντάει στις κλήσεις σου 24/7, κρατάει στοιχεία, απαντάει ερωτήσεις και κλείνει ραντεβού.",
     s2_guarantee: "🛡 Αν δεν μειωθούν οι αναπάντητες κλήσεις κατά 80% σε 30 μέρες → συνεχίζουμε δωρεάν.",
     s2_tag: "Voice AI",
+    s2_result: "-80% χαμένες κλήσεις — σταματάει η «αιμορραγία εσόδων»",
     s3_title: "Σύστημα Google Reviews &amp; Reputation",
     s3_desc: "Αυτοματοποιημένο σύστημα συλλογής Google Reviews που αυξάνει τις κριτικές σου σε 30 μέρες χωρίς να κυνηγάς πελάτες χειροκίνητα.",
     s3_guarantee: "🛡 Αν δεν στείλουμε 300+ review requests σε 30 μέρες → πλήρης επιστροφή χρημάτων.",
     s3_tag: "Reputation AI",
+    s3_result: "100+ 5άστερες κριτικές σε 1 μήνα",
     s4_title: "Web Design &amp; Conversion",
     s4_desc: "Conversion-focused landing page σε 14 μέρες με δυνατό copy, social proof και tracking — ώστε οι επισκέπτες να ξέρουν ακριβώς γιατί να σε επιλέξουν.",
     s4_guarantee: "🛡 Αν δεν παραδοθεί σε 14 μέρες → πλήρης επιστροφή χρημάτων.",
@@ -970,14 +982,17 @@ const translations = {
     s1_desc: "AI assistant that converts website and social media visitors into qualified booking conversations 24/7 — without extra staff.",
     s1_guarantee: "🛡 If we don't generate 20+ qualified conversations in 30 days → we work for free until we do.",
     s1_tag: "Conversational AI",
+    s1_result: "30 new appointments per month",
     s2_title: "AI Voice Agent / Digital Secretary",
     s2_desc: "AI phone secretary that answers your calls 24/7, takes details, answers questions and books appointments.",
     s2_guarantee: "🛡 If missed calls don't drop by 80% in 30 days → we continue for free.",
     s2_tag: "Voice AI",
+    s2_result: "-80% missed calls — stops the revenue bleed",
     s3_title: "Google Reviews &amp; Reputation System",
     s3_desc: "Automated Google Reviews collection system that increases your reviews in 30 days without manually chasing customers.",
     s3_guarantee: "🛡 If we don't send 300+ review requests in 30 days → full refund.",
     s3_tag: "Reputation AI",
+    s3_result: "100+ 5-star reviews in 1 month",
     s4_title: "Web Design &amp; Conversion",
     s4_desc: "Conversion-focused landing page in 14 days with strong copy, social proof and tracking — so visitors know exactly why to choose you.",
     s4_guarantee: "🛡 If not delivered in 14 days → full refund.",
@@ -1064,14 +1079,17 @@ const translations = {
     s1_desc: "Assistant IA qui convertit les visiteurs du site et des réseaux sociaux en conversations de réservation qualifiées 24h/24.",
     s1_guarantee: "🛡 Si 20+ conversations qualifiées ne sont pas générées en 30 jours → nous travaillons gratuitement jusqu'à y parvenir.",
     s1_tag: "Conversational AI",
+    s1_result: "30 nouveaux rendez-vous par mois",
     s2_title: "Agent Vocal IA / Secrétaire Numérique",
     s2_desc: "Secrétaire téléphonique IA qui répond à vos appels 24h/24, prend les détails, répond aux questions et réserve des rendez-vous.",
     s2_guarantee: "🛡 Si les appels manqués ne baissent pas de 80% en 30 jours → nous continuons gratuitement.",
     s2_tag: "Voice AI",
+    s2_result: "-80% d'appels manqués — stop aux pertes de revenus",
     s3_title: "Système Google Avis &amp; Réputation",
     s3_desc: "Système automatisé de collecte d'avis Google qui augmente vos avis en 30 jours sans courir après les clients manuellement.",
     s3_guarantee: "🛡 Si nous n'envoyons pas 300+ demandes d'avis en 30 jours → remboursement intégral.",
     s3_tag: "Reputation AI",
+    s3_result: "100+ avis 5 étoiles en 1 mois",
     s4_title: "Web Design &amp; Conversion",
     s4_desc: "Landing page axée conversion en 14 jours avec un copy puissant, preuve sociale et tracking — pour que les visiteurs sachent exactement pourquoi vous choisir.",
     s4_guarantee: "🛡 Si non livré en 14 jours → remboursement intégral.",
@@ -1158,14 +1176,17 @@ const translations = {
     s1_desc: "Asisten AI yang mengubah pengunjung dari website dan media sosial menjadi percakapan booking berkualitas 24/7 — tanpa staf tambahan.",
     s1_guarantee: "🛡 Jika 20+ percakapan berkualitas tidak dihasilkan dalam 30 hari → kami bekerja gratis hingga berhasil.",
     s1_tag: "Conversational AI",
+    s1_result: "30 janji temu baru per bulan",
     s2_title: "Agen Suara AI / Sekretaris Digital",
     s2_desc: "Sekretaris telepon AI yang menjawab panggilan Anda 24/7, mencatat detail, menjawab pertanyaan, dan membuat janji temu.",
     s2_guarantee: "🛡 Jika panggilan tidak terjawab tidak berkurang 80% dalam 30 hari → kami lanjutkan gratis.",
     s2_tag: "Voice AI",
+    s2_result: "-80% panggilan tidak terjawab — hentikan kebocoran pendapatan",
     s3_title: "Sistem Google Ulasan &amp; Reputasi",
     s3_desc: "Sistem pengumpulan Google Ulasan otomatis yang meningkatkan ulasan Anda dalam 30 hari tanpa mengejar pelanggan secara manual.",
     s3_guarantee: "🛡 Jika kami tidak mengirim 300+ permintaan ulasan dalam 30 hari → pengembalian dana penuh.",
     s3_tag: "Reputation AI",
+    s3_result: "100+ ulasan bintang 5 dalam 1 bulan",
     s4_title: "Desain Web &amp; Konversi",
     s4_desc: "Landing page berorientasi konversi dalam 14 hari dengan copy kuat, social proof dan tracking — agar pengunjung tahu persis mengapa memilih Anda.",
     s4_guarantee: "🛡 Jika tidak terkirim dalam 14 hari → pengembalian dana penuh.",
