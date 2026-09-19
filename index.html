@@ -420,53 +420,24 @@ footer{
 }
 .carousel-dot.active{background:var(--gold);transform:scale(1.3)}
 
-/* ===== REVIEWS GRID ===== */
-.reviews-section{background:var(--dark)}
-.reviews-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;max-width:1100px;margin:0 auto;
-}
-.review-card{
-  background:var(--dark2);border:1px solid var(--border);border-radius:12px;
-  padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem;
-  transition:border-color 0.3s,background 0.3s;
-}
-.review-card:hover{background:var(--dark3);border-color:var(--gold)}
-.review-card-top{display:flex;align-items:center;gap:0.75rem}
-.review-avatar{
-  width:40px;height:40px;border-radius:50%;background:var(--gold);
-  display:flex;align-items:center;justify-content:center;
-  font-weight:800;font-size:1rem;color:#08080A;flex-shrink:0;
-}
-.review-author-name{font-weight:700;font-size:0.9rem;line-height:1.2}
-.review-author-sub{font-size:0.72rem;color:var(--text-muted)}
-.review-stars{color:#F9A825;font-size:0.85rem;letter-spacing:0.04em}
-.review-text{font-size:0.85rem;color:var(--text-muted);line-height:1.65;flex:1}
-.review-platform{
-  display:flex;align-items:center;gap:0.4rem;padding-top:0.5rem;
-  border-top:1px solid var(--border);font-size:0.7rem;color:var(--text-muted);
-  letter-spacing:0.06em;
-}
-.review-platform-icon{font-size:0.9rem}
-
 /* ===== NUMBERED SERVICES ===== */
 .services-numbered{
-  display:flex;flex-direction:column;gap:1.5rem;max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:1100px;margin:0 auto;
 }
 .service-step{
-  display:grid;grid-template-columns:120px 1fr;align-items:start;gap:2rem;
   background:var(--dark2);border:1px solid var(--border);border-radius:14px;
-  padding:2rem 2.5rem;position:relative;overflow:hidden;transition:background 0.3s;
+  padding:2rem 2rem 2rem;position:relative;overflow:hidden;transition:background 0.3s;
 }
 .service-step::after{
-  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:var(--gold);transform:scaleY(0);transform-origin:top;
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
   transition:transform 0.35s ease;
 }
 .service-step:hover{background:var(--dark3)}
-.service-step:hover::after{transform:scaleY(1)}
+.service-step:hover::after{transform:scaleX(1)}
 .service-step-num{
-  font-size:3.8rem;font-weight:900;color:var(--gold);line-height:1;
-  font-family:'Outfit',sans-serif;opacity:0.85;
+  font-size:3.2rem;font-weight:900;color:var(--gold);line-height:1;
+  font-family:'Outfit',sans-serif;opacity:0.85;margin-bottom:1rem;
 }
 .service-step-body{}
 .service-step-title{font-size:1.15rem;font-weight:700;margin-bottom:0.6rem;line-height:1.3}
@@ -505,24 +476,19 @@ footer{
   .guarantees-grid{grid-template-columns:1fr}
   .testimonials-grid{grid-template-columns:1fr}
   .forms-grid{grid-template-columns:1fr}
-  .reviews-grid{grid-template-columns:1fr}
+  .services-numbered{grid-template-columns:1fr}
   .carousel-slide{padding:2rem 1.5rem}
   .carousel-slide::before{font-size:4rem;top:1rem;left:1rem}
-  .service-step{grid-template-columns:80px 1fr;gap:1rem;padding:1.5rem}
-  .service-step-num{font-size:2.8rem}
+  .service-step-num{font-size:2.5rem}
   .cities-grid{grid-template-columns:repeat(2,1fr)}
   footer{flex-direction:column;gap:1rem;text-align:center;padding:1.5rem}
   body{cursor:auto}
   #cursor-dot,#cursor-ring{display:none}
 }
-@media(max-width:900px){
-  .reviews-grid{grid-template-columns:repeat(2,1fr)}
-}
 @media(max-width:480px){
   .stats-bar{grid-template-columns:repeat(2,1fr)}
   .kpis-grid{grid-template-columns:1fr;gap:1rem}
   .cta-box{padding:2rem 1.5rem}
-  .reviews-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -618,7 +584,6 @@ footer{
         <div class="carousel-author">
           <div class="carousel-avatar">Ζ</div>
           <div>
-            <div class="carousel-name">Dr. Ζωή Φίκα</div>
             <div class="carousel-role" data-i18n="cr1_role">Δερματολόγος — Θεσσαλονίκη</div>
             <div class="carousel-stars">★★★★★</div>
           </div>
@@ -653,88 +618,6 @@ footer{
       <button class="carousel-dot active" onclick="goSlide(0)"></button>
       <button class="carousel-dot" onclick="goSlide(1)"></button>
       <button class="carousel-dot" onclick="goSlide(2)"></button>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS GRID -->
-<section class="reviews-section" id="reviews">
-  <div class="section-center">
-    <div class="section-label reveal" data-i18n="reviews_label">Google Reviews</div>
-    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="reviews_h2">Γραπτές Κριτικές</h2>
-  </div>
-  <div class="reviews-grid">
-    <div class="review-card reveal reveal-delay-1">
-      <div class="review-card-top">
-        <div class="review-avatar">Ζ</div>
-        <div>
-          <div class="review-author-name">Ζωή Φ.</div>
-          <div class="review-author-sub">6 μήνες πριν</div>
-        </div>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-i18n="rv1_text">Εξαιρετική δουλειά! Το chatbot που έφτιαξαν απαντάει σε κάθε απορία των ασθενών μου 24/7. Οι κρατήσεις αυξήθηκαν αισθητά από τον πρώτο μήνα.</p>
-      <div class="review-platform"><span class="review-platform-icon">G</span> Google Review</div>
-    </div>
-    <div class="review-card reveal reveal-delay-2">
-      <div class="review-card-top">
-        <div class="review-avatar">Μ</div>
-        <div>
-          <div class="review-author-name">Μιχάλης Τ.</div>
-          <div class="review-author-sub">4 μήνες πριν</div>
-        </div>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-i18n="rv2_text">Το σύστημα Google Reviews λειτουργεί μαγικά. Σε 30 μέρες πήραμε 80+ νέες κριτικές χωρίς να κάνουμε τίποτα. Ανεκτίμητο για την online φήμη μας.</p>
-      <div class="review-platform"><span class="review-platform-icon">G</span> Google Review</div>
-    </div>
-    <div class="review-card reveal reveal-delay-3">
-      <div class="review-card-top">
-        <div class="review-avatar">Ε</div>
-        <div>
-          <div class="review-author-name">Ελένη Κ.</div>
-          <div class="review-author-sub">2 μήνες πριν</div>
-        </div>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-i18n="rv3_text">Η ιστοσελίδα που έφτιαξαν είναι απλά εκπληκτική. Σχεδιασμός που μετατρέπει επισκέπτες σε πελάτες. ROI από τον πρώτο μήνα.</p>
-      <div class="review-platform"><span class="review-platform-icon">G</span> Google Review</div>
-    </div>
-    <div class="review-card reveal reveal-delay-1">
-      <div class="review-card-top">
-        <div class="review-avatar">Ν</div>
-        <div>
-          <div class="review-author-name">Νίκος Α.</div>
-          <div class="review-author-sub">3 μήνες πριν</div>
-        </div>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-i18n="rv4_text">Το Voice Agent είναι σαν να έχω έναν γραμματέα που δουλεύει 24/7. Απαντάει στις κλήσεις, κρατάει ραντεβού και δεν κάνει ποτέ λάθος.</p>
-      <div class="review-platform"><span class="review-platform-icon">G</span> Google Review</div>
-    </div>
-    <div class="review-card reveal reveal-delay-2">
-      <div class="review-card-top">
-        <div class="review-avatar">Σ</div>
-        <div>
-          <div class="review-author-name">Σοφία Π.</div>
-          <div class="review-author-sub">5 μήνες πριν</div>
-        </div>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-i18n="rv5_text">Πριν δούλευα 12+ ώρες τη μέρα με follow-ups και κρατήσεις. Τώρα τα automations κάνουν τα πάντα αυτόματα. Ανακάλυψα ξανά τον ελεύθερο χρόνο μου!</p>
-      <div class="review-platform"><span class="review-platform-icon">G</span> Google Review</div>
-    </div>
-    <div class="review-card reveal reveal-delay-3">
-      <div class="review-card-top">
-        <div class="review-avatar">Γ</div>
-        <div>
-          <div class="review-author-name">Γιώργης Β.</div>
-          <div class="review-author-sub">1 μήνα πριν</div>
-        </div>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-i18n="rv6_text">Απίστευτη ομάδα. Ξέρουν τι κάνουν, είναι πάντα διαθέσιμοι και τα αποτελέσματα μιλούν από μόνα τους. Σύσταση χωρίς δεύτερη σκέψη.</p>
-      <div class="review-platform"><span class="review-platform-icon">G</span> Google Review</div>
     </div>
   </div>
 </section>
@@ -987,14 +870,6 @@ const translations = {
     cr2_role: "CEO — Εταιρικός Όμιλος",
     cr3_quote: "Το AI Voice Agent άλλαξε εντελώς τον τρόπο που λειτουργεί η κλινική μας. Μηδέν αναπάντητες κλήσεις, περισσότερα ραντεβού, χωρίς επιπλέον προσωπικό.",
     cr3_role: "Ορθοπεδικός — Αθήνα",
-    reviews_label: "Google Reviews",
-    reviews_h2: "Γραπτές Κριτικές",
-    rv1_text: "Εξαιρετική δουλειά! Το chatbot που έφτιαξαν απαντάει σε κάθε απορία των ασθενών μου 24/7. Οι κρατήσεις αυξήθηκαν αισθητά από τον πρώτο μήνα.",
-    rv2_text: "Το σύστημα Google Reviews λειτουργεί μαγικά. Σε 30 μέρες πήραμε 80+ νέες κριτικές χωρίς να κάνουμε τίποτα. Ανεκτίμητο για την online φήμη μας.",
-    rv3_text: "Η ιστοσελίδα που έφτιαξαν είναι απλά εκπληκτική. Σχεδιασμός που μετατρέπει επισκέπτες σε πελάτες. ROI από τον πρώτο μήνα.",
-    rv4_text: "Το Voice Agent είναι σαν να έχω έναν γραμματέα που δουλεύει 24/7. Απαντάει στις κλήσεις, κρατάει ραντεβού και δεν κάνει ποτέ λάθος.",
-    rv5_text: "Πριν δούλευα 12+ ώρες τη μέρα με follow-ups και κρατήσεις. Τώρα τα automations κάνουν τα πάντα αυτόματα. Ανακάλυψα ξανά τον ελεύθερο χρόνο μου!",
-    rv6_text: "Απίστευτη ομάδα. Ξέρουν τι κάνουν, είναι πάντα διαθέσιμοι και τα αποτελέσματα μιλούν από μόνα τους. Σύσταση χωρίς δεύτερη σκέψη.",
     services_label: "Υπηρεσίες",
     services_h2: "Πέντε συστήματα. Μετρήσιμα αποτελέσματα.",
     s1_title: "AI Chatbot &amp; Lead Generation",
@@ -1089,14 +964,6 @@ const translations = {
     cr2_role: "CEO — Corporate Group",
     cr3_quote: "The AI Voice Agent completely changed how our clinic operates. Zero missed calls, more appointments, without extra staff.",
     cr3_role: "Orthopaedic Surgeon — Athens",
-    reviews_label: "Google Reviews",
-    reviews_h2: "Written Reviews",
-    rv1_text: "Exceptional work! The chatbot they built answers every patient query 24/7. Bookings increased noticeably from the first month.",
-    rv2_text: "The Google Reviews system works like magic. In 30 days we got 80+ new reviews without doing anything. Invaluable for our online reputation.",
-    rv3_text: "The website they built is simply amazing. Design that converts visitors into clients. ROI from the first month.",
-    rv4_text: "The Voice Agent is like having a secretary who works 24/7. Answers calls, books appointments and never makes a mistake.",
-    rv5_text: "I used to work 12+ hours a day on follow-ups and bookings. Now the automations do everything automatically. I rediscovered free time!",
-    rv6_text: "Incredible team. They know what they're doing, are always available and the results speak for themselves. Recommendation without a second thought.",
     services_label: "Services",
     services_h2: "Five systems. Measurable results.",
     s1_title: "AI Chatbot &amp; Lead Generation",
@@ -1191,14 +1058,6 @@ const translations = {
     cr2_role: "PDG — Groupe d'Entreprises",
     cr3_quote: "L'Agent Vocal IA a complètement changé le fonctionnement de notre clinique. Zéro appel manqué, plus de rendez-vous, sans personnel supplémentaire.",
     cr3_role: "Chirurgien orthopédique — Athènes",
-    reviews_label: "Google Avis",
-    reviews_h2: "Avis Écrits",
-    rv1_text: "Travail exceptionnel ! Le chatbot qu'ils ont créé répond à chaque question de mes patients 24h/24. Les réservations ont augmenté notablement dès le premier mois.",
-    rv2_text: "Le système Google Avis fonctionne à merveille. En 30 jours nous avons obtenu 80+ nouveaux avis sans rien faire. Inestimable pour notre réputation en ligne.",
-    rv3_text: "Le site qu'ils ont créé est tout simplement incroyable. Un design qui convertit les visiteurs en clients. ROI dès le premier mois.",
-    rv4_text: "L'Agent Vocal c'est comme avoir une secrétaire qui travaille 24h/24. Répond aux appels, prend les rendez-vous et ne fait jamais d'erreur.",
-    rv5_text: "Avant je travaillais 12+ heures par jour sur les suivis et les réservations. Maintenant les automatisations font tout automatiquement. J'ai retrouvé du temps libre!",
-    rv6_text: "Équipe incroyable. Ils savent ce qu'ils font, sont toujours disponibles et les résultats parlent d'eux-mêmes. Recommandation sans hésitation.",
     services_label: "Services",
     services_h2: "Cinq systèmes. Des résultats mesurables.",
     s1_title: "Chatbot IA &amp; Génération de Leads",
@@ -1293,14 +1152,6 @@ const translations = {
     cr2_role: "CEO — Grup Perusahaan",
     cr3_quote: "Agen Suara AI benar-benar mengubah cara klinik kami beroperasi. Nol panggilan tidak terjawab, lebih banyak janji temu, tanpa staf tambahan.",
     cr3_role: "Ahli bedah ortopedi — Athena",
-    reviews_label: "Google Ulasan",
-    reviews_h2: "Ulasan Tertulis",
-    rv1_text: "Pekerjaan luar biasa! Chatbot yang mereka buat menjawab setiap pertanyaan pasien saya 24/7. Pemesanan meningkat nyata sejak bulan pertama.",
-    rv2_text: "Sistem Google Ulasan bekerja seperti keajaiban. Dalam 30 hari kami mendapat 80+ ulasan baru tanpa melakukan apa pun. Tak ternilai untuk reputasi online kami.",
-    rv3_text: "Website yang mereka buat sungguh menakjubkan. Desain yang mengubah pengunjung menjadi klien. ROI sejak bulan pertama.",
-    rv4_text: "Voice Agent seperti memiliki sekretaris yang bekerja 24/7. Menjawab telepon, membuat janji temu, dan tidak pernah membuat kesalahan.",
-    rv5_text: "Dulu saya bekerja 12+ jam sehari untuk follow-up dan pemesanan. Sekarang otomasi melakukan semuanya secara otomatis. Saya menemukan kembali waktu luang!",
-    rv6_text: "Tim yang luar biasa. Mereka tahu apa yang mereka lakukan, selalu tersedia, dan hasilnya berbicara sendiri. Rekomendasi tanpa pikir dua kali.",
     services_label: "Layanan",
     services_h2: "Lima sistem. Hasil yang terukur.",
     s1_title: "Chatbot AI &amp; Generasi Prospek",
