@@ -245,34 +245,36 @@ section{padding:6rem 3rem}
 .guarantee-title{font-size:1rem;font-weight:700;margin-bottom:0.75rem;color:var(--gold)}
 .guarantee-desc{font-size:0.85rem;color:var(--text-muted);line-height:1.7}
 
-/* ===== ROTATING TAGLINE ===== */
-.hero-rotate-wrap{height:1.6rem;overflow:hidden;margin-bottom:0.75rem}
-.hero-rotate{
-  display:flex;flex-direction:column;
-  animation:rotateSlide 9s infinite;
+/* ===== HERO ROTATING H1 WORD ===== */
+.hero-rotate-inner{
+  color:var(--gold-light);display:inline;
+  transition:opacity 0.35s ease,transform 0.35s ease;
+  display:inline-block;
 }
-.hero-rotate span{
-  height:1.6rem;line-height:1.6rem;font-size:0.78rem;font-weight:600;
-  color:var(--gold-light);letter-spacing:0.15em;text-transform:uppercase;
-  flex-shrink:0;
-}
-@keyframes rotateSlide{
-  0%,25%{transform:translateY(0)}
-  33%,58%{transform:translateY(-1.6rem)}
-  66%,91%{transform:translateY(-3.2rem)}
-  100%{transform:translateY(0)}
-}
+.hero-rotate-inner.fading{opacity:0;transform:translateY(-10px)}
 
 /* ===== SERVICE FEATURE BULLET ===== */
 .service-feature-bullet{font-size:0.82rem;color:var(--gold-light);margin-bottom:0.75rem;line-height:1.5}
 
 /* ===== GREECE MAP ===== */
-.greece-map-wrap{max-width:560px;margin:3rem auto 0}
-.greece-map-svg{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--border)}
-.map-pulse{animation:mapPulse 2.5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.map-pulse-2{animation:mapPulse2 2.5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-@keyframes mapPulse{0%,100%{opacity:0.15;transform:scale(1)}50%{opacity:0.4;transform:scale(1.4)}}
-@keyframes mapPulse2{0%,100%{opacity:0.3;transform:scale(1)}50%{opacity:0.7;transform:scale(1.1)}}
+.greece-map-wrap{max-width:560px;margin:3rem auto 0;position:relative}
+.greece-map-img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--border);min-height:260px;background:rgba(201,168,76,0.04)}
+.map-pin{
+  position:absolute;width:16px;height:16px;border-radius:50%;
+  background:var(--gold);transform:translate(-50%,-50%);
+  animation:mapPulse2 2.5s ease-in-out infinite;cursor:default;
+}
+.map-pin::before{
+  content:'';position:absolute;inset:-6px;border-radius:50%;
+  background:rgba(201,168,76,0.25);animation:mapPulse 2.5s ease-in-out infinite;
+}
+@keyframes mapPulse{0%,100%{opacity:0.15;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
+@keyframes mapPulse2{0%,100%{opacity:0.7;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}}
+
+/* ===== CONTACT HERO ===== */
+.contact-intro{display:flex;align-items:center;gap:2.5rem;max-width:760px;margin:0 auto 3rem;flex-wrap:wrap}
+.contact-intro-img{width:180px;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--border);flex-shrink:0;background:rgba(201,168,76,0.06)}
+.contact-intro-text{flex:1;min-width:200px}
 
 /* ===== CTA SECTION ===== */
 .cta-section{padding:5rem 3rem}
@@ -428,7 +430,7 @@ footer{
 }
 .service-step{
   background:var(--dark2);border:1px solid var(--border);border-radius:14px;
-  padding:2rem 2rem 2rem;position:relative;overflow:hidden;transition:background 0.3s;
+  padding:2.5rem;position:relative;overflow:hidden;transition:background 0.3s;
 }
 .service-step::after{
   content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
@@ -442,8 +444,8 @@ footer{
   font-family:'Outfit',sans-serif;opacity:0.85;margin-bottom:1rem;
 }
 .service-step-body{}
-.service-step-title{font-size:1.15rem;font-weight:700;margin-bottom:0.6rem;line-height:1.3}
-.service-step-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin-bottom:1rem}
+.service-step-title{font-size:1.15rem;font-weight:700;margin-bottom:1rem;line-height:1.3}
+.service-step-desc{font-size:0.85rem;color:var(--text-muted);line-height:1.9;margin-bottom:1.4rem}
 .service-step-guarantee{
   font-size:0.78rem;color:var(--text-muted);background:rgba(201,168,76,0.06);
   border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;
@@ -526,18 +528,11 @@ footer{
   <!-- Left: text content -->
   <div class="hero-left">
     <div class="hero-content">
-      <div class="hero-rotate-wrap">
-        <div class="hero-rotate">
-          <span>AI Chatbots · Voice Agents · Google Reviews</span>
-          <span>Αυτόματα Συστήματα για Ελληνικές Επιχειρήσεις</span>
-          <span>30 νέα ραντεβού τον μήνα · 24/7 · 100% Εγγύηση</span>
-        </div>
-      </div>
       <div class="hero-label reveal" data-i18n="hero_label">AI Automation Agency — Greece</div>
-      <h1 class="hero-h1 reveal reveal-delay-1" data-i18n="hero_h1">
-        Ενσωματώνουμε το AI στην επιχείρησή σου<br>
-        για να κλείνεις ραντεβού &amp; reviews<br>
-        24/7 στον αυτόματο.
+      <h1 class="hero-h1 reveal reveal-delay-1">
+        <span data-i18n="hero_h1_prefix">Σας φέρνουμε</span><br>
+        <span class="hero-rotate-inner">100 5άστερες κριτικές σε 30 μέρες</span><br>
+        <span data-i18n="hero_h1_suffix">με AI automation.</span>
       </h1>
       <p class="hero-subtitle reveal reveal-delay-2" data-i18n="hero_subtitle">
         Σου γλιτώνουμε 20+ ώρες τη βδομάδα και χαμένες κλήσεις,<br>
@@ -604,9 +599,10 @@ footer{
       <div class="carousel-slide">
         <p class="carousel-quote" data-i18n="cr2_quote">Φτιάξαμε όλα τα websites από την αρχή — όλα επαγγελματικά και γρήγορα. Φέραμε 25 5άστερες κριτικές μέσα σε μία εβδομάδα. Τον προτείνω 100%!</p>
         <div class="carousel-author">
-          <div class="carousel-avatar">Ε</div>
+          <div class="carousel-avatar">Ν</div>
           <div>
-            <div class="carousel-role" data-i18n="cr2_role">Επιχειρηματίας — Όμιλος Επιχειρήσεων</div>
+            <div class="carousel-name" data-i18n="cr2_name">Νίκος Τσερκεζίδης</div>
+            <div class="carousel-role" data-i18n="cr2_role">Επιχειρηματίας</div>
             <div class="carousel-stars">★★★★★</div>
           </div>
         </div>
@@ -642,7 +638,7 @@ footer{
       <div class="service-step-num">01</div>
       <div class="service-step-body">
         <div class="service-step-title" data-i18n="s1_title">AI Chatbot &amp; Lead Generation</div>
-        <div class="service-step-desc" data-i18n="s1_desc">Σου φέρνουμε τριπλάσια νέα leads με έναν AI Assistant που μετατρέπει επισκέπτες του site σε πελάτες, 24/7.</div>
+        <div class="service-step-desc" data-i18n="s1_desc">Σου φέρνουμε 30 νέα ραντεβού τον μήνα με ένα AI chatbot που μετατρέπει τους επισκέπτες του site σε πελάτες 24/7, κάνοντας και όλη την εξυπηρέτηση πελατών.</div>
         <div class="service-result"><span>↑</span><span data-i18n="s1_result">30 νέα ραντεβού τον μήνα</span></div>
         <div class="service-step-guarantee" data-i18n="s1_guarantee">🛡 Αν δεν δημιουργηθούν 20+ qualified conversations σε 30 μέρες → δουλεύουμε δωρεάν μέχρι να το πετύχουμε.</div>
         <span class="service-step-tag" data-i18n="s1_tag">Conversational AI</span>
@@ -720,7 +716,7 @@ footer{
 <section class="cities-section light-section">
   <div class="section-center">
     <h2 class="section-h2 reveal" data-i18n="cities_h2">Εξυπηρετούμε σε όλη την Ελλάδα</h2>
-    <p class="cities-subtitle reveal reveal-delay-1" data-i18n="cities_subtitle">Με έδρα την Αθήνα, δουλεύουμε με επιχειρήσεις σε Αθήνα, Θεσσαλονίκη, Κρήτη και όλη την Ελλάδα.</p>
+    <p class="cities-subtitle reveal reveal-delay-1" data-i18n="cities_subtitle">Με έδρα την Αθήνα, εξυπηρετούμε επιχειρήσεις σε όλη την Ελλάδα.</p>
   </div>
   <div class="cities-grid">
     <div class="city-card reveal reveal-delay-1">
@@ -741,71 +737,16 @@ footer{
     </div>
   </div>
 
-  <!-- Greece Night Map -->
+  <!-- Greece Map (placeholder — replace src with real night-map image) -->
+  <!-- TODO: replace src with real map image -->
   <div class="greece-map-wrap reveal" style="margin-top:3rem">
-    <svg viewBox="0 0 520 480" xmlns="http://www.w3.org/2000/svg" class="greece-map-svg" aria-hidden="true">
-      <defs>
-        <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#0a0e1a"/>
-          <stop offset="100%" stop-color="#050710"/>
-        </radialGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="3" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-        <filter id="mapglow">
-          <feGaussianBlur stdDeviation="1.5" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-      <!-- Background -->
-      <rect width="520" height="480" fill="url(#bgGrad)" rx="12"/>
-      <!-- Subtle grid lines -->
-      <g stroke="rgba(201,168,76,0.05)" stroke-width="0.5">
-        <line x1="0" y1="120" x2="520" y2="120"/>
-        <line x1="0" y1="240" x2="520" y2="240"/>
-        <line x1="0" y1="360" x2="520" y2="360"/>
-        <line x1="130" y1="0" x2="130" y2="480"/>
-        <line x1="260" y1="0" x2="260" y2="480"/>
-        <line x1="390" y1="0" x2="390" y2="480"/>
-      </g>
-      <!-- Mainland Greece simplified contour -->
-      <path d="M 195 60 L 210 55 L 230 60 L 248 70 L 265 68 L 278 75 L 285 88 L 290 102 L 298 115 L 305 128 L 310 142 L 308 158 L 315 168 L 320 180 L 318 192 L 312 200 L 320 212 L 325 225 L 322 238 L 315 248 L 305 255 L 295 262 L 285 268 L 275 278 L 265 285 L 258 292 L 250 302 L 248 315 L 242 325 L 235 330 L 228 325 L 222 315 L 218 305 L 215 295 L 210 285 L 202 278 L 195 270 L 188 262 L 180 255 L 172 248 L 165 240 L 160 228 L 155 215 L 152 202 L 150 188 L 148 175 L 145 162 L 142 150 L 138 138 L 135 125 L 138 112 L 145 100 L 155 88 L 165 78 L 178 68 L 190 62 Z"
-        fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.55)" stroke-width="1.5" filter="url(#mapglow)"/>
-      <!-- Peloponnese -->
-      <path d="M 200 268 L 215 265 L 228 268 L 238 278 L 245 290 L 248 305 L 245 318 L 238 328 L 228 332 L 218 330 L 210 322 L 205 312 L 200 300 L 196 288 L 195 275 Z"
-        fill="rgba(201,168,76,0.07)" stroke="rgba(201,168,76,0.45)" stroke-width="1.2" filter="url(#mapglow)"/>
-      <!-- Crete island -->
-      <path d="M 120 390 L 140 382 L 162 378 L 185 376 L 208 378 L 228 382 L 245 388 L 255 395 L 248 402 L 228 408 L 205 412 L 180 414 L 158 412 L 138 408 L 122 400 Z"
-        fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.5)" stroke-width="1.2" filter="url(#mapglow)"/>
-      <!-- Rhodes island -->
-      <path d="M 370 280 L 382 276 L 390 282 L 388 295 L 378 300 L 368 296 Z"
-        fill="rgba(201,168,76,0.07)" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
-      <!-- Corfu -->
-      <path d="M 135 108 L 142 104 L 148 110 L 145 120 L 138 122 L 132 116 Z"
-        fill="rgba(201,168,76,0.07)" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
-      <!-- Lesvos -->
-      <path d="M 328 118 L 342 114 L 352 120 L 350 132 L 338 136 L 326 130 Z"
-        fill="rgba(201,168,76,0.07)" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
-
-      <!-- City markers with pulse animation -->
-      <!-- Athens ~(248,255) -->
-      <circle cx="248" cy="255" r="10" fill="rgba(201,168,76,0.1)" class="map-pulse"/>
-      <circle cx="248" cy="255" r="5" fill="rgba(232,201,122,0.3)" class="map-pulse-2"/>
-      <circle cx="248" cy="255" r="3" fill="#E8C97A" filter="url(#glow)"/>
-      <!-- Thessaloniki ~(255,120) -->
-      <circle cx="255" cy="120" r="10" fill="rgba(201,168,76,0.1)" class="map-pulse" style="animation-delay:0.5s"/>
-      <circle cx="255" cy="120" r="5" fill="rgba(232,201,122,0.3)" class="map-pulse-2" style="animation-delay:0.5s"/>
-      <circle cx="255" cy="120" r="3" fill="#E8C97A" filter="url(#glow)"/>
-      <!-- Larissa ~(248,175) -->
-      <circle cx="248" cy="175" r="8" fill="rgba(201,168,76,0.1)" class="map-pulse" style="animation-delay:1s"/>
-      <circle cx="248" cy="175" r="4" fill="rgba(232,201,122,0.3)" class="map-pulse-2" style="animation-delay:1s"/>
-      <circle cx="248" cy="175" r="2.5" fill="#E8C97A" filter="url(#glow)"/>
-      <!-- Crete ~(188,394) -->
-      <circle cx="188" cy="394" r="8" fill="rgba(201,168,76,0.1)" class="map-pulse" style="animation-delay:1.5s"/>
-      <circle cx="188" cy="394" r="4" fill="rgba(232,201,122,0.3)" class="map-pulse-2" style="animation-delay:1.5s"/>
-      <circle cx="188" cy="394" r="2.5" fill="#E8C97A" filter="url(#glow)"/>
-    </svg>
+    <img src="/images/greece-map-placeholder.png" alt="Χάρτης Ελλάδας" class="greece-map-img"
+         onerror="this.style.background='rgba(201,168,76,0.04)';this.alt=''">
+    <!-- Pulsing gold city pins — positions are % of image dimensions -->
+    <div class="map-pin" style="top:54%;left:50%" title="Αθήνα"></div>
+    <div class="map-pin" style="top:22%;left:48%;animation-delay:0.5s" title="Θεσσαλονίκη"></div>
+    <div class="map-pin" style="top:37%;left:47%;animation-delay:1s" title="Λάρισα"></div>
+    <div class="map-pin" style="top:83%;left:37%;animation-delay:1.5s" title="Κρήτη"></div>
   </div>
 </section>
 
@@ -834,27 +775,17 @@ footer{
   </div>
 </section>
 
-<!-- CTA BOX -->
-<section class="cta-section">
-  <div class="cta-box reveal">
-    <div class="cta-label" data-i18n="cta_label">Περιορισμένες Θέσεις — 2026</div>
-    <h2 class="cta-h2" data-i18n="cta_h2">Δωρεάν 15λεπτο AI Audit</h2>
-    <p class="cta-text" data-i18n="cta_text">Σε 15 λεπτά αναλύουμε την επιχείρησή σου και σου λέμε ακριβώς ποια AI συστήματα χρειάζεσαι και τι ROI να περιμένεις. Χωρίς δεσμεύσεις.</p>
-    <div class="cta-checks">
-      <div class="cta-check"><span>✓</span><span data-i18n="cta_check1">Ανάλυση online φήμης</span></div>
-      <div class="cta-check"><span>✓</span><span data-i18n="cta_check2">AI roadmap για την επιχείρησή σου</span></div>
-      <div class="cta-check"><span>✓</span><span data-i18n="cta_check3">Εκτίμηση ROI χωρίς δέσμευση</span></div>
-    </div>
-    <button class="btn-primary" onclick="scrollTo('#contact')" data-i18n="cta_btn">Κλείσε Δωρεάν AI Audit →</button>
-  </div>
-</section>
-
 <!-- CONTACT FORMS -->
 <section id="contact" style="background:var(--dark2);border-top:1px solid var(--border)">
-  <div class="section-center">
-    <div class="section-label reveal" data-i18n="contact_label">Επικοινωνία</div>
-    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="contact_h2">Πώς ξεκινάμε</h2>
-    <p class="section-subtitle reveal reveal-delay-2" data-i18n="contact_sub" style="font-size:0.95rem;color:var(--text-muted);margin-top:-1.5rem;margin-bottom:1rem">Συμπλήρωσε τη φόρμα και θα έρθουμε σε επικοινωνία μαζί σου μέσα σε 24 ώρες.</p>
+  <div class="contact-intro">
+    <!-- TODO: replace src with real photo of the team/person -->
+    <img src="/images/cta-photo-placeholder.jpg" alt="CB Automations" class="contact-intro-img"
+         onerror="this.style.display='none'">
+    <div class="contact-intro-text">
+      <div class="section-label" data-i18n="contact_label">Επικοινωνία</div>
+      <h2 class="section-h2 reveal" data-i18n="contact_h2" style="margin-bottom:1rem">Πώς ξεκινάμε;</h2>
+      <p style="font-size:0.95rem;color:var(--text-muted);line-height:1.7" data-i18n="contact_sub">Συμπλήρωσε τη φόρμα και ένα μέλος της ομάδας μας θα έρθει σε επικοινωνία μαζί σου μέσα σε 24 ώρες.</p>
+    </div>
   </div>
   <div class="form-single">
     <!-- Form 1 — AI Audit -->
@@ -884,7 +815,7 @@ footer{
             <label data-i18n="f1_msg">Σχόλια</label>
             <textarea name="message" data-i18n-placeholder="f1_msg_ph"></textarea>
           </div>
-          <button type="submit" class="btn-form" data-i18n="f1_submit">Κλείσε Δωρεάν AI Audit →</button>
+          <button type="submit" class="btn-form" data-i18n="f1_submit">Ενδιαφέρομαι!</button>
           <div class="form-error" id="form1-error" data-i18n="form_error">Κάτι πήγε στραβά. Δοκίμασε ξανά.</div>
         </form>
         <div class="form-success" id="form1-success">
@@ -913,7 +844,9 @@ const translations = {
     nav_sub: "AI Systems for Business",
     nav_cta: "Δωρεάν AI Audit →",
     hero_label: "AI Automation Agency — Greece",
-    hero_h1: "Ενσωματώνουμε το AI στην επιχείρησή σου<br>για να κλείνεις ραντεβού &amp; reviews<br>24/7 στον αυτόματο.",
+    hero_h1_prefix: "Σας φέρνουμε",
+    hero_h1_suffix: "με AI automation.",
+    hero_h1_words: ["100 5άστερες κριτικές σε 30 μέρες","20 νέα ραντεβού σε 30 μέρες","1.000€ πίσω από χαμένες κλήσεις σε 30 μέρες"],
     hero_subtitle: "Σου γλιτώνουμε 20+ ώρες τη βδομάδα και χαμένες κλήσεις,<br>χωρίς επιπλέον προσωπικό. 100% Εγγύηση Αποτελέσματος.",
     hero_cta: "Κλείσε Δωρεάν 15λεπτο AI Audit →",
     hero_secondary: "Δες τις Υπηρεσίες ↓",
@@ -926,13 +859,14 @@ const translations = {
     cr1_quote: "Φέραμε με τον Ψηφιακό Γραμματέα 78 νέα ραντεβού τον πρώτο μήνα, άλλα 45 τον δεύτερο μήνα, και μας έχει σώσει άπειρες ώρες από χειροκίνητα μηνύματα. Απίστευτο — αποτελέσματα από την πρώτη μέρα.",
     cr1_role: "Δερματολόγος — Θεσσαλονίκη",
     cr2_quote: "Φτιάξαμε όλα τα websites από την αρχή — όλα επαγγελματικά και γρήγορα. Φέραμε 25 5άστερες κριτικές μέσα σε μία εβδομάδα. Τον προτείνω 100%!",
-    cr2_role: "Επιχειρηματίας — Όμιλος Επιχειρήσεων",
+    cr2_name: "Νίκος Τσερκεζίδης",
+    cr2_role: "Επιχειρηματίας",
     cr3_quote: "Δεν χάνουμε πλέον κλήσεις και έχουμε περισσότερα ραντεβού, χωρίς επιπλέον προσωπικό.",
     cr3_role: "Ιδιοκτήτης Επιχείρησης",
     services_label: "Υπηρεσίες",
     services_h2: "Πέντε συστήματα. Μετρήσιμα αποτελέσματα.",
     s1_title: "AI Chatbot &amp; Lead Generation",
-    s1_desc: "Σου φέρνουμε τριπλάσια νέα leads με έναν AI Assistant που μετατρέπει επισκέπτες του site σε πελάτες, 24/7.",
+    s1_desc: "Σου φέρνουμε 30 νέα ραντεβού τον μήνα με ένα AI chatbot που μετατρέπει τους επισκέπτες του site σε πελάτες 24/7, κάνοντας και όλη την εξυπηρέτηση πελατών.",
     s1_guarantee: "🛡 Αν δεν δημιουργηθούν 20+ qualified conversations σε 30 μέρες → δουλεύουμε δωρεάν μέχρι να το πετύχουμε.",
     s1_tag: "Conversational AI",
     s1_result: "30 νέα ραντεβού τον μήνα",
@@ -977,8 +911,6 @@ const translations = {
     cta_check3: "Εκτίμηση ROI χωρίς δέσμευση",
     cta_btn: "Κλείσε Δωρεάν AI Audit →",
     contact_label: "Επικοινωνία",
-    contact_h2: "Πώς ξεκινάμε",
-    contact_sub: "Συμπλήρωσε τη φόρμα και θα έρθουμε σε επικοινωνία μαζί σου μέσα σε 24 ώρες.",
     form1_title: "Δωρεάν AI Audit",
     form1_sub: "Κλείσε 15λεπτο δωρεάν audit",
     f1_name: "Όνομα", f1_name_ph: "Το όνομά σου",
@@ -986,7 +918,6 @@ const translations = {
     f1_phone: "Τηλέφωνο", f1_phone_ph: "+30 69...",
     f1_email: "Email", f1_email_ph: "email@example.com",
     f1_msg: "Σχόλια", f1_msg_ph: "Πες μας για την επιχείρησή σου...",
-    f1_submit: "Κλείσε Δωρεάν AI Audit →",
     form2_title: "Γενικές Ερωτήσεις",
     form2_sub: "Στείλε μας μήνυμα",
     f2_name: "Όνομα", f2_name_ph: "Το όνομά σου",
@@ -997,7 +928,10 @@ const translations = {
     form_success_h: "Εστάλη!",
     form_success_p: "Θα επικοινωνήσουμε μαζί σου σύντομα.",
     cities_h2: "Εξυπηρετούμε σε όλη την Ελλάδα",
-    cities_subtitle: "Με έδρα την Αθήνα, δουλεύουμε με επιχειρήσεις σε Αθήνα, Θεσσαλονίκη, Κρήτη και όλη την Ελλάδα.",
+    cities_subtitle: "Με έδρα την Αθήνα, εξυπηρετούμε επιχειρήσεις σε όλη την Ελλάδα.",
+    contact_h2: "Πώς ξεκινάμε;",
+    contact_sub: "Συμπλήρωσε τη φόρμα και ένα μέλος της ομάδας μας θα έρθει σε επικοινωνία μαζί σου μέσα σε 24 ώρες.",
+    f1_submit: "Ενδιαφέρομαι!",
     footer_copy: "© 2026 CB Automations — AI Systems for Business",
     ticker_items: ["Reputation AI","AI Chatbots","Voice Agents","Web Design","Lead Generation","5-Star Systems","24/7 Automation","Booking Systems"]
   },
@@ -1005,7 +939,9 @@ const translations = {
     nav_sub: "AI Systems for Business",
     nav_cta: "Free AI Audit →",
     hero_label: "AI Automation Agency — Greece",
-    hero_h1: "We embed AI into your business<br>so you book appointments &amp; reviews<br>24/7 on autopilot.",
+    hero_h1_prefix: "We bring you",
+    hero_h1_suffix: "with AI automation.",
+    hero_h1_words: ["100 5-star reviews in 30 days","20 new appointments in 30 days","€1,000 back from missed calls in 30 days"],
     hero_subtitle: "We save you 20+ hours per week and missed calls,<br>without extra staff. 100% Results Guarantee.",
     hero_cta: "Book Free 15-min AI Audit →",
     hero_secondary: "See Our Services ↓",
@@ -1018,7 +954,8 @@ const translations = {
     cr1_quote: "We brought 78 new appointments in the first month with the Digital Secretary, another 45 in the second, and it has saved us countless hours of manual messages. Incredible — results from day one.",
     cr1_role: "Dermatologist — Thessaloniki",
     cr2_quote: "We built all the websites from scratch — all professional and fast. We got 25 five-star reviews in one week. 100% recommended!",
-    cr2_role: "Entrepreneur — Business Group",
+    cr2_name: "Νίκος Τσερκεζίδης",
+    cr2_role: "Entrepreneur",
     cr3_quote: "We no longer miss calls and we have more appointments, without extra staff.",
     cr3_role: "Business Owner",
     services_label: "Services",
@@ -1069,8 +1006,6 @@ const translations = {
     cta_check3: "ROI estimate with no commitment",
     cta_btn: "Book Free AI Audit →",
     contact_label: "Contact",
-    contact_h2: "How we start",
-    contact_sub: "Fill in the form and we will contact you within 24 hours.",
     form1_title: "Free AI Audit",
     form1_sub: "Book a free 15-min audit",
     f1_name: "Name", f1_name_ph: "Your name",
@@ -1078,7 +1013,6 @@ const translations = {
     f1_phone: "Phone", f1_phone_ph: "+30 69...",
     f1_email: "Email", f1_email_ph: "email@example.com",
     f1_msg: "Comments", f1_msg_ph: "Tell us about your business...",
-    f1_submit: "Book Free AI Audit →",
     form2_title: "General Enquiries",
     form2_sub: "Send us a message",
     f2_name: "Name", f2_name_ph: "Your name",
@@ -1089,7 +1023,10 @@ const translations = {
     form_success_h: "Sent!",
     form_success_p: "We'll be in touch shortly.",
     cities_h2: "We serve all across Greece",
-    cities_subtitle: "Based in Athens, we work with businesses in Athens, Thessaloniki, Crete and across Greece.",
+    cities_subtitle: "Based in Athens, we serve businesses across all of Greece.",
+    contact_h2: "How we start",
+    contact_sub: "Fill in the form and a member of our team will contact you within 24 hours.",
+    f1_submit: "I'm interested!",
     footer_copy: "© 2026 CB Automations — AI Systems for Business",
     ticker_items: ["Reputation AI","AI Chatbots","Voice Agents","Web Design","Lead Generation","5-Star Systems","24/7 Automation","Booking Systems"]
   },
@@ -1097,7 +1034,9 @@ const translations = {
     nav_sub: "Systèmes IA pour Entreprises",
     nav_cta: "Audit IA Gratuit →",
     hero_label: "Agence d'Automatisation IA — Grèce",
-    hero_h1: "Nous intégrons l'IA dans votre entreprise<br>pour prendre des rendez-vous &amp; avis<br>24h/24 en automatique.",
+    hero_h1_prefix: "Nous vous apportons",
+    hero_h1_suffix: "avec l'automatisation IA.",
+    hero_h1_words: ["100 avis 5 étoiles en 30 jours","20 nouveaux rendez-vous en 30 jours","1 000€ récupérés des appels manqués en 30 jours"],
     hero_subtitle: "Nous vous économisons 20+ heures par semaine et les appels manqués,<br>sans personnel supplémentaire. Garantie de Résultats 100%.",
     hero_cta: "Réserver un Audit IA Gratuit de 15 min →",
     hero_secondary: "Voir nos Services ↓",
@@ -1110,7 +1049,8 @@ const translations = {
     cr1_quote: "Nous avons obtenu 78 nouveaux rendez-vous le premier mois grâce au Secrétaire Digital, 45 autres le deuxième mois, et il nous a économisé d'innombrables heures de messages manuels. Incroyable — des résultats dès le premier jour.",
     cr1_role: "Dermatologue — Thessalonique",
     cr2_quote: "Nous avons créé tous les sites web de zéro — tous professionnels et rapides. Nous avons obtenu 25 avis cinq étoiles en une semaine. Je le recommande à 100% !",
-    cr2_role: "Entrepreneur — Groupe d'Entreprises",
+    cr2_name: "Νίκος Τσερκεζίδης",
+    cr2_role: "Entrepreneur",
     cr3_quote: "Nous ne manquons plus d'appels et avons plus de rendez-vous, sans personnel supplémentaire.",
     cr3_role: "Propriétaire d'Entreprise",
     services_label: "Services",
@@ -1161,8 +1101,6 @@ const translations = {
     cta_check3: "Estimation du ROI sans engagement",
     cta_btn: "Réserver un Audit IA Gratuit →",
     contact_label: "Contact",
-    contact_h2: "Comment nous commençons",
-    contact_sub: "Remplissez le formulaire et nous vous contacterons dans les 24 heures.",
     form1_title: "Audit IA Gratuit",
     form1_sub: "Réservez un audit gratuit de 15 min",
     f1_name: "Nom", f1_name_ph: "Votre nom",
@@ -1170,7 +1108,6 @@ const translations = {
     f1_phone: "Téléphone", f1_phone_ph: "+30 69...",
     f1_email: "Email", f1_email_ph: "email@example.com",
     f1_msg: "Commentaires", f1_msg_ph: "Parlez-nous de votre entreprise...",
-    f1_submit: "Réserver un Audit IA Gratuit →",
     form2_title: "Questions Générales",
     form2_sub: "Envoyez-nous un message",
     f2_name: "Nom", f2_name_ph: "Votre nom",
@@ -1181,7 +1118,10 @@ const translations = {
     form_success_h: "Envoyé!",
     form_success_p: "Nous vous contacterons bientôt.",
     cities_h2: "Nous couvrons toute la Grèce",
-    cities_subtitle: "Basés à Athènes, nous travaillons avec des entreprises à Athènes, Thessalonique, Crète et partout en Grèce.",
+    cities_subtitle: "Basés à Athènes, nous desservons les entreprises dans toute la Grèce.",
+    contact_h2: "Comment nous commençons",
+    contact_sub: "Remplissez le formulaire et un membre de notre équipe vous contactera dans les 24 heures.",
+    f1_submit: "Je suis intéressé(e) !",
     footer_copy: "© 2026 CB Automations — Systèmes IA pour Entreprises",
     ticker_items: ["Reputation AI","AI Chatbots","Voice Agents","Web Design","Lead Generation","5-Star Systems","Automatisation 24/7","Booking Systems"]
   },
@@ -1189,7 +1129,9 @@ const translations = {
     nav_sub: "Sistem AI untuk Bisnis",
     nav_cta: "Audit AI Gratis →",
     hero_label: "Agen Otomasi AI — Yunani",
-    hero_h1: "Kami mengintegrasikan AI ke dalam bisnis Anda<br>untuk booking janji &amp; ulasan<br>24/7 secara otomatis.",
+    hero_h1_prefix: "Kami membawakan Anda",
+    hero_h1_suffix: "dengan otomasi AI.",
+    hero_h1_words: ["100 ulasan 5-bintang dalam 30 hari","20 janji temu baru dalam 30 hari","€1.000 kembali dari panggilan tak terjawab dalam 30 hari"],
     hero_subtitle: "Kami menghemat 20+ jam seminggu dan panggilan yang terlewat,<br>tanpa staf tambahan. Jaminan Hasil 100%.",
     hero_cta: "Pesan Audit AI Gratis 15 Menit →",
     hero_secondary: "Lihat Layanan Kami ↓",
@@ -1202,7 +1144,8 @@ const translations = {
     cr1_quote: "Kami mendapat 78 janji temu baru di bulan pertama dengan Sekretaris Digital, 45 lagi di bulan kedua, dan telah menghemat kami waktu tak terhitung dari pesan manual. Luar biasa — hasil dari hari pertama.",
     cr1_role: "Dermatologis — Thessaloniki",
     cr2_quote: "Kami membangun semua website dari awal — semua profesional dan cepat. Kami mendapat 25 ulasan bintang lima dalam satu minggu. 100% direkomendasikan!",
-    cr2_role: "Pengusaha — Grup Bisnis",
+    cr2_name: "Νίκος Τσερκεζίδης",
+    cr2_role: "Pengusaha",
     cr3_quote: "Kami tidak lagi kehilangan panggilan dan memiliki lebih banyak janji temu, tanpa staf tambahan.",
     cr3_role: "Pemilik Bisnis",
     services_label: "Layanan",
@@ -1253,8 +1196,6 @@ const translations = {
     cta_check3: "Estimasi ROI tanpa komitmen",
     cta_btn: "Pesan Audit AI Gratis →",
     contact_label: "Kontak",
-    contact_h2: "Bagaimana kita mulai",
-    contact_sub: "Isi formulir dan kami akan menghubungi Anda dalam 24 jam.",
     form1_title: "Audit AI Gratis",
     form1_sub: "Pesan audit gratis 15 menit",
     f1_name: "Nama", f1_name_ph: "Nama Anda",
@@ -1262,7 +1203,6 @@ const translations = {
     f1_phone: "Telepon", f1_phone_ph: "+30 69...",
     f1_email: "Email", f1_email_ph: "email@example.com",
     f1_msg: "Komentar", f1_msg_ph: "Ceritakan tentang bisnis Anda...",
-    f1_submit: "Pesan Audit AI Gratis →",
     form2_title: "Pertanyaan Umum",
     form2_sub: "Kirimkan pesan kepada kami",
     f2_name: "Nama", f2_name_ph: "Nama Anda",
@@ -1273,7 +1213,10 @@ const translations = {
     form_success_h: "Terkirim!",
     form_success_p: "Kami akan segera menghubungi Anda.",
     cities_h2: "Kami melayani seluruh Yunani",
-    cities_subtitle: "Berbasis di Athena, kami bekerja dengan bisnis di Athena, Thessaloniki, Kreta, dan seluruh Yunani.",
+    cities_subtitle: "Berbasis di Athena, kami melayani bisnis di seluruh Yunani.",
+    contact_h2: "Bagaimana kita mulai",
+    contact_sub: "Isi formulir dan anggota tim kami akan menghubungi Anda dalam 24 jam.",
+    f1_submit: "Saya tertarik!",
     footer_copy: "© 2026 CB Automations — Sistem AI untuk Bisnis",
     ticker_items: ["Reputation AI","AI Chatbots","Voice Agents","Web Design","Lead Generation","5-Star Systems","Otomasi 24/7","Booking Systems"]
   }
@@ -1311,6 +1254,14 @@ function setLang(lang) {
 
   // Update ticker
   buildTicker(t.ticker_items);
+
+  // Update hero rotating word
+  if (t.hero_h1_words) {
+    heroRotateWords = t.hero_h1_words;
+    heroRotateIdx = 0;
+    const rotateEl = document.querySelector('.hero-rotate-inner');
+    if (rotateEl) rotateEl.textContent = heroRotateWords[0];
+  }
 }
 
 /* ===== TICKER ===== */
@@ -1659,6 +1610,23 @@ function initForms() {
   });
 }
 
+/* ===== HERO ROTATING WORD ===== */
+let heroRotateWords = ["100 5άστερες κριτικές σε 30 μέρες","20 νέα ραντεβού σε 30 μέρες","1.000€ πίσω από χαμένες κλήσεις σε 30 μέρες"];
+let heroRotateIdx = 0;
+
+function initHeroRotate() {
+  const el = document.querySelector('.hero-rotate-inner');
+  if (!el) return;
+  setInterval(() => {
+    el.classList.add('fading');
+    setTimeout(() => {
+      heroRotateIdx = (heroRotateIdx + 1) % heroRotateWords.length;
+      el.textContent = heroRotateWords[heroRotateIdx];
+      el.classList.remove('fading');
+    }, 350);
+  }, 2800);
+}
+
 /* ===== TESTIMONIALS CAROUSEL ===== */
 let carouselIdx = 0;
 let carouselTimer = null;
@@ -1694,6 +1662,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initForms();
   initCarousel();
+  initHeroRotate();
   buildTicker(translations.el.ticker_items);
   // Trigger reveal for already-visible elements
   setTimeout(() => {
