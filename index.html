@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Imperial Automations — AI Systems for Business</title>
+<title>CB Automations — AI Systems for Business</title>
 <meta name="description" content="AI automation agency για ελληνικές επιχειρήσεις. Chatbots, Voice Agents, Google Reviews, Web Design. 100% Εγγύηση Αποτελέσματος.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -245,32 +245,34 @@ section{padding:6rem 3rem}
 .guarantee-title{font-size:1rem;font-weight:700;margin-bottom:0.75rem;color:var(--gold)}
 .guarantee-desc{font-size:0.85rem;color:var(--text-muted);line-height:1.7}
 
-/* ===== TESTIMONIALS ===== */
-.testimonials-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:1000px;margin:0 auto;
+/* ===== ROTATING TAGLINE ===== */
+.hero-rotate-wrap{height:1.6rem;overflow:hidden;margin-bottom:0.75rem}
+.hero-rotate{
+  display:flex;flex-direction:column;
+  animation:rotateSlide 9s infinite;
 }
-.testimonial-card{
-  background:var(--dark2);border:1px solid var(--border);border-radius:12px;
-  padding:2rem;position:relative;overflow:hidden;transition:background 0.3s;
+.hero-rotate span{
+  height:1.6rem;line-height:1.6rem;font-size:0.78rem;font-weight:600;
+  color:var(--gold-light);letter-spacing:0.15em;text-transform:uppercase;
+  flex-shrink:0;
 }
-.testimonial-card::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:var(--gold);transform:scaleX(0);transform-origin:left;
-  transition:transform 0.35s ease;
+@keyframes rotateSlide{
+  0%,25%{transform:translateY(0)}
+  33%,58%{transform:translateY(-1.6rem)}
+  66%,91%{transform:translateY(-3.2rem)}
+  100%{transform:translateY(0)}
 }
-.testimonial-card:hover{background:var(--dark3)}
-.testimonial-card:hover::after{transform:scaleX(1)}
-.testimonial-quote{
-  font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem;color:var(--text);
-  font-style:italic;
-}
-.testimonial-quote::before{content:'"';color:var(--gold);font-size:2rem;line-height:0;vertical-align:-0.4em;margin-right:0.2rem}
-.testimonial-name{font-weight:700;font-size:0.95rem;margin-bottom:0.2rem}
-.testimonial-role{font-size:0.78rem;color:var(--text-muted);font-family:'Cormorant Garamond',serif;font-style:italic}
-.testimonial-services{
-  margin-top:1rem;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;
-  text-transform:uppercase;font-weight:600;
-}
+
+/* ===== SERVICE FEATURE BULLET ===== */
+.service-feature-bullet{font-size:0.82rem;color:var(--gold-light);margin-bottom:0.75rem;line-height:1.5}
+
+/* ===== GREECE MAP ===== */
+.greece-map-wrap{max-width:560px;margin:3rem auto 0}
+.greece-map-svg{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--border)}
+.map-pulse{animation:mapPulse 2.5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.map-pulse-2{animation:mapPulse2 2.5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes mapPulse{0%,100%{opacity:0.15;transform:scale(1)}50%{opacity:0.4;transform:scale(1.4)}}
+@keyframes mapPulse2{0%,100%{opacity:0.3;transform:scale(1)}50%{opacity:0.7;transform:scale(1.1)}}
 
 /* ===== CTA SECTION ===== */
 .cta-section{padding:5rem 3rem}
@@ -480,7 +482,6 @@ footer{
   .services-grid{grid-template-columns:1fr}
   .kpis-grid{grid-template-columns:repeat(2,1fr)}
   .guarantees-grid{grid-template-columns:1fr}
-  .testimonials-grid{grid-template-columns:1fr}
   .forms-grid{grid-template-columns:1fr}
   .services-numbered{grid-template-columns:1fr}
   .carousel-slide{padding:2rem 1.5rem}
@@ -507,7 +508,7 @@ footer{
 <!-- NAV -->
 <nav id="main-nav">
   <a href="#" class="nav-logo">
-    <img src="imperial_logo-removebg-preview.png" height="44" alt="Imperial Automations" style="display:block;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges">
+    <img src="imperial_logo-removebg-preview.png" height="44" alt="CB Automations" style="display:block;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges">
   </a>
   <div class="nav-right">
     <div class="lang-switcher">
@@ -525,6 +526,13 @@ footer{
   <!-- Left: text content -->
   <div class="hero-left">
     <div class="hero-content">
+      <div class="hero-rotate-wrap">
+        <div class="hero-rotate">
+          <span>AI Chatbots · Voice Agents · Google Reviews</span>
+          <span>Αυτόματα Συστήματα για Ελληνικές Επιχειρήσεις</span>
+          <span>30 νέα ραντεβού τον μήνα · 24/7 · 100% Εγγύηση</span>
+        </div>
+      </div>
       <div class="hero-label reveal" data-i18n="hero_label">AI Automation Agency — Greece</div>
       <h1 class="hero-h1 reveal reveal-delay-1" data-i18n="hero_h1">
         Ενσωματώνουμε το AI στην επιχείρησή σου<br>
@@ -536,10 +544,7 @@ footer{
         χωρίς επιπλέον προσωπικό. 100% Εγγύηση Αποτελέσματος.
       </p>
       <div class="hero-cta-group reveal reveal-delay-3">
-        <button class="btn-primary" onclick="scrollTo('#contact')" data-i18n="hero_cta">
-          Κλείσε Δωρεάν 15λεπτο AI Audit →
-        </button>
-        <a href="#services" class="hero-secondary" data-i18n="hero_secondary">Δες τις Υπηρεσίες ↓</a>
+        <a href="#services" class="btn-primary" data-i18n="hero_secondary" style="display:inline-flex;align-items:center">Δες τις Υπηρεσίες ↓</a>
       </div>
     </div>
   </div>
@@ -586,9 +591,9 @@ footer{
     <div class="carousel-track" id="carousel-track">
       <!-- Slide 1 -->
       <div class="carousel-slide">
-        <p class="carousel-quote" data-i18n="cr1_quote">Άριστη συνεργασία. Φτιάξαμε μαζί το site, το chatbot, το σύστημα κριτικών και την εφαρμογή — όλα στο υψηλότερο επίπεδο. Αποτελέσματα από την πρώτη μέρα.</p>
+        <p class="carousel-quote" data-i18n="cr1_quote">Φέραμε με τον Ψηφιακό Γραμματέα 78 νέα ραντεβού τον πρώτο μήνα, άλλα 45 τον δεύτερο μήνα, και μας έχει σώσει άπειρες ώρες από χειροκίνητα μηνύματα. Απίστευτο — αποτελέσματα από την πρώτη μέρα.</p>
         <div class="carousel-author">
-          <div class="carousel-avatar">Ζ</div>
+          <div class="carousel-avatar">Δ</div>
           <div>
             <div class="carousel-role" data-i18n="cr1_role">Δερματολόγος — Θεσσαλονίκη</div>
             <div class="carousel-stars">★★★★★</div>
@@ -597,24 +602,22 @@ footer{
       </div>
       <!-- Slide 2 -->
       <div class="carousel-slide">
-        <p class="carousel-quote" data-i18n="cr2_quote">Πολύ ικανοποιημένος από τη συνεργασία. Επαγγελματισμός, αποτελέσματα και άμεση ανταπόκριση. Τον προτείνω ανεπιφύλακτα.</p>
+        <p class="carousel-quote" data-i18n="cr2_quote">Φτιάξαμε όλα τα websites από την αρχή — όλα επαγγελματικά και γρήγορα. Φέραμε 25 5άστερες κριτικές μέσα σε μία εβδομάδα. Τον προτείνω 100%!</p>
         <div class="carousel-author">
-          <div class="carousel-avatar">Τ</div>
+          <div class="carousel-avatar">Ε</div>
           <div>
-            <div class="carousel-name">Τσερκεζίδης Group</div>
-            <div class="carousel-role" data-i18n="cr2_role">CEO — Εταιρικός Όμιλος</div>
+            <div class="carousel-role" data-i18n="cr2_role">Επιχειρηματίας — Όμιλος Επιχειρήσεων</div>
             <div class="carousel-stars">★★★★★</div>
           </div>
         </div>
       </div>
       <!-- Slide 3 -->
       <div class="carousel-slide">
-        <p class="carousel-quote" data-i18n="cr3_quote">Το AI Voice Agent άλλαξε εντελώς τον τρόπο που λειτουργεί η κλινική μας. Μηδέν αναπάντητες κλήσεις, περισσότερα ραντεβού, χωρίς επιπλέον προσωπικό.</p>
+        <p class="carousel-quote" data-i18n="cr3_quote">Δεν χάνουμε πλέον κλήσεις και έχουμε περισσότερα ραντεβού, χωρίς επιπλέον προσωπικό.</p>
         <div class="carousel-author">
-          <div class="carousel-avatar">Κ</div>
+          <div class="carousel-avatar">Ι</div>
           <div>
-            <div class="carousel-name">Κώστας Παπαδόπουλος</div>
-            <div class="carousel-role" data-i18n="cr3_role">Ορθοπεδικός — Αθήνα</div>
+            <div class="carousel-role" data-i18n="cr3_role">Ιδιοκτήτης Επιχείρησης</div>
             <div class="carousel-stars">★★★★★</div>
           </div>
         </div>
@@ -639,7 +642,7 @@ footer{
       <div class="service-step-num">01</div>
       <div class="service-step-body">
         <div class="service-step-title" data-i18n="s1_title">AI Chatbot &amp; Lead Generation</div>
-        <div class="service-step-desc" data-i18n="s1_desc">AI assistant που μετατρέπει επισκέπτες από site και social media σε qualified booking conversations 24/7 — χωρίς επιπλέον προσωπικό.</div>
+        <div class="service-step-desc" data-i18n="s1_desc">Σου φέρνουμε τριπλάσια νέα leads με έναν AI Assistant που μετατρέπει επισκέπτες του site σε πελάτες, 24/7.</div>
         <div class="service-result"><span>↑</span><span data-i18n="s1_result">30 νέα ραντεβού τον μήνα</span></div>
         <div class="service-step-guarantee" data-i18n="s1_guarantee">🛡 Αν δεν δημιουργηθούν 20+ qualified conversations σε 30 μέρες → δουλεύουμε δωρεάν μέχρι να το πετύχουμε.</div>
         <span class="service-step-tag" data-i18n="s1_tag">Conversational AI</span>
@@ -648,8 +651,8 @@ footer{
     <div class="service-step reveal reveal-delay-2">
       <div class="service-step-num">02</div>
       <div class="service-step-body">
-        <div class="service-step-title" data-i18n="s2_title">AI Voice Agent / Ψηφιακή Γραμματεία</div>
-        <div class="service-step-desc" data-i18n="s2_desc">AI τηλεφωνική γραμματεία που απαντάει στις κλήσεις σου 24/7, κρατάει στοιχεία, απαντάει ερωτήσεις και κλείνει ραντεβού.</div>
+        <div class="service-step-title" data-i18n="s2_title">Voice Agent (Αόρατος Γραμματέας)</div>
+        <div class="service-step-desc" data-i18n="s2_desc">Σου γλιτώνουμε 2.000+€ τον μήνα από χαμένες κλήσεις, με μια AI τηλεφωνική γραμματέα που απαντάει τις κλήσεις 24/7.</div>
         <div class="service-result"><span>↓</span><span data-i18n="s2_result">-80% χαμένες κλήσεις — σταματάει η «αιμορραγία εσόδων»</span></div>
         <div class="service-step-guarantee" data-i18n="s2_guarantee">🛡 Αν δεν μειωθούν οι αναπάντητες κλήσεις κατά 80% σε 30 μέρες → συνεχίζουμε δωρεάν.</div>
         <span class="service-step-tag" data-i18n="s2_tag">Voice AI</span>
@@ -659,7 +662,8 @@ footer{
       <div class="service-step-num">03</div>
       <div class="service-step-body">
         <div class="service-step-title" data-i18n="s3_title">Σύστημα Google Reviews &amp; Reputation</div>
-        <div class="service-step-desc" data-i18n="s3_desc">Αυτοματοποιημένο σύστημα συλλογής Google Reviews που αυξάνει τις κριτικές σου σε 30 μέρες χωρίς να κυνηγάς πελάτες χειροκίνητα.</div>
+        <div class="service-step-desc" data-i18n="s3_desc">Σου φέρνουμε 100 καινούργιες 5άστερες κριτικές τις πρώτες 30 μέρες — χωρίς να κυνηγάς πελάτες χειροκίνητα, όλα αυτόματα.</div>
+        <div class="service-feature-bullet" data-i18n="s3_feature">✓ Στέλνει αυτόματο μήνυμα review request μετά από κάθε ραντεβού/επίσκεψη.</div>
         <div class="service-result"><span>↑</span><span data-i18n="s3_result">100+ 5άστερες κριτικές σε 1 μήνα</span></div>
         <div class="service-step-guarantee" data-i18n="s3_guarantee">🛡 Αν δεν στείλουμε 300+ review requests σε 30 μέρες → πλήρης επιστροφή χρημάτων.</div>
         <span class="service-step-tag" data-i18n="s3_tag">Reputation AI</span>
@@ -698,16 +702,16 @@ footer{
       <div class="kpi-label" data-i18n="kpi1_label">Αύξηση Google κριτικών σε 60 μέρες</div>
     </div>
     <div class="kpi-card reveal reveal-delay-2">
-      <div class="kpi-num" data-target="80" data-suffix="%">80%</div>
-      <div class="kpi-label" data-i18n="kpi2_label">Μείωση αναπάντητων κλήσεων</div>
+      <div class="kpi-num" data-target="90" data-suffix="%">90%</div>
+      <div class="kpi-label" data-i18n="kpi2_label">Απάντηση κλήσεων με AI</div>
     </div>
     <div class="kpi-card reveal reveal-delay-3">
       <div class="kpi-num" data-static="24/7">24/7</div>
       <div class="kpi-label" data-i18n="kpi3_label">Λειτουργία χωρίς human intervention</div>
     </div>
     <div class="kpi-card reveal reveal-delay-4">
-      <div class="kpi-num" data-target="20" data-prefix="+" data-suffix="">+20</div>
-      <div class="kpi-label" data-i18n="kpi4_label">Qualified leads/μήνα για κλινικές</div>
+      <div class="kpi-num" data-target="30" data-prefix="+" data-suffix="">+30</div>
+      <div class="kpi-label" data-i18n="kpi4_label">Νέα ραντεβού τον μήνα</div>
     </div>
   </div>
 </section>
@@ -736,6 +740,73 @@ footer{
       <div class="city-dot"></div>
     </div>
   </div>
+
+  <!-- Greece Night Map -->
+  <div class="greece-map-wrap reveal" style="margin-top:3rem">
+    <svg viewBox="0 0 520 480" xmlns="http://www.w3.org/2000/svg" class="greece-map-svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#0a0e1a"/>
+          <stop offset="100%" stop-color="#050710"/>
+        </radialGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="mapglow">
+          <feGaussianBlur stdDeviation="1.5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <!-- Background -->
+      <rect width="520" height="480" fill="url(#bgGrad)" rx="12"/>
+      <!-- Subtle grid lines -->
+      <g stroke="rgba(201,168,76,0.05)" stroke-width="0.5">
+        <line x1="0" y1="120" x2="520" y2="120"/>
+        <line x1="0" y1="240" x2="520" y2="240"/>
+        <line x1="0" y1="360" x2="520" y2="360"/>
+        <line x1="130" y1="0" x2="130" y2="480"/>
+        <line x1="260" y1="0" x2="260" y2="480"/>
+        <line x1="390" y1="0" x2="390" y2="480"/>
+      </g>
+      <!-- Mainland Greece simplified contour -->
+      <path d="M 195 60 L 210 55 L 230 60 L 248 70 L 265 68 L 278 75 L 285 88 L 290 102 L 298 115 L 305 128 L 310 142 L 308 158 L 315 168 L 320 180 L 318 192 L 312 200 L 320 212 L 325 225 L 322 238 L 315 248 L 305 255 L 295 262 L 285 268 L 275 278 L 265 285 L 258 292 L 250 302 L 248 315 L 242 325 L 235 330 L 228 325 L 222 315 L 218 305 L 215 295 L 210 285 L 202 278 L 195 270 L 188 262 L 180 255 L 172 248 L 165 240 L 160 228 L 155 215 L 152 202 L 150 188 L 148 175 L 145 162 L 142 150 L 138 138 L 135 125 L 138 112 L 145 100 L 155 88 L 165 78 L 178 68 L 190 62 Z"
+        fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.55)" stroke-width="1.5" filter="url(#mapglow)"/>
+      <!-- Peloponnese -->
+      <path d="M 200 268 L 215 265 L 228 268 L 238 278 L 245 290 L 248 305 L 245 318 L 238 328 L 228 332 L 218 330 L 210 322 L 205 312 L 200 300 L 196 288 L 195 275 Z"
+        fill="rgba(201,168,76,0.07)" stroke="rgba(201,168,76,0.45)" stroke-width="1.2" filter="url(#mapglow)"/>
+      <!-- Crete island -->
+      <path d="M 120 390 L 140 382 L 162 378 L 185 376 L 208 378 L 228 382 L 245 388 L 255 395 L 248 402 L 228 408 L 205 412 L 180 414 L 158 412 L 138 408 L 122 400 Z"
+        fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.5)" stroke-width="1.2" filter="url(#mapglow)"/>
+      <!-- Rhodes island -->
+      <path d="M 370 280 L 382 276 L 390 282 L 388 295 L 378 300 L 368 296 Z"
+        fill="rgba(201,168,76,0.07)" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
+      <!-- Corfu -->
+      <path d="M 135 108 L 142 104 L 148 110 L 145 120 L 138 122 L 132 116 Z"
+        fill="rgba(201,168,76,0.07)" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
+      <!-- Lesvos -->
+      <path d="M 328 118 L 342 114 L 352 120 L 350 132 L 338 136 L 326 130 Z"
+        fill="rgba(201,168,76,0.07)" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
+
+      <!-- City markers with pulse animation -->
+      <!-- Athens ~(248,255) -->
+      <circle cx="248" cy="255" r="10" fill="rgba(201,168,76,0.1)" class="map-pulse"/>
+      <circle cx="248" cy="255" r="5" fill="rgba(232,201,122,0.3)" class="map-pulse-2"/>
+      <circle cx="248" cy="255" r="3" fill="#E8C97A" filter="url(#glow)"/>
+      <!-- Thessaloniki ~(255,120) -->
+      <circle cx="255" cy="120" r="10" fill="rgba(201,168,76,0.1)" class="map-pulse" style="animation-delay:0.5s"/>
+      <circle cx="255" cy="120" r="5" fill="rgba(232,201,122,0.3)" class="map-pulse-2" style="animation-delay:0.5s"/>
+      <circle cx="255" cy="120" r="3" fill="#E8C97A" filter="url(#glow)"/>
+      <!-- Larissa ~(248,175) -->
+      <circle cx="248" cy="175" r="8" fill="rgba(201,168,76,0.1)" class="map-pulse" style="animation-delay:1s"/>
+      <circle cx="248" cy="175" r="4" fill="rgba(232,201,122,0.3)" class="map-pulse-2" style="animation-delay:1s"/>
+      <circle cx="248" cy="175" r="2.5" fill="#E8C97A" filter="url(#glow)"/>
+      <!-- Crete ~(188,394) -->
+      <circle cx="188" cy="394" r="8" fill="rgba(201,168,76,0.1)" class="map-pulse" style="animation-delay:1.5s"/>
+      <circle cx="188" cy="394" r="4" fill="rgba(232,201,122,0.3)" class="map-pulse-2" style="animation-delay:1.5s"/>
+      <circle cx="188" cy="394" r="2.5" fill="#E8C97A" filter="url(#glow)"/>
+    </svg>
+  </div>
 </section>
 
 <!-- GUARANTEES -->
@@ -763,28 +834,6 @@ footer{
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials" style="background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-  <div class="section-center">
-    <div class="section-label reveal">Testimonials</div>
-    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="testimonials_h2">Τι λένε οι πελάτες μας</h2>
-  </div>
-  <div class="testimonials-grid">
-    <div class="testimonial-card reveal reveal-delay-1">
-      <div class="testimonial-quote" data-i18n="t1_quote">Άριστη συνεργασία. Φτιάξαμε μαζί το site, το chatbot, το σύστημα κριτικών και την εφαρμογή — όλα στο υψηλότερο επίπεδο. Αποτελέσματα από την πρώτη μέρα.</div>
-      <div class="testimonial-name">Dr. Ζωή Φίκα</div>
-      <div class="testimonial-role" data-i18n="t1_role">Δερματολόγος — Θεσσαλονίκη</div>
-      <div class="testimonial-services" data-i18n="t1_services">Website · AI Chatbot · 5-Star System · App</div>
-    </div>
-    <div class="testimonial-card reveal reveal-delay-2">
-      <div class="testimonial-quote" data-i18n="t2_quote">Πολύ ικανοποιημένος από τη συνεργασία. Επαγγελματισμός, αποτελέσματα και άμεση ανταπόκριση. Τον προτείνω ανεπιφύλακτα.</div>
-      <div class="testimonial-name">Τσερκεζίδης Group</div>
-      <div class="testimonial-role" data-i18n="t2_role">CEO — Εταιρικός Όμιλος</div>
-      <div class="testimonial-services" data-i18n="t2_services">AI Automation · Lead Generation · Digital Infrastructure</div>
-    </div>
-  </div>
-</section>
-
 <!-- CTA BOX -->
 <section class="cta-section">
   <div class="cta-box reveal">
@@ -804,7 +853,8 @@ footer{
 <section id="contact" style="background:var(--dark2);border-top:1px solid var(--border)">
   <div class="section-center">
     <div class="section-label reveal" data-i18n="contact_label">Επικοινωνία</div>
-    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="contact_h2">Ξεκίνα σήμερα</h2>
+    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="contact_h2">Πώς ξεκινάμε</h2>
+    <p class="section-subtitle reveal reveal-delay-2" data-i18n="contact_sub" style="font-size:0.95rem;color:var(--text-muted);margin-top:-1.5rem;margin-bottom:1rem">Συμπλήρωσε τη φόρμα και θα έρθουμε σε επικοινωνία μαζί σου μέσα σε 24 ώρες.</p>
   </div>
   <div class="form-single">
     <!-- Form 1 — AI Audit -->
@@ -813,7 +863,7 @@ footer{
       <div class="form-subtitle" data-i18n="form1_sub">Κλείσε 15λεπτο δωρεάν audit</div>
       <div id="form1-wrap">
         <form id="form1" action="https://formspree.io/f/xwvzknyz" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="Δωρεάν AI Audit — Imperial Automations">
+          <input type="hidden" name="_subject" value="Νέο Lead — CB Automations">
           <div class="form-group">
             <label data-i18n="f1_name">Όνομα</label>
             <input type="text" name="name" required data-i18n-placeholder="f1_name_ph">
@@ -850,9 +900,9 @@ footer{
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="imperial_logo-removebg-preview.png" height="40" alt="Imperial Automations" style="display:block">
+    <img src="imperial_logo-removebg-preview.png" height="40" alt="CB Automations" style="display:block">
   </div>
-  <div class="footer-copy" data-i18n="footer_copy">© 2026 Imperial Automations — AI Systems for Business</div>
+  <div class="footer-copy" data-i18n="footer_copy">© 2026 CB Automations — AI Systems for Business</div>
   <button class="btn-footer" onclick="scrollTo('#contact')" data-i18n="nav_cta">Δωρεάν AI Audit →</button>
 </footer>
 
@@ -873,26 +923,27 @@ const translations = {
     stat4_num: "100%", stat4_label: "Εγγύηση",
     carousel_label: "Testimonials",
     carousel_h2: "Τι λένε οι πελάτες μας",
-    cr1_quote: "Άριστη συνεργασία. Φτιάξαμε μαζί το site, το chatbot, το σύστημα κριτικών και την εφαρμογή — όλα στο υψηλότερο επίπεδο. Αποτελέσματα από την πρώτη μέρα.",
+    cr1_quote: "Φέραμε με τον Ψηφιακό Γραμματέα 78 νέα ραντεβού τον πρώτο μήνα, άλλα 45 τον δεύτερο μήνα, και μας έχει σώσει άπειρες ώρες από χειροκίνητα μηνύματα. Απίστευτο — αποτελέσματα από την πρώτη μέρα.",
     cr1_role: "Δερματολόγος — Θεσσαλονίκη",
-    cr2_quote: "Πολύ ικανοποιημένος από τη συνεργασία. Επαγγελματισμός, αποτελέσματα και άμεση ανταπόκριση. Τον προτείνω ανεπιφύλακτα.",
-    cr2_role: "CEO — Εταιρικός Όμιλος",
-    cr3_quote: "Το AI Voice Agent άλλαξε εντελώς τον τρόπο που λειτουργεί η κλινική μας. Μηδέν αναπάντητες κλήσεις, περισσότερα ραντεβού, χωρίς επιπλέον προσωπικό.",
-    cr3_role: "Ορθοπεδικός — Αθήνα",
+    cr2_quote: "Φτιάξαμε όλα τα websites από την αρχή — όλα επαγγελματικά και γρήγορα. Φέραμε 25 5άστερες κριτικές μέσα σε μία εβδομάδα. Τον προτείνω 100%!",
+    cr2_role: "Επιχειρηματίας — Όμιλος Επιχειρήσεων",
+    cr3_quote: "Δεν χάνουμε πλέον κλήσεις και έχουμε περισσότερα ραντεβού, χωρίς επιπλέον προσωπικό.",
+    cr3_role: "Ιδιοκτήτης Επιχείρησης",
     services_label: "Υπηρεσίες",
     services_h2: "Πέντε συστήματα. Μετρήσιμα αποτελέσματα.",
     s1_title: "AI Chatbot &amp; Lead Generation",
-    s1_desc: "AI assistant που μετατρέπει επισκέπτες από site και social media σε qualified booking conversations 24/7 — χωρίς επιπλέον προσωπικό.",
+    s1_desc: "Σου φέρνουμε τριπλάσια νέα leads με έναν AI Assistant που μετατρέπει επισκέπτες του site σε πελάτες, 24/7.",
     s1_guarantee: "🛡 Αν δεν δημιουργηθούν 20+ qualified conversations σε 30 μέρες → δουλεύουμε δωρεάν μέχρι να το πετύχουμε.",
     s1_tag: "Conversational AI",
     s1_result: "30 νέα ραντεβού τον μήνα",
-    s2_title: "AI Voice Agent / Ψηφιακή Γραμματεία",
-    s2_desc: "AI τηλεφωνική γραμματεία που απαντάει στις κλήσεις σου 24/7, κρατάει στοιχεία, απαντάει ερωτήσεις και κλείνει ραντεβού.",
+    s2_title: "Voice Agent (Αόρατος Γραμματέας)",
+    s2_desc: "Σου γλιτώνουμε 2.000+€ τον μήνα από χαμένες κλήσεις, με μια AI τηλεφωνική γραμματέα που απαντάει τις κλήσεις 24/7.",
     s2_guarantee: "🛡 Αν δεν μειωθούν οι αναπάντητες κλήσεις κατά 80% σε 30 μέρες → συνεχίζουμε δωρεάν.",
     s2_tag: "Voice AI",
     s2_result: "-80% χαμένες κλήσεις — σταματάει η «αιμορραγία εσόδων»",
     s3_title: "Σύστημα Google Reviews &amp; Reputation",
-    s3_desc: "Αυτοματοποιημένο σύστημα συλλογής Google Reviews που αυξάνει τις κριτικές σου σε 30 μέρες χωρίς να κυνηγάς πελάτες χειροκίνητα.",
+    s3_desc: "Σου φέρνουμε 100 καινούργιες 5άστερες κριτικές τις πρώτες 30 μέρες — χωρίς να κυνηγάς πελάτες χειροκίνητα, όλα αυτόματα.",
+    s3_feature: "✓ Στέλνει αυτόματο μήνυμα review request μετά από κάθε ραντεβού/επίσκεψη.",
     s3_guarantee: "🛡 Αν δεν στείλουμε 300+ review requests σε 30 μέρες → πλήρης επιστροφή χρημάτων.",
     s3_tag: "Reputation AI",
     s3_result: "100+ 5άστερες κριτικές σε 1 μήνα",
@@ -907,9 +958,9 @@ const translations = {
     kpis_label: "Αποτελέσματα",
     kpis_h2: "Αριθμοί που μιλούν μόνοι τους",
     kpi1_label: "Αύξηση Google κριτικών σε 60 μέρες",
-    kpi2_label: "Μείωση αναπάντητων κλήσεων",
+    kpi2_label: "Απάντηση κλήσεων με AI",
     kpi3_label: "Λειτουργία χωρίς human intervention",
-    kpi4_label: "Qualified leads/μήνα για κλινικές",
+    kpi4_label: "Νέα ραντεβού τον μήνα",
     guarantees_label: "Εγγυήσεις",
     guarantees_h2: "Δουλεύουμε μέχρι να δεις αποτέλεσμα.",
     g1_title: "Εγγύηση Αποτελέσματος",
@@ -918,13 +969,6 @@ const translations = {
     g2_desc: "Ξέρουμε ότι ο χρόνος σου αξίζει. Κάθε παράδοση γίνεται στην ημερομηνία που συμφωνούμε — ή δεν πληρώνεις.",
     g3_title: "Εγγύηση Απλότητας",
     g3_desc: "Δεν χρειάζεσαι να ξέρεις τίποτα από τεχνολογία. Εμείς στήνουμε τα πάντα, σου παραδίδουμε έτοιμο.",
-    testimonials_h2: "Τι λένε οι πελάτες μας",
-    t1_quote: "Άριστη συνεργασία. Φτιάξαμε μαζί το site, το chatbot, το σύστημα κριτικών και την εφαρμογή — όλα στο υψηλότερο επίπεδο. Αποτελέσματα από την πρώτη μέρα.",
-    t1_role: "Δερματολόγος — Θεσσαλονίκη",
-    t1_services: "Website · AI Chatbot · 5-Star System · App",
-    t2_quote: "Πολύ ικανοποιημένος από τη συνεργασία. Επαγγελματισμός, αποτελέσματα και άμεση ανταπόκριση. Τον προτείνω ανεπιφύλακτα.",
-    t2_role: "CEO — Εταιρικός Όμιλος",
-    t2_services: "AI Automation · Lead Generation · Digital Infrastructure",
     cta_label: "Περιορισμένες Θέσεις — 2026",
     cta_h2: "Δωρεάν 15λεπτο AI Audit",
     cta_text: "Σε 15 λεπτά αναλύουμε την επιχείρησή σου και σου λέμε ακριβώς ποια AI συστήματα χρειάζεσαι και τι ROI να περιμένεις. Χωρίς δεσμεύσεις.",
@@ -933,7 +977,8 @@ const translations = {
     cta_check3: "Εκτίμηση ROI χωρίς δέσμευση",
     cta_btn: "Κλείσε Δωρεάν AI Audit →",
     contact_label: "Επικοινωνία",
-    contact_h2: "Ξεκίνα σήμερα",
+    contact_h2: "Πώς ξεκινάμε",
+    contact_sub: "Συμπλήρωσε τη φόρμα και θα έρθουμε σε επικοινωνία μαζί σου μέσα σε 24 ώρες.",
     form1_title: "Δωρεάν AI Audit",
     form1_sub: "Κλείσε 15λεπτο δωρεάν audit",
     f1_name: "Όνομα", f1_name_ph: "Το όνομά σου",
@@ -953,7 +998,7 @@ const translations = {
     form_success_p: "Θα επικοινωνήσουμε μαζί σου σύντομα.",
     cities_h2: "Εξυπηρετούμε σε όλη την Ελλάδα",
     cities_subtitle: "Με έδρα την Αθήνα, δουλεύουμε με επιχειρήσεις σε Αθήνα, Θεσσαλονίκη, Κρήτη και όλη την Ελλάδα.",
-    footer_copy: "© 2026 Imperial Automations — AI Systems for Business",
+    footer_copy: "© 2026 CB Automations — AI Systems for Business",
     ticker_items: ["Reputation AI","AI Chatbots","Voice Agents","Web Design","Lead Generation","5-Star Systems","24/7 Automation","Booking Systems"]
   },
   en: {
@@ -970,26 +1015,27 @@ const translations = {
     stat4_num: "100%", stat4_label: "Guarantee",
     carousel_label: "Testimonials",
     carousel_h2: "What our clients say",
-    cr1_quote: "Excellent collaboration. We built the site, chatbot, review system and app together — all at the highest level. Results from day one.",
+    cr1_quote: "We brought 78 new appointments in the first month with the Digital Secretary, another 45 in the second, and it has saved us countless hours of manual messages. Incredible — results from day one.",
     cr1_role: "Dermatologist — Thessaloniki",
-    cr2_quote: "Very satisfied with the collaboration. Professionalism, results and immediate response. I recommend them unreservedly.",
-    cr2_role: "CEO — Corporate Group",
-    cr3_quote: "The AI Voice Agent completely changed how our clinic operates. Zero missed calls, more appointments, without extra staff.",
-    cr3_role: "Orthopaedic Surgeon — Athens",
+    cr2_quote: "We built all the websites from scratch — all professional and fast. We got 25 five-star reviews in one week. 100% recommended!",
+    cr2_role: "Entrepreneur — Business Group",
+    cr3_quote: "We no longer miss calls and we have more appointments, without extra staff.",
+    cr3_role: "Business Owner",
     services_label: "Services",
     services_h2: "Five systems. Measurable results.",
     s1_title: "AI Chatbot &amp; Lead Generation",
-    s1_desc: "AI assistant that converts website and social media visitors into qualified booking conversations 24/7 — without extra staff.",
+    s1_desc: "We bring you triple the new leads with an AI Assistant that converts website visitors into clients, 24/7.",
     s1_guarantee: "🛡 If we don't generate 20+ qualified conversations in 30 days → we work for free until we do.",
     s1_tag: "Conversational AI",
     s1_result: "30 new appointments per month",
-    s2_title: "AI Voice Agent / Digital Secretary",
-    s2_desc: "AI phone secretary that answers your calls 24/7, takes details, answers questions and books appointments.",
+    s2_title: "Voice Agent (Invisible Secretary)",
+    s2_desc: "We save you 2,000+€ per month from missed calls, with an AI phone secretary that answers calls 24/7.",
     s2_guarantee: "🛡 If missed calls don't drop by 80% in 30 days → we continue for free.",
     s2_tag: "Voice AI",
     s2_result: "-80% missed calls — stops the revenue bleed",
     s3_title: "Google Reviews &amp; Reputation System",
-    s3_desc: "Automated Google Reviews collection system that increases your reviews in 30 days without manually chasing customers.",
+    s3_desc: "We bring you 100 new 5-star reviews in the first 30 days — without chasing customers manually, all automatic.",
+    s3_feature: "✓ Sends automatic review request message after every appointment/visit.",
     s3_guarantee: "🛡 If we don't send 300+ review requests in 30 days → full refund.",
     s3_tag: "Reputation AI",
     s3_result: "100+ 5-star reviews in 1 month",
@@ -1004,9 +1050,9 @@ const translations = {
     kpis_label: "Results",
     kpis_h2: "Numbers that speak for themselves",
     kpi1_label: "Google review increase in 60 days",
-    kpi2_label: "Reduction in missed calls",
+    kpi2_label: "Call answer rate with AI",
     kpi3_label: "Operation without human intervention",
-    kpi4_label: "Qualified leads/month for clinics",
+    kpi4_label: "New appointments per month",
     guarantees_label: "Guarantees",
     guarantees_h2: "We work until you see results.",
     g1_title: "Results Guarantee",
@@ -1015,13 +1061,6 @@ const translations = {
     g2_desc: "We know your time is valuable. Every delivery happens on the date we agree — or you don't pay.",
     g3_title: "Simplicity Guarantee",
     g3_desc: "You don't need to know anything about technology. We set everything up and hand it to you ready.",
-    testimonials_h2: "What our clients say",
-    t1_quote: "Excellent collaboration. We built the site, chatbot, review system and app together — all at the highest level. Results from day one.",
-    t1_role: "Dermatologist — Thessaloniki",
-    t1_services: "Website · AI Chatbot · 5-Star System · App",
-    t2_quote: "Very satisfied with the collaboration. Professionalism, results and immediate response. I recommend them unreservedly.",
-    t2_role: "CEO — Corporate Group",
-    t2_services: "AI Automation · Lead Generation · Digital Infrastructure",
     cta_label: "Limited Spots — 2026",
     cta_h2: "Free 15-min AI Audit",
     cta_text: "In 15 minutes we analyse your business and tell you exactly which AI systems you need and what ROI to expect. No commitments.",
@@ -1030,7 +1069,8 @@ const translations = {
     cta_check3: "ROI estimate with no commitment",
     cta_btn: "Book Free AI Audit →",
     contact_label: "Contact",
-    contact_h2: "Start today",
+    contact_h2: "How we start",
+    contact_sub: "Fill in the form and we will contact you within 24 hours.",
     form1_title: "Free AI Audit",
     form1_sub: "Book a free 15-min audit",
     f1_name: "Name", f1_name_ph: "Your name",
@@ -1050,7 +1090,7 @@ const translations = {
     form_success_p: "We'll be in touch shortly.",
     cities_h2: "We serve all across Greece",
     cities_subtitle: "Based in Athens, we work with businesses in Athens, Thessaloniki, Crete and across Greece.",
-    footer_copy: "© 2026 Imperial Automations — AI Systems for Business",
+    footer_copy: "© 2026 CB Automations — AI Systems for Business",
     ticker_items: ["Reputation AI","AI Chatbots","Voice Agents","Web Design","Lead Generation","5-Star Systems","24/7 Automation","Booking Systems"]
   },
   fr: {
@@ -1067,26 +1107,27 @@ const translations = {
     stat4_num: "100%", stat4_label: "Garantie",
     carousel_label: "Témoignages",
     carousel_h2: "Ce que disent nos clients",
-    cr1_quote: "Excellente collaboration. Nous avons créé ensemble le site, le chatbot, le système d'avis et l'application — tout au plus haut niveau. Des résultats dès le premier jour.",
+    cr1_quote: "Nous avons obtenu 78 nouveaux rendez-vous le premier mois grâce au Secrétaire Digital, 45 autres le deuxième mois, et il nous a économisé d'innombrables heures de messages manuels. Incroyable — des résultats dès le premier jour.",
     cr1_role: "Dermatologue — Thessalonique",
-    cr2_quote: "Très satisfait de la collaboration. Professionnalisme, résultats et réactivité immédiate. Je les recommande sans réserve.",
-    cr2_role: "PDG — Groupe d'Entreprises",
-    cr3_quote: "L'Agent Vocal IA a complètement changé le fonctionnement de notre clinique. Zéro appel manqué, plus de rendez-vous, sans personnel supplémentaire.",
-    cr3_role: "Chirurgien orthopédique — Athènes",
+    cr2_quote: "Nous avons créé tous les sites web de zéro — tous professionnels et rapides. Nous avons obtenu 25 avis cinq étoiles en une semaine. Je le recommande à 100% !",
+    cr2_role: "Entrepreneur — Groupe d'Entreprises",
+    cr3_quote: "Nous ne manquons plus d'appels et avons plus de rendez-vous, sans personnel supplémentaire.",
+    cr3_role: "Propriétaire d'Entreprise",
     services_label: "Services",
     services_h2: "Cinq systèmes. Des résultats mesurables.",
     s1_title: "Chatbot IA &amp; Génération de Leads",
-    s1_desc: "Assistant IA qui convertit les visiteurs du site et des réseaux sociaux en conversations de réservation qualifiées 24h/24.",
+    s1_desc: "Nous vous apportons trois fois plus de nouveaux leads avec un Assistant IA qui convertit les visiteurs du site en clients, 24h/24.",
     s1_guarantee: "🛡 Si 20+ conversations qualifiées ne sont pas générées en 30 jours → nous travaillons gratuitement jusqu'à y parvenir.",
     s1_tag: "Conversational AI",
     s1_result: "30 nouveaux rendez-vous par mois",
-    s2_title: "Agent Vocal IA / Secrétaire Numérique",
-    s2_desc: "Secrétaire téléphonique IA qui répond à vos appels 24h/24, prend les détails, répond aux questions et réserve des rendez-vous.",
+    s2_title: "Agent Vocal (Secrétaire Invisible)",
+    s2_desc: "Nous vous économisons 2 000+€ par mois en appels manqués, avec une secrétaire téléphonique IA qui répond aux appels 24h/24.",
     s2_guarantee: "🛡 Si les appels manqués ne baissent pas de 80% en 30 jours → nous continuons gratuitement.",
     s2_tag: "Voice AI",
     s2_result: "-80% d'appels manqués — stop aux pertes de revenus",
     s3_title: "Système Google Avis &amp; Réputation",
-    s3_desc: "Système automatisé de collecte d'avis Google qui augmente vos avis en 30 jours sans courir après les clients manuellement.",
+    s3_desc: "Nous vous apportons 100 nouveaux avis 5 étoiles dans les 30 premiers jours — sans courir après les clients manuellement, tout automatiquement.",
+    s3_feature: "✓ Envoie automatiquement un message de demande d'avis après chaque rendez-vous/visite.",
     s3_guarantee: "🛡 Si nous n'envoyons pas 300+ demandes d'avis en 30 jours → remboursement intégral.",
     s3_tag: "Reputation AI",
     s3_result: "100+ avis 5 étoiles en 1 mois",
@@ -1101,9 +1142,9 @@ const translations = {
     kpis_label: "Résultats",
     kpis_h2: "Des chiffres qui parlent d'eux-mêmes",
     kpi1_label: "Augmentation des avis Google en 60 jours",
-    kpi2_label: "Réduction des appels manqués",
+    kpi2_label: "Taux de réponse aux appels avec IA",
     kpi3_label: "Fonctionnement sans intervention humaine",
-    kpi4_label: "Leads qualifiés/mois pour les cliniques",
+    kpi4_label: "Nouveaux rendez-vous par mois",
     guarantees_label: "Garanties",
     guarantees_h2: "Nous travaillons jusqu'à ce que vous voyiez des résultats.",
     g1_title: "Garantie de Résultats",
@@ -1147,7 +1188,7 @@ const translations = {
     form_success_p: "Nous vous contacterons bientôt.",
     cities_h2: "Nous couvrons toute la Grèce",
     cities_subtitle: "Basés à Athènes, nous travaillons avec des entreprises à Athènes, Thessalonique, Crète et partout en Grèce.",
-    footer_copy: "© 2026 Imperial Automations — Systèmes IA pour Entreprises",
+    footer_copy: "© 2026 CB Automations — Systèmes IA pour Entreprises",
     ticker_items: ["Reputation AI","AI Chatbots","Voice Agents","Web Design","Lead Generation","5-Star Systems","Automatisation 24/7","Booking Systems"]
   },
   id: {
@@ -1244,7 +1285,7 @@ const translations = {
     form_success_p: "Kami akan segera menghubungi Anda.",
     cities_h2: "Kami melayani seluruh Yunani",
     cities_subtitle: "Berbasis di Athena, kami bekerja dengan bisnis di Athena, Thessaloniki, Kreta, dan seluruh Yunani.",
-    footer_copy: "© 2026 Imperial Automations — Sistem AI untuk Bisnis",
+    footer_copy: "© 2026 CB Automations — Sistem AI untuk Bisnis",
     ticker_items: ["Reputation AI","AI Chatbots","Voice Agents","Web Design","Lead Generation","5-Star Systems","Otomasi 24/7","Booking Systems"]
   }
 };
