@@ -510,7 +510,7 @@ footer{
 <!-- NAV -->
 <nav id="main-nav">
   <a href="#" class="nav-logo">
-    <img src="imperial_logo-removebg-preview.png" height="44" alt="CB Automations" style="display:block;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges">
+    <img src="images/cb-automations-logo.webp" height="44" alt="CB Automations" style="display:block;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges">
   </a>
   <div class="nav-right">
     <div class="lang-switcher">
@@ -718,30 +718,10 @@ footer{
     <h2 class="section-h2 reveal" data-i18n="cities_h2">Εξυπηρετούμε σε όλη την Ελλάδα</h2>
     <p class="cities-subtitle reveal reveal-delay-1" data-i18n="cities_subtitle">Με έδρα την Αθήνα, εξυπηρετούμε επιχειρήσεις σε όλη την Ελλάδα.</p>
   </div>
-  <div class="cities-grid">
-    <div class="city-card reveal reveal-delay-1">
-      <div class="city-name">Αθήνα</div>
-      <div class="city-dot"></div>
-    </div>
-    <div class="city-card reveal reveal-delay-2">
-      <div class="city-name">Θεσσαλονίκη</div>
-      <div class="city-dot"></div>
-    </div>
-    <div class="city-card reveal reveal-delay-3">
-      <div class="city-name">Λάρισα</div>
-      <div class="city-dot"></div>
-    </div>
-    <div class="city-card reveal reveal-delay-4">
-      <div class="city-name">Κρήτη</div>
-      <div class="city-dot"></div>
-    </div>
-  </div>
-
   <!-- Greece Map (placeholder — replace src with real night-map image) -->
   <!-- TODO: replace src with real map image -->
   <div class="greece-map-wrap reveal" style="margin-top:3rem">
-    <img src="/images/greece-map-placeholder.png" alt="Χάρτης Ελλάδας" class="greece-map-img"
-         onerror="this.style.background='rgba(201,168,76,0.04)';this.alt=''">
+    <img src="images/greece-night-map.jpg" alt="Χάρτης Ελλάδας — νυχτερινή λήψη" class="greece-map-img">
     <!-- Pulsing gold city pins — positions are % of image dimensions -->
     <div class="map-pin" style="top:54%;left:50%" title="Αθήνα"></div>
     <div class="map-pin" style="top:22%;left:48%;animation-delay:0.5s" title="Θεσσαλονίκη"></div>
@@ -777,21 +757,14 @@ footer{
 
 <!-- CONTACT FORMS -->
 <section id="contact" style="background:var(--dark2);border-top:1px solid var(--border)">
-  <div class="contact-intro">
-    <!-- TODO: replace src with real photo of the team/person -->
-    <img src="/images/cta-photo-placeholder.jpg" alt="CB Automations" class="contact-intro-img"
-         onerror="this.style.display='none'">
-    <div class="contact-intro-text">
-      <div class="section-label" data-i18n="contact_label">Επικοινωνία</div>
-      <h2 class="section-h2 reveal" data-i18n="contact_h2" style="margin-bottom:1rem">Πώς ξεκινάμε;</h2>
-      <p style="font-size:0.95rem;color:var(--text-muted);line-height:1.7" data-i18n="contact_sub">Συμπλήρωσε τη φόρμα και ένα μέλος της ομάδας μας θα έρθει σε επικοινωνία μαζί σου μέσα σε 24 ώρες.</p>
-    </div>
+  <div class="section-center" style="margin-bottom:2.5rem">
+    <div class="section-label reveal" data-i18n="contact_label">Επικοινωνία</div>
+    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="contact_h2" style="margin-bottom:1rem">Πώς ξεκινάμε;</h2>
+    <p class="reveal reveal-delay-2" style="font-size:0.95rem;color:var(--text-muted);line-height:1.7" data-i18n="contact_sub">Συμπλήρωσε τη φόρμα και ένα μέλος της ομάδας μας θα έρθει σε επικοινωνία μαζί σου μέσα σε 24 ώρες.</p>
   </div>
   <div class="form-single">
     <!-- Form 1 — AI Audit -->
     <div class="form-card reveal reveal-delay-1">
-      <div class="form-title" data-i18n="form1_title">Δωρεάν AI Audit</div>
-      <div class="form-subtitle" data-i18n="form1_sub">Κλείσε 15λεπτο δωρεάν audit</div>
       <div id="form1-wrap">
         <form id="form1" action="https://formspree.io/f/xwvzknyz" method="POST" novalidate>
           <input type="hidden" name="_subject" value="Νέο Lead — CB Automations">
@@ -831,7 +804,7 @@ footer{
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="imperial_logo-removebg-preview.png" height="40" alt="CB Automations" style="display:block">
+    <img src="images/cb-automations-logo.webp" height="40" alt="CB Automations" style="display:block">
   </div>
   <div class="footer-copy" data-i18n="footer_copy">© 2026 CB Automations — AI Systems for Business</div>
   <button class="btn-footer" onclick="scrollTo('#contact')" data-i18n="nav_cta">Δωρεάν AI Audit →</button>
