@@ -386,6 +386,102 @@ footer{
 .light-section .city-card:hover{background:#EDE9E0;border-color:var(--gold)}
 .light-section .city-name{color:#08080A}
 
+/* ===== TESTIMONIALS CAROUSEL ===== */
+.carousel-section{background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.carousel-outer{max-width:760px;margin:0 auto;position:relative;overflow:hidden}
+.carousel-track{display:flex;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1)}
+.carousel-slide{
+  flex:0 0 100%;padding:2.5rem 3rem;
+  background:var(--dark3);border:1px solid var(--border);border-radius:16px;
+  position:relative;
+}
+.carousel-slide::before{
+  content:'\201C';position:absolute;top:1.2rem;left:2rem;
+  font-family:'Cormorant Garamond',serif;font-size:6rem;line-height:1;
+  color:var(--gold);opacity:0.25;pointer-events:none;
+}
+.carousel-quote{
+  font-size:1.05rem;line-height:1.75;color:var(--text);font-style:italic;
+  margin-bottom:2rem;position:relative;z-index:1;
+}
+.carousel-author{display:flex;align-items:center;gap:1rem}
+.carousel-avatar{
+  width:44px;height:44px;border-radius:50%;background:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1.1rem;color:#08080A;flex-shrink:0;
+}
+.carousel-name{font-weight:700;font-size:0.95rem}
+.carousel-role{font-size:0.78rem;color:var(--text-muted);font-family:'Cormorant Garamond',serif;font-style:italic}
+.carousel-stars{color:var(--gold);font-size:0.9rem;margin-top:0.3rem;letter-spacing:0.05em}
+.carousel-dots{display:flex;justify-content:center;gap:0.6rem;margin-top:1.8rem}
+.carousel-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--border);border:1px solid var(--border);
+  cursor:none;transition:background 0.3s,transform 0.3s;padding:0;
+}
+.carousel-dot.active{background:var(--gold);transform:scale(1.3)}
+
+/* ===== REVIEWS GRID ===== */
+.reviews-section{background:var(--dark)}
+.reviews-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;max-width:1100px;margin:0 auto;
+}
+.review-card{
+  background:var(--dark2);border:1px solid var(--border);border-radius:12px;
+  padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem;
+  transition:border-color 0.3s,background 0.3s;
+}
+.review-card:hover{background:var(--dark3);border-color:var(--gold)}
+.review-card-top{display:flex;align-items:center;gap:0.75rem}
+.review-avatar{
+  width:40px;height:40px;border-radius:50%;background:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1rem;color:#08080A;flex-shrink:0;
+}
+.review-author-name{font-weight:700;font-size:0.9rem;line-height:1.2}
+.review-author-sub{font-size:0.72rem;color:var(--text-muted)}
+.review-stars{color:#F9A825;font-size:0.85rem;letter-spacing:0.04em}
+.review-text{font-size:0.85rem;color:var(--text-muted);line-height:1.65;flex:1}
+.review-platform{
+  display:flex;align-items:center;gap:0.4rem;padding-top:0.5rem;
+  border-top:1px solid var(--border);font-size:0.7rem;color:var(--text-muted);
+  letter-spacing:0.06em;
+}
+.review-platform-icon{font-size:0.9rem}
+
+/* ===== NUMBERED SERVICES ===== */
+.services-numbered{
+  display:flex;flex-direction:column;gap:1.5rem;max-width:900px;margin:0 auto;
+}
+.service-step{
+  display:grid;grid-template-columns:120px 1fr;align-items:start;gap:2rem;
+  background:var(--dark2);border:1px solid var(--border);border-radius:14px;
+  padding:2rem 2.5rem;position:relative;overflow:hidden;transition:background 0.3s;
+}
+.service-step::after{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--gold);transform:scaleY(0);transform-origin:top;
+  transition:transform 0.35s ease;
+}
+.service-step:hover{background:var(--dark3)}
+.service-step:hover::after{transform:scaleY(1)}
+.service-step-num{
+  font-size:3.8rem;font-weight:900;color:var(--gold);line-height:1;
+  font-family:'Outfit',sans-serif;opacity:0.85;
+}
+.service-step-body{}
+.service-step-title{font-size:1.15rem;font-weight:700;margin-bottom:0.6rem;line-height:1.3}
+.service-step-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin-bottom:1rem}
+.service-step-guarantee{
+  font-size:0.78rem;color:var(--text-muted);background:rgba(201,168,76,0.06);
+  border:1px solid var(--border);border-radius:6px;padding:0.6rem 0.8rem;
+  line-height:1.5;margin-bottom:0.75rem;
+}
+.service-step-tag{
+  display:inline-block;font-size:0.68rem;font-weight:700;color:var(--gold);
+  letter-spacing:0.12em;text-transform:uppercase;border:1px solid var(--border);
+  padding:0.25rem 0.6rem;border-radius:20px;
+}
+
 /* ===== CONTACT SINGLE FORM ===== */
 .form-single{max-width:560px;margin:0 auto}
 
@@ -409,15 +505,24 @@ footer{
   .guarantees-grid{grid-template-columns:1fr}
   .testimonials-grid{grid-template-columns:1fr}
   .forms-grid{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .carousel-slide{padding:2rem 1.5rem}
+  .carousel-slide::before{font-size:4rem;top:1rem;left:1rem}
+  .service-step{grid-template-columns:80px 1fr;gap:1rem;padding:1.5rem}
+  .service-step-num{font-size:2.8rem}
   .cities-grid{grid-template-columns:repeat(2,1fr)}
   footer{flex-direction:column;gap:1rem;text-align:center;padding:1.5rem}
   body{cursor:auto}
   #cursor-dot,#cursor-ring{display:none}
 }
+@media(max-width:900px){
+  .reviews-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:480px){
   .stats-bar{grid-template-columns:repeat(2,1fr)}
   .kpis-grid{grid-template-columns:1fr;gap:1rem}
   .cta-box{padding:2rem 1.5rem}
+  .reviews-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -499,40 +604,192 @@ footer{
   <div class="ticker-track" id="ticker-track"></div>
 </div>
 
+<!-- TESTIMONIALS CAROUSEL -->
+<section class="carousel-section" id="carousel-section">
+  <div class="section-center">
+    <div class="section-label reveal" data-i18n="carousel_label">Testimonials</div>
+    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="carousel_h2">Τι λένε οι πελάτες μας</h2>
+  </div>
+  <div class="carousel-outer reveal reveal-delay-2" id="carousel-outer">
+    <div class="carousel-track" id="carousel-track">
+      <!-- Slide 1 -->
+      <div class="carousel-slide">
+        <p class="carousel-quote" data-i18n="cr1_quote">Άριστη συνεργασία. Φτιάξαμε μαζί το site, το chatbot, το σύστημα κριτικών και την εφαρμογή — όλα στο υψηλότερο επίπεδο. Αποτελέσματα από την πρώτη μέρα.</p>
+        <div class="carousel-author">
+          <div class="carousel-avatar">Ζ</div>
+          <div>
+            <div class="carousel-name">Dr. Ζωή Φίκα</div>
+            <div class="carousel-role" data-i18n="cr1_role">Δερματολόγος — Θεσσαλονίκη</div>
+            <div class="carousel-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="carousel-slide">
+        <p class="carousel-quote" data-i18n="cr2_quote">Πολύ ικανοποιημένος από τη συνεργασία. Επαγγελματισμός, αποτελέσματα και άμεση ανταπόκριση. Τον προτείνω ανεπιφύλακτα.</p>
+        <div class="carousel-author">
+          <div class="carousel-avatar">Τ</div>
+          <div>
+            <div class="carousel-name">Τσερκεζίδης Group</div>
+            <div class="carousel-role" data-i18n="cr2_role">CEO — Εταιρικός Όμιλος</div>
+            <div class="carousel-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="carousel-slide">
+        <p class="carousel-quote" data-i18n="cr3_quote">Το AI Voice Agent άλλαξε εντελώς τον τρόπο που λειτουργεί η κλινική μας. Μηδέν αναπάντητες κλήσεις, περισσότερα ραντεβού, χωρίς επιπλέον προσωπικό.</p>
+        <div class="carousel-author">
+          <div class="carousel-avatar">Κ</div>
+          <div>
+            <div class="carousel-name">Κώστας Παπαδόπουλος</div>
+            <div class="carousel-role" data-i18n="cr3_role">Ορθοπεδικός — Αθήνα</div>
+            <div class="carousel-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-dots" id="carousel-dots">
+      <button class="carousel-dot active" onclick="goSlide(0)"></button>
+      <button class="carousel-dot" onclick="goSlide(1)"></button>
+      <button class="carousel-dot" onclick="goSlide(2)"></button>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS GRID -->
+<section class="reviews-section" id="reviews">
+  <div class="section-center">
+    <div class="section-label reveal" data-i18n="reviews_label">Google Reviews</div>
+    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="reviews_h2">Γραπτές Κριτικές</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal reveal-delay-1">
+      <div class="review-card-top">
+        <div class="review-avatar">Ζ</div>
+        <div>
+          <div class="review-author-name">Ζωή Φ.</div>
+          <div class="review-author-sub">6 μήνες πριν</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-i18n="rv1_text">Εξαιρετική δουλειά! Το chatbot που έφτιαξαν απαντάει σε κάθε απορία των ασθενών μου 24/7. Οι κρατήσεις αυξήθηκαν αισθητά από τον πρώτο μήνα.</p>
+      <div class="review-platform"><span class="review-platform-icon">G</span> Google Review</div>
+    </div>
+    <div class="review-card reveal reveal-delay-2">
+      <div class="review-card-top">
+        <div class="review-avatar">Μ</div>
+        <div>
+          <div class="review-author-name">Μιχάλης Τ.</div>
+          <div class="review-author-sub">4 μήνες πριν</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-i18n="rv2_text">Το σύστημα Google Reviews λειτουργεί μαγικά. Σε 30 μέρες πήραμε 80+ νέες κριτικές χωρίς να κάνουμε τίποτα. Ανεκτίμητο για την online φήμη μας.</p>
+      <div class="review-platform"><span class="review-platform-icon">G</span> Google Review</div>
+    </div>
+    <div class="review-card reveal reveal-delay-3">
+      <div class="review-card-top">
+        <div class="review-avatar">Ε</div>
+        <div>
+          <div class="review-author-name">Ελένη Κ.</div>
+          <div class="review-author-sub">2 μήνες πριν</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-i18n="rv3_text">Η ιστοσελίδα που έφτιαξαν είναι απλά εκπληκτική. Σχεδιασμός που μετατρέπει επισκέπτες σε πελάτες. ROI από τον πρώτο μήνα.</p>
+      <div class="review-platform"><span class="review-platform-icon">G</span> Google Review</div>
+    </div>
+    <div class="review-card reveal reveal-delay-1">
+      <div class="review-card-top">
+        <div class="review-avatar">Ν</div>
+        <div>
+          <div class="review-author-name">Νίκος Α.</div>
+          <div class="review-author-sub">3 μήνες πριν</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-i18n="rv4_text">Το Voice Agent είναι σαν να έχω έναν γραμματέα που δουλεύει 24/7. Απαντάει στις κλήσεις, κρατάει ραντεβού και δεν κάνει ποτέ λάθος.</p>
+      <div class="review-platform"><span class="review-platform-icon">G</span> Google Review</div>
+    </div>
+    <div class="review-card reveal reveal-delay-2">
+      <div class="review-card-top">
+        <div class="review-avatar">Σ</div>
+        <div>
+          <div class="review-author-name">Σοφία Π.</div>
+          <div class="review-author-sub">5 μήνες πριν</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-i18n="rv5_text">Πριν δούλευα 12+ ώρες τη μέρα με follow-ups και κρατήσεις. Τώρα τα automations κάνουν τα πάντα αυτόματα. Ανακάλυψα ξανά τον ελεύθερο χρόνο μου!</p>
+      <div class="review-platform"><span class="review-platform-icon">G</span> Google Review</div>
+    </div>
+    <div class="review-card reveal reveal-delay-3">
+      <div class="review-card-top">
+        <div class="review-avatar">Γ</div>
+        <div>
+          <div class="review-author-name">Γιώργης Β.</div>
+          <div class="review-author-sub">1 μήνα πριν</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-i18n="rv6_text">Απίστευτη ομάδα. Ξέρουν τι κάνουν, είναι πάντα διαθέσιμοι και τα αποτελέσματα μιλούν από μόνα τους. Σύσταση χωρίς δεύτερη σκέψη.</p>
+      <div class="review-platform"><span class="review-platform-icon">G</span> Google Review</div>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section id="services">
   <div class="section-center">
     <div class="section-label reveal" data-i18n="services_label">Υπηρεσίες</div>
-    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="services_h2">Τέσσερα συστήματα. Μετρήσιμα αποτελέσματα.</h2>
+    <h2 class="section-h2 reveal reveal-delay-1" data-i18n="services_h2">Πέντε συστήματα. Μετρήσιμα αποτελέσματα.</h2>
   </div>
-  <div class="services-grid">
-    <div class="service-card reveal reveal-delay-1">
-      <div class="service-num">01</div>
-      <div class="service-title" data-i18n="s1_title">Σύστημα Google Reviews &amp; Reputation</div>
-      <div class="service-desc" data-i18n="s1_desc">Αυτοματοποιημένο σύστημα συλλογής Google Reviews που αυξάνει τις κριτικές σου σε 30 μέρες χωρίς να κυνηγάς πελάτες χειροκίνητα.</div>
-      <div class="service-guarantee" data-i18n="s1_guarantee">🛡 Αν δεν στείλουμε 300+ review requests σε 30 μέρες → πλήρης επιστροφή χρημάτων.</div>
-      <span class="service-tag" data-i18n="s1_tag">Reputation AI</span>
+  <div class="services-numbered">
+    <div class="service-step reveal reveal-delay-1">
+      <div class="service-step-num">01</div>
+      <div class="service-step-body">
+        <div class="service-step-title" data-i18n="s1_title">AI Chatbot &amp; Lead Generation</div>
+        <div class="service-step-desc" data-i18n="s1_desc">AI assistant που μετατρέπει επισκέπτες από site και social media σε qualified booking conversations 24/7 — χωρίς επιπλέον προσωπικό.</div>
+        <div class="service-step-guarantee" data-i18n="s1_guarantee">🛡 Αν δεν δημιουργηθούν 20+ qualified conversations σε 30 μέρες → δουλεύουμε δωρεάν μέχρι να το πετύχουμε.</div>
+        <span class="service-step-tag" data-i18n="s1_tag">Conversational AI</span>
+      </div>
     </div>
-    <div class="service-card reveal reveal-delay-2">
-      <div class="service-num">02</div>
-      <div class="service-title" data-i18n="s2_title">AI Chatbot &amp; Lead Generation</div>
-      <div class="service-desc" data-i18n="s2_desc">AI assistant που μετατρέπει επισκέπτες από site και social media σε qualified booking conversations 24/7 — χωρίς επιπλέον προσωπικό.</div>
-      <div class="service-guarantee" data-i18n="s2_guarantee">🛡 Αν δεν δημιουργηθούν 20+ qualified conversations σε 30 μέρες → δουλεύουμε δωρεάν μέχρι να το πετύχουμε.</div>
-      <span class="service-tag" data-i18n="s2_tag">Conversational AI</span>
+    <div class="service-step reveal reveal-delay-2">
+      <div class="service-step-num">02</div>
+      <div class="service-step-body">
+        <div class="service-step-title" data-i18n="s2_title">AI Voice Agent / Ψηφιακή Γραμματεία</div>
+        <div class="service-step-desc" data-i18n="s2_desc">AI τηλεφωνική γραμματεία που απαντάει στις κλήσεις σου 24/7, κρατάει στοιχεία, απαντάει ερωτήσεις και κλείνει ραντεβού.</div>
+        <div class="service-step-guarantee" data-i18n="s2_guarantee">🛡 Αν δεν μειωθούν οι αναπάντητες κλήσεις κατά 80% σε 30 μέρες → συνεχίζουμε δωρεάν.</div>
+        <span class="service-step-tag" data-i18n="s2_tag">Voice AI</span>
+      </div>
     </div>
-    <div class="service-card reveal reveal-delay-3">
-      <div class="service-num">03</div>
-      <div class="service-title" data-i18n="s3_title">AI Voice Agent / Ψηφιακή Γραμματεία</div>
-      <div class="service-desc" data-i18n="s3_desc">AI τηλεφωνική γραμματεία που απαντάει στις κλήσεις σου 24/7, κρατάει στοιχεία, απαντάει ερωτήσεις και κλείνει ραντεβού.</div>
-      <div class="service-guarantee" data-i18n="s3_guarantee">🛡 Αν δεν μειωθούν οι αναπάντητες κλήσεις κατά 80% σε 30 μέρες → συνεχίζουμε δωρεάν.</div>
-      <span class="service-tag" data-i18n="s3_tag">Voice AI</span>
+    <div class="service-step reveal reveal-delay-3">
+      <div class="service-step-num">03</div>
+      <div class="service-step-body">
+        <div class="service-step-title" data-i18n="s3_title">Σύστημα Google Reviews &amp; Reputation</div>
+        <div class="service-step-desc" data-i18n="s3_desc">Αυτοματοποιημένο σύστημα συλλογής Google Reviews που αυξάνει τις κριτικές σου σε 30 μέρες χωρίς να κυνηγάς πελάτες χειροκίνητα.</div>
+        <div class="service-step-guarantee" data-i18n="s3_guarantee">🛡 Αν δεν στείλουμε 300+ review requests σε 30 μέρες → πλήρης επιστροφή χρημάτων.</div>
+        <span class="service-step-tag" data-i18n="s3_tag">Reputation AI</span>
+      </div>
     </div>
-    <div class="service-card reveal reveal-delay-4">
-      <div class="service-num">04</div>
-      <div class="service-title" data-i18n="s4_title">Web Design &amp; Conversion</div>
-      <div class="service-desc" data-i18n="s4_desc">Conversion-focused landing page σε 14 μέρες με δυνατό copy, social proof και tracking — ώστε οι επισκέπτες να ξέρουν ακριβώς γιατί να σε επιλέξουν.</div>
-      <div class="service-guarantee" data-i18n="s4_guarantee">🛡 Αν δεν παραδοθεί σε 14 μέρες → πλήρης επιστροφή χρημάτων.</div>
-      <span class="service-tag" data-i18n="s4_tag">Digital Products</span>
+    <div class="service-step reveal reveal-delay-4">
+      <div class="service-step-num">04</div>
+      <div class="service-step-body">
+        <div class="service-step-title" data-i18n="s4_title">Web Design &amp; Conversion</div>
+        <div class="service-step-desc" data-i18n="s4_desc">Conversion-focused landing page σε 14 μέρες με δυνατό copy, social proof και tracking — ώστε οι επισκέπτες να ξέρουν ακριβώς γιατί να σε επιλέξουν.</div>
+        <div class="service-step-guarantee" data-i18n="s4_guarantee">🛡 Αν δεν παραδοθεί σε 14 μέρες → πλήρης επιστροφή χρημάτων.</div>
+        <span class="service-step-tag" data-i18n="s4_tag">Digital Products</span>
+      </div>
+    </div>
+    <div class="service-step reveal reveal-delay-1">
+      <div class="service-step-num">05</div>
+      <div class="service-step-body">
+        <div class="service-step-title" data-i18n="s5_title">Business Automations</div>
+        <div class="service-step-desc" data-i18n="s5_desc">Αυτοματοποίηση επαναλαμβανόμενων διαδικασιών: follow-ups, scheduling, CRM sync, email sequences — ώστε εσύ να επικεντρωθείς στο πελάτη.</div>
+        <div class="service-step-guarantee" data-i18n="s5_guarantee">🛡 Αν δεν εξοικονομούμε 10+ ώρες/εβδομάδα σε 30 μέρες → συνεχίζουμε δωρεάν.</div>
+        <span class="service-step-tag" data-i18n="s5_tag">Workflow AI</span>
+      </div>
     </div>
   </div>
 </section>
@@ -722,24 +979,44 @@ const translations = {
     stat2_num: "4", stat2_label: "Πόλεις",
     stat3_num: "3×", stat3_label: "Avg ROI",
     stat4_num: "100%", stat4_label: "Εγγύηση",
+    carousel_label: "Testimonials",
+    carousel_h2: "Τι λένε οι πελάτες μας",
+    cr1_quote: "Άριστη συνεργασία. Φτιάξαμε μαζί το site, το chatbot, το σύστημα κριτικών και την εφαρμογή — όλα στο υψηλότερο επίπεδο. Αποτελέσματα από την πρώτη μέρα.",
+    cr1_role: "Δερματολόγος — Θεσσαλονίκη",
+    cr2_quote: "Πολύ ικανοποιημένος από τη συνεργασία. Επαγγελματισμός, αποτελέσματα και άμεση ανταπόκριση. Τον προτείνω ανεπιφύλακτα.",
+    cr2_role: "CEO — Εταιρικός Όμιλος",
+    cr3_quote: "Το AI Voice Agent άλλαξε εντελώς τον τρόπο που λειτουργεί η κλινική μας. Μηδέν αναπάντητες κλήσεις, περισσότερα ραντεβού, χωρίς επιπλέον προσωπικό.",
+    cr3_role: "Ορθοπεδικός — Αθήνα",
+    reviews_label: "Google Reviews",
+    reviews_h2: "Γραπτές Κριτικές",
+    rv1_text: "Εξαιρετική δουλειά! Το chatbot που έφτιαξαν απαντάει σε κάθε απορία των ασθενών μου 24/7. Οι κρατήσεις αυξήθηκαν αισθητά από τον πρώτο μήνα.",
+    rv2_text: "Το σύστημα Google Reviews λειτουργεί μαγικά. Σε 30 μέρες πήραμε 80+ νέες κριτικές χωρίς να κάνουμε τίποτα. Ανεκτίμητο για την online φήμη μας.",
+    rv3_text: "Η ιστοσελίδα που έφτιαξαν είναι απλά εκπληκτική. Σχεδιασμός που μετατρέπει επισκέπτες σε πελάτες. ROI από τον πρώτο μήνα.",
+    rv4_text: "Το Voice Agent είναι σαν να έχω έναν γραμματέα που δουλεύει 24/7. Απαντάει στις κλήσεις, κρατάει ραντεβού και δεν κάνει ποτέ λάθος.",
+    rv5_text: "Πριν δούλευα 12+ ώρες τη μέρα με follow-ups και κρατήσεις. Τώρα τα automations κάνουν τα πάντα αυτόματα. Ανακάλυψα ξανά τον ελεύθερο χρόνο μου!",
+    rv6_text: "Απίστευτη ομάδα. Ξέρουν τι κάνουν, είναι πάντα διαθέσιμοι και τα αποτελέσματα μιλούν από μόνα τους. Σύσταση χωρίς δεύτερη σκέψη.",
     services_label: "Υπηρεσίες",
-    services_h2: "Τέσσερα συστήματα. Μετρήσιμα αποτελέσματα.",
-    s1_title: "Σύστημα Google Reviews &amp; Reputation",
-    s1_desc: "Αυτοματοποιημένο σύστημα συλλογής Google Reviews που αυξάνει τις κριτικές σου σε 30 μέρες χωρίς να κυνηγάς πελάτες χειροκίνητα.",
-    s1_guarantee: "🛡 Αν δεν στείλουμε 300+ review requests σε 30 μέρες → πλήρης επιστροφή χρημάτων.",
-    s1_tag: "Reputation AI",
-    s2_title: "AI Chatbot &amp; Lead Generation",
-    s2_desc: "AI assistant που μετατρέπει επισκέπτες από site και social media σε qualified booking conversations 24/7 — χωρίς επιπλέον προσωπικό.",
-    s2_guarantee: "🛡 Αν δεν δημιουργηθούν 20+ qualified conversations σε 30 μέρες → δουλεύουμε δωρεάν μέχρι να το πετύχουμε.",
-    s2_tag: "Conversational AI",
-    s3_title: "AI Voice Agent / Ψηφιακή Γραμματεία",
-    s3_desc: "AI τηλεφωνική γραμματεία που απαντάει στις κλήσεις σου 24/7, κρατάει στοιχεία, απαντάει ερωτήσεις και κλείνει ραντεβού.",
-    s3_guarantee: "🛡 Αν δεν μειωθούν οι αναπάντητες κλήσεις κατά 80% σε 30 μέρες → συνεχίζουμε δωρεάν.",
-    s3_tag: "Voice AI",
+    services_h2: "Πέντε συστήματα. Μετρήσιμα αποτελέσματα.",
+    s1_title: "AI Chatbot &amp; Lead Generation",
+    s1_desc: "AI assistant που μετατρέπει επισκέπτες από site και social media σε qualified booking conversations 24/7 — χωρίς επιπλέον προσωπικό.",
+    s1_guarantee: "🛡 Αν δεν δημιουργηθούν 20+ qualified conversations σε 30 μέρες → δουλεύουμε δωρεάν μέχρι να το πετύχουμε.",
+    s1_tag: "Conversational AI",
+    s2_title: "AI Voice Agent / Ψηφιακή Γραμματεία",
+    s2_desc: "AI τηλεφωνική γραμματεία που απαντάει στις κλήσεις σου 24/7, κρατάει στοιχεία, απαντάει ερωτήσεις και κλείνει ραντεβού.",
+    s2_guarantee: "🛡 Αν δεν μειωθούν οι αναπάντητες κλήσεις κατά 80% σε 30 μέρες → συνεχίζουμε δωρεάν.",
+    s2_tag: "Voice AI",
+    s3_title: "Σύστημα Google Reviews &amp; Reputation",
+    s3_desc: "Αυτοματοποιημένο σύστημα συλλογής Google Reviews που αυξάνει τις κριτικές σου σε 30 μέρες χωρίς να κυνηγάς πελάτες χειροκίνητα.",
+    s3_guarantee: "🛡 Αν δεν στείλουμε 300+ review requests σε 30 μέρες → πλήρης επιστροφή χρημάτων.",
+    s3_tag: "Reputation AI",
     s4_title: "Web Design &amp; Conversion",
     s4_desc: "Conversion-focused landing page σε 14 μέρες με δυνατό copy, social proof και tracking — ώστε οι επισκέπτες να ξέρουν ακριβώς γιατί να σε επιλέξουν.",
     s4_guarantee: "🛡 Αν δεν παραδοθεί σε 14 μέρες → πλήρης επιστροφή χρημάτων.",
     s4_tag: "Digital Products",
+    s5_title: "Business Automations",
+    s5_desc: "Αυτοματοποίηση επαναλαμβανόμενων διαδικασιών: follow-ups, scheduling, CRM sync, email sequences — ώστε εσύ να επικεντρωθείς στο πελάτη.",
+    s5_guarantee: "🛡 Αν δεν εξοικονομούμε 10+ ώρες/εβδομάδα σε 30 μέρες → συνεχίζουμε δωρεάν.",
+    s5_tag: "Workflow AI",
     kpis_label: "Αποτελέσματα",
     kpis_h2: "Αριθμοί που μιλούν μόνοι τους",
     kpi1_label: "Αύξηση Google κριτικών σε 60 μέρες",
@@ -804,24 +1081,44 @@ const translations = {
     stat2_num: "4", stat2_label: "Cities",
     stat3_num: "3×", stat3_label: "Avg ROI",
     stat4_num: "100%", stat4_label: "Guarantee",
+    carousel_label: "Testimonials",
+    carousel_h2: "What our clients say",
+    cr1_quote: "Excellent collaboration. We built the site, chatbot, review system and app together — all at the highest level. Results from day one.",
+    cr1_role: "Dermatologist — Thessaloniki",
+    cr2_quote: "Very satisfied with the collaboration. Professionalism, results and immediate response. I recommend them unreservedly.",
+    cr2_role: "CEO — Corporate Group",
+    cr3_quote: "The AI Voice Agent completely changed how our clinic operates. Zero missed calls, more appointments, without extra staff.",
+    cr3_role: "Orthopaedic Surgeon — Athens",
+    reviews_label: "Google Reviews",
+    reviews_h2: "Written Reviews",
+    rv1_text: "Exceptional work! The chatbot they built answers every patient query 24/7. Bookings increased noticeably from the first month.",
+    rv2_text: "The Google Reviews system works like magic. In 30 days we got 80+ new reviews without doing anything. Invaluable for our online reputation.",
+    rv3_text: "The website they built is simply amazing. Design that converts visitors into clients. ROI from the first month.",
+    rv4_text: "The Voice Agent is like having a secretary who works 24/7. Answers calls, books appointments and never makes a mistake.",
+    rv5_text: "I used to work 12+ hours a day on follow-ups and bookings. Now the automations do everything automatically. I rediscovered free time!",
+    rv6_text: "Incredible team. They know what they're doing, are always available and the results speak for themselves. Recommendation without a second thought.",
     services_label: "Services",
-    services_h2: "Four systems. Measurable results.",
-    s1_title: "Google Reviews &amp; Reputation System",
-    s1_desc: "Automated Google Reviews collection system that increases your reviews in 30 days without manually chasing customers.",
-    s1_guarantee: "🛡 If we don't send 300+ review requests in 30 days → full refund.",
-    s1_tag: "Reputation AI",
-    s2_title: "AI Chatbot &amp; Lead Generation",
-    s2_desc: "AI assistant that converts website and social media visitors into qualified booking conversations 24/7 — without extra staff.",
-    s2_guarantee: "🛡 If we don't generate 20+ qualified conversations in 30 days → we work for free until we do.",
-    s2_tag: "Conversational AI",
-    s3_title: "AI Voice Agent / Digital Secretary",
-    s3_desc: "AI phone secretary that answers your calls 24/7, takes details, answers questions and books appointments.",
-    s3_guarantee: "🛡 If missed calls don't drop by 80% in 30 days → we continue for free.",
-    s3_tag: "Voice AI",
+    services_h2: "Five systems. Measurable results.",
+    s1_title: "AI Chatbot &amp; Lead Generation",
+    s1_desc: "AI assistant that converts website and social media visitors into qualified booking conversations 24/7 — without extra staff.",
+    s1_guarantee: "🛡 If we don't generate 20+ qualified conversations in 30 days → we work for free until we do.",
+    s1_tag: "Conversational AI",
+    s2_title: "AI Voice Agent / Digital Secretary",
+    s2_desc: "AI phone secretary that answers your calls 24/7, takes details, answers questions and books appointments.",
+    s2_guarantee: "🛡 If missed calls don't drop by 80% in 30 days → we continue for free.",
+    s2_tag: "Voice AI",
+    s3_title: "Google Reviews &amp; Reputation System",
+    s3_desc: "Automated Google Reviews collection system that increases your reviews in 30 days without manually chasing customers.",
+    s3_guarantee: "🛡 If we don't send 300+ review requests in 30 days → full refund.",
+    s3_tag: "Reputation AI",
     s4_title: "Web Design &amp; Conversion",
     s4_desc: "Conversion-focused landing page in 14 days with strong copy, social proof and tracking — so visitors know exactly why to choose you.",
     s4_guarantee: "🛡 If not delivered in 14 days → full refund.",
     s4_tag: "Digital Products",
+    s5_title: "Business Automations",
+    s5_desc: "Automation of repetitive processes: follow-ups, scheduling, CRM sync, email sequences — so you can focus on the client.",
+    s5_guarantee: "🛡 If we don't save you 10+ hours/week in 30 days → we continue for free.",
+    s5_tag: "Workflow AI",
     kpis_label: "Results",
     kpis_h2: "Numbers that speak for themselves",
     kpi1_label: "Google review increase in 60 days",
@@ -886,24 +1183,44 @@ const translations = {
     stat2_num: "4", stat2_label: "Villes",
     stat3_num: "3×", stat3_label: "ROI Moyen",
     stat4_num: "100%", stat4_label: "Garantie",
+    carousel_label: "Témoignages",
+    carousel_h2: "Ce que disent nos clients",
+    cr1_quote: "Excellente collaboration. Nous avons créé ensemble le site, le chatbot, le système d'avis et l'application — tout au plus haut niveau. Des résultats dès le premier jour.",
+    cr1_role: "Dermatologue — Thessalonique",
+    cr2_quote: "Très satisfait de la collaboration. Professionnalisme, résultats et réactivité immédiate. Je les recommande sans réserve.",
+    cr2_role: "PDG — Groupe d'Entreprises",
+    cr3_quote: "L'Agent Vocal IA a complètement changé le fonctionnement de notre clinique. Zéro appel manqué, plus de rendez-vous, sans personnel supplémentaire.",
+    cr3_role: "Chirurgien orthopédique — Athènes",
+    reviews_label: "Google Avis",
+    reviews_h2: "Avis Écrits",
+    rv1_text: "Travail exceptionnel ! Le chatbot qu'ils ont créé répond à chaque question de mes patients 24h/24. Les réservations ont augmenté notablement dès le premier mois.",
+    rv2_text: "Le système Google Avis fonctionne à merveille. En 30 jours nous avons obtenu 80+ nouveaux avis sans rien faire. Inestimable pour notre réputation en ligne.",
+    rv3_text: "Le site qu'ils ont créé est tout simplement incroyable. Un design qui convertit les visiteurs en clients. ROI dès le premier mois.",
+    rv4_text: "L'Agent Vocal c'est comme avoir une secrétaire qui travaille 24h/24. Répond aux appels, prend les rendez-vous et ne fait jamais d'erreur.",
+    rv5_text: "Avant je travaillais 12+ heures par jour sur les suivis et les réservations. Maintenant les automatisations font tout automatiquement. J'ai retrouvé du temps libre!",
+    rv6_text: "Équipe incroyable. Ils savent ce qu'ils font, sont toujours disponibles et les résultats parlent d'eux-mêmes. Recommandation sans hésitation.",
     services_label: "Services",
-    services_h2: "Quatre systèmes. Des résultats mesurables.",
-    s1_title: "Système Google Avis &amp; Réputation",
-    s1_desc: "Système automatisé de collecte d'avis Google qui augmente vos avis en 30 jours sans courir après les clients manuellement.",
-    s1_guarantee: "🛡 Si nous n'envoyons pas 300+ demandes d'avis en 30 jours → remboursement intégral.",
-    s1_tag: "Reputation AI",
-    s2_title: "Chatbot IA &amp; Génération de Leads",
-    s2_desc: "Assistant IA qui convertit les visiteurs du site et des réseaux sociaux en conversations de réservation qualifiées 24h/24.",
-    s2_guarantee: "🛡 Si 20+ conversations qualifiées ne sont pas générées en 30 jours → nous travaillons gratuitement jusqu'à y parvenir.",
-    s2_tag: "Conversational AI",
-    s3_title: "Agent Vocal IA / Secrétaire Numérique",
-    s3_desc: "Secrétaire téléphonique IA qui répond à vos appels 24h/24, prend les détails, répond aux questions et réserve des rendez-vous.",
-    s3_guarantee: "🛡 Si les appels manqués ne baissent pas de 80% en 30 jours → nous continuons gratuitement.",
-    s3_tag: "Voice AI",
+    services_h2: "Cinq systèmes. Des résultats mesurables.",
+    s1_title: "Chatbot IA &amp; Génération de Leads",
+    s1_desc: "Assistant IA qui convertit les visiteurs du site et des réseaux sociaux en conversations de réservation qualifiées 24h/24.",
+    s1_guarantee: "🛡 Si 20+ conversations qualifiées ne sont pas générées en 30 jours → nous travaillons gratuitement jusqu'à y parvenir.",
+    s1_tag: "Conversational AI",
+    s2_title: "Agent Vocal IA / Secrétaire Numérique",
+    s2_desc: "Secrétaire téléphonique IA qui répond à vos appels 24h/24, prend les détails, répond aux questions et réserve des rendez-vous.",
+    s2_guarantee: "🛡 Si les appels manqués ne baissent pas de 80% en 30 jours → nous continuons gratuitement.",
+    s2_tag: "Voice AI",
+    s3_title: "Système Google Avis &amp; Réputation",
+    s3_desc: "Système automatisé de collecte d'avis Google qui augmente vos avis en 30 jours sans courir après les clients manuellement.",
+    s3_guarantee: "🛡 Si nous n'envoyons pas 300+ demandes d'avis en 30 jours → remboursement intégral.",
+    s3_tag: "Reputation AI",
     s4_title: "Web Design &amp; Conversion",
     s4_desc: "Landing page axée conversion en 14 jours avec un copy puissant, preuve sociale et tracking — pour que les visiteurs sachent exactement pourquoi vous choisir.",
     s4_guarantee: "🛡 Si non livré en 14 jours → remboursement intégral.",
     s4_tag: "Digital Products",
+    s5_title: "Automatisations d'Entreprise",
+    s5_desc: "Automatisation des processus répétitifs : suivis, planification, synchronisation CRM, séquences d'emails — pour que vous puissiez vous concentrer sur le client.",
+    s5_guarantee: "🛡 Si nous ne vous économisons pas 10+ heures/semaine en 30 jours → nous continuons gratuitement.",
+    s5_tag: "Workflow AI",
     kpis_label: "Résultats",
     kpis_h2: "Des chiffres qui parlent d'eux-mêmes",
     kpi1_label: "Augmentation des avis Google en 60 jours",
@@ -968,24 +1285,44 @@ const translations = {
     stat2_num: "4", stat2_label: "Kota",
     stat3_num: "3×", stat3_label: "ROI Rata-rata",
     stat4_num: "100%", stat4_label: "Jaminan",
+    carousel_label: "Testimoni",
+    carousel_h2: "Apa kata klien kami",
+    cr1_quote: "Kolaborasi yang sangat baik. Kami membangun bersama website, chatbot, sistem ulasan, dan aplikasinya — semua di tingkat tertinggi. Hasilnya terlihat dari hari pertama.",
+    cr1_role: "Dermatologis — Thessaloniki",
+    cr2_quote: "Sangat puas dengan kolaborasinya. Profesionalisme, hasil, dan respons yang cepat. Saya merekomendasikan mereka tanpa syarat.",
+    cr2_role: "CEO — Grup Perusahaan",
+    cr3_quote: "Agen Suara AI benar-benar mengubah cara klinik kami beroperasi. Nol panggilan tidak terjawab, lebih banyak janji temu, tanpa staf tambahan.",
+    cr3_role: "Ahli bedah ortopedi — Athena",
+    reviews_label: "Google Ulasan",
+    reviews_h2: "Ulasan Tertulis",
+    rv1_text: "Pekerjaan luar biasa! Chatbot yang mereka buat menjawab setiap pertanyaan pasien saya 24/7. Pemesanan meningkat nyata sejak bulan pertama.",
+    rv2_text: "Sistem Google Ulasan bekerja seperti keajaiban. Dalam 30 hari kami mendapat 80+ ulasan baru tanpa melakukan apa pun. Tak ternilai untuk reputasi online kami.",
+    rv3_text: "Website yang mereka buat sungguh menakjubkan. Desain yang mengubah pengunjung menjadi klien. ROI sejak bulan pertama.",
+    rv4_text: "Voice Agent seperti memiliki sekretaris yang bekerja 24/7. Menjawab telepon, membuat janji temu, dan tidak pernah membuat kesalahan.",
+    rv5_text: "Dulu saya bekerja 12+ jam sehari untuk follow-up dan pemesanan. Sekarang otomasi melakukan semuanya secara otomatis. Saya menemukan kembali waktu luang!",
+    rv6_text: "Tim yang luar biasa. Mereka tahu apa yang mereka lakukan, selalu tersedia, dan hasilnya berbicara sendiri. Rekomendasi tanpa pikir dua kali.",
     services_label: "Layanan",
-    services_h2: "Empat sistem. Hasil yang terukur.",
-    s1_title: "Sistem Google Ulasan &amp; Reputasi",
-    s1_desc: "Sistem pengumpulan Google Ulasan otomatis yang meningkatkan ulasan Anda dalam 30 hari tanpa mengejar pelanggan secara manual.",
-    s1_guarantee: "🛡 Jika kami tidak mengirim 300+ permintaan ulasan dalam 30 hari → pengembalian dana penuh.",
-    s1_tag: "Reputation AI",
-    s2_title: "Chatbot AI &amp; Generasi Prospek",
-    s2_desc: "Asisten AI yang mengubah pengunjung dari website dan media sosial menjadi percakapan booking berkualitas 24/7 — tanpa staf tambahan.",
-    s2_guarantee: "🛡 Jika 20+ percakapan berkualitas tidak dihasilkan dalam 30 hari → kami bekerja gratis hingga berhasil.",
-    s2_tag: "Conversational AI",
-    s3_title: "Agen Suara AI / Sekretaris Digital",
-    s3_desc: "Sekretaris telepon AI yang menjawab panggilan Anda 24/7, mencatat detail, menjawab pertanyaan, dan membuat janji temu.",
-    s3_guarantee: "🛡 Jika panggilan tidak terjawab tidak berkurang 80% dalam 30 hari → kami lanjutkan gratis.",
-    s3_tag: "Voice AI",
+    services_h2: "Lima sistem. Hasil yang terukur.",
+    s1_title: "Chatbot AI &amp; Generasi Prospek",
+    s1_desc: "Asisten AI yang mengubah pengunjung dari website dan media sosial menjadi percakapan booking berkualitas 24/7 — tanpa staf tambahan.",
+    s1_guarantee: "🛡 Jika 20+ percakapan berkualitas tidak dihasilkan dalam 30 hari → kami bekerja gratis hingga berhasil.",
+    s1_tag: "Conversational AI",
+    s2_title: "Agen Suara AI / Sekretaris Digital",
+    s2_desc: "Sekretaris telepon AI yang menjawab panggilan Anda 24/7, mencatat detail, menjawab pertanyaan, dan membuat janji temu.",
+    s2_guarantee: "🛡 Jika panggilan tidak terjawab tidak berkurang 80% dalam 30 hari → kami lanjutkan gratis.",
+    s2_tag: "Voice AI",
+    s3_title: "Sistem Google Ulasan &amp; Reputasi",
+    s3_desc: "Sistem pengumpulan Google Ulasan otomatis yang meningkatkan ulasan Anda dalam 30 hari tanpa mengejar pelanggan secara manual.",
+    s3_guarantee: "🛡 Jika kami tidak mengirim 300+ permintaan ulasan dalam 30 hari → pengembalian dana penuh.",
+    s3_tag: "Reputation AI",
     s4_title: "Desain Web &amp; Konversi",
     s4_desc: "Landing page berorientasi konversi dalam 14 hari dengan copy kuat, social proof dan tracking — agar pengunjung tahu persis mengapa memilih Anda.",
     s4_guarantee: "🛡 Jika tidak terkirim dalam 14 hari → pengembalian dana penuh.",
     s4_tag: "Digital Products",
+    s5_title: "Otomasi Bisnis",
+    s5_desc: "Otomasi proses berulang: follow-up, penjadwalan, sinkronisasi CRM, urutan email — agar Anda bisa fokus pada klien.",
+    s5_guarantee: "🛡 Jika kami tidak menghemat 10+ jam/minggu dalam 30 hari → kami lanjutkan gratis.",
+    s5_tag: "Workflow AI",
     kpis_label: "Hasil",
     kpis_h2: "Angka yang berbicara sendiri",
     kpi1_label: "Peningkatan ulasan Google dalam 60 hari",
@@ -1420,6 +1757,32 @@ function initForms() {
   });
 }
 
+/* ===== TESTIMONIALS CAROUSEL ===== */
+let carouselIdx = 0;
+let carouselTimer = null;
+
+function goSlide(idx) {
+  const track = document.getElementById('carousel-track');
+  const dots  = document.querySelectorAll('.carousel-dot');
+  if (!track) return;
+  const total = track.children.length;
+  carouselIdx = (idx + total) % total;
+  track.style.transform = `translateX(-${carouselIdx * 100}%)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === carouselIdx));
+}
+
+function initCarousel() {
+  const outer = document.getElementById('carousel-outer');
+  if (!outer) return;
+  const startAuto = () => {
+    carouselTimer = setInterval(() => goSlide(carouselIdx + 1), 6000);
+  };
+  const stopAuto  = () => clearInterval(carouselTimer);
+  outer.addEventListener('mouseenter', stopAuto);
+  outer.addEventListener('mouseleave', startAuto);
+  startAuto();
+}
+
 /* ===== INIT ===== */
 document.addEventListener('DOMContentLoaded', () => {
   initGlobe();
@@ -1428,6 +1791,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initCounters();
   initForms();
+  initCarousel();
   buildTicker(translations.el.ticker_items);
   // Trigger reveal for already-visible elements
   setTimeout(() => {
